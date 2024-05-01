@@ -1,0 +1,420 @@
+name: PullRequest
+on:
+  pull_request:
+
+jobs:
+  # 各テストのジョブは以下の表に従って作成しています。
+  # matrixを使って全て行うと大変なので、要所を搾って実施します。
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  1. Windows x86     dmd        o   x   x   x   x
+  #  2. Windows x86     ldc        x   o   O   x   x
+  #  3. Windows x86     dmd-master x   x   x   x   x
+  #  4. Windows x86     ldc-master x   x   x   x   x
+  #  5. Windows x86_64  dmd        o   o   x   x   o
+  #  6. Windows x86_64  ldc        o   x   O   o   x
+  #  7. Windows x86_64  dmd-master x   x   x   x   x
+  #  8. Windows x86_64  ldc-master o   o   o   x   x
+  #  9. Ubuntu  x86     dmd        x   x   x   x   x
+  # 10. Ubuntu  x86     ldc        o   x   o   x   x
+  # 11. Ubuntu  x86     dmd-master x   x   x   x   x
+  # 12. Ubuntu  x86     ldc-master x   x   x   x   x
+  # 13. Ubuntu  x86_64  dmd        o   x   o   O   x
+  # 14. Ubuntu  x86_64  ldc        o   o   O   x   o
+  # 15. Ubuntu  x86_64  dmd-master o   o   o   x   x
+  # 16. Ubuntu  x86_64  ldc-master x   x   x   x   x
+  # 17. macOS   x86     dmd        x   x   x   x   x
+  # 18. macOS   x86     ldc        x   x   x   x   x
+  # 19. macOS   x86     dmd-master x   x   x   x   x
+  # 20. macOS   x86     ldc-master x   x   x   x   x
+  # 21. macOS   x86_64  dmd        o   o   x   x   o
+  # 22. macOS   x86_64  ldc        o   x   O   o   x
+  # 23. macOS   x86_64  dmd-master x   x   x   x   x
+  # 24. macOS   x86_64  ldc-master x   x   x   x   x
+
+  # 各テストジョブは以下のテンプレを加工して作成します。
+  # 例は test-linux-x86_64-ldc-latest を参照してください。
+  # また upload-codecov はテストジョブが全てパスしてから
+  # 実行されるようにするため、テストジョブを追加する場合は
+  # upload-codecov の needs も忘れず追加してください。
+
+  # テンプレ：
+  #test-${OS}-${ARCH}-${COMPILER}:
+  #  name: test-${OS}-${ARCH}-${COMPILER}
+  #  runs-on: ${OS}
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Install D compiler
+  #      uses: dlang-community/setup-dlang@v1
+  #      with:
+  #        compiler: ${COMPILER}
+  #    # UT:テストをする場合は以下を実行
+  #    - name: Run unit tests
+  #      run: rdmd ./.github/workflows/runner.d -a=${ARCH} --mode=unit-test
+  #    # TT:テストをする場合は以下を実行
+  #    - name: Run unit tests
+  #      run: rdmd ./.github/workflows/runner.d -a=${ARCH} --mode=integration-test
+  #    # BLD:ビルドをする場合は以下を実行
+  #    - name: Build tests
+  #      run: dub build -a=${ARCH} -b=release -c=default
+  #    # BLD:ビルド結果をアーカイブする場合は以下を実行
+  #    - name: Archive tests
+  #      id: create_archive
+  #      run: rdmd ./.github/workflows/runner.d -a=${ARCH} --mode=create-archive
+  #    # DOC:ドキュメント生成をする場合は以下を実行
+  #    - name: Generate document tests
+  #      run: rdmd ./.github/workflows/runner.d -a=${ARCH} --mode=generate-document
+  #    # BLD:ビルド結果のアーカイブを記録する場合は以下を実行
+  #    - name: Upload generated archive
+  #      uses: actions/upload-artifact@v1
+  #      with:
+  #        name: ${OS}-${ARCH}-bainary
+  #        path: ${{ steps.create_archive.outputs.ARCNAME }}
+  #    # DOC:ドキュメントを記録する場合は以下を実行(Artifactに6か月保管されます)
+  #    - name: Upload generated pages
+  #      uses: actions/upload-artifact@v1
+  #      with:
+  #        name: docs
+  #        path: docs
+  #    # COV:カバレッジを記録する場合は以下を実行(Artifactに6か月保管されます)
+  #    - name: Upload coverage result
+  #      uses: actions/upload-artifact@v1
+  #      with:
+  #        name: coverage-${OS}
+  #        path: .cov
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  1. Windows x86     dmd        o   x   x   x   x
+  test-windows-x86-dmd-latest:
+    name: test-windows-x86-dmd-latest
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: dmd-latest
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86 --mode=unit-test
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  2. Windows x86     ldc        x   o   O   x   x
+  test-windows-x86-ldc-latest:
+    name: test-windows-x86-ldc-latest
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+      - name: Run integration tests
+        run: rdmd ./.github/workflows/runner.d -a=x86 --mode=integration-test
+      - name: Build tests
+        run: dub build -a=x86 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
+      - name: Upload generated archive
+        uses: actions/upload-artifact@v1
+        with:
+          name: windows-x86-binary
+          path: ${{ steps.create_archive.outputs.ARCNAME }}
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  3. Windows x86     dmd-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  4. Windows x86     ldc-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  5. Windows x86_64  dmd        o   o   x   x   o
+  test-windows-x86_64-dmd-latest:
+    name: test-windows-x86_64-dmd-latest
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: dmd-latest
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Run integration tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
+      - name: Upload coverage result
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage-windows
+          path: .cov
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  6. Windows x86_64  ldc        o   x   O   o   x
+  test-windows-x86_64-ldc-latest:
+    name: test-windows-x86_64-ldc-latest
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Build tests
+        run: dub build -a=x86_64 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
+      - name: Generate document tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
+      - name: Upload generated archive
+        uses: actions/upload-artifact@v1
+        with:
+          name: windows-x86_64-binary
+          path: ${{ steps.create_archive.outputs.ARCNAME }}
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  7. Windows x86_64  dmd-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  8. Windows x86_64  ldc-master o   o   o   x   x
+  test-windows-x86_64-ldc-master:
+    name: test-windows-x86_64-ldc-master
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-master
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Run integration tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
+      - name: Build tests
+        run: dub build -a=x86_64 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  #  9. Ubuntu  x86     dmd        x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 10. Ubuntu  x86     ldc        o   x   o   x   x
+  test-linux-x86-ldc-latest:
+    name: test-linux-x86-ldc-latest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+      - name: Install gcc-multilib
+        run: |
+          sudo apt update
+          sudo apt install gcc-multilib
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86 --mode=unit-test
+      - name: Build tests
+        run: dub build -a=x86 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 11. Ubuntu  x86     dmd-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 12. Ubuntu  x86     ldc-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 13. Ubuntu  x86_64  dmd        o   x   o   O   x
+  test-linux-x86_64-dmd-latest:
+    name: test-linux-x86_64-dmd-latest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: dmd-latest
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Build tests
+        run: dub build -a=x86_64 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
+      - name: Generate document tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
+      - name: Upload generated pages
+        uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: docs
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 14. Ubuntu  x86_64  ldc        o   o   O   x   o
+  test-linux-x86_64-ldc-latest:
+    name: test-linux-x86_64-ldc-latest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Run integration tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
+      - name: Build tests
+        run: dub build -a=x86_64 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
+      - name: Upload coverage result
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage-linux
+          path: .cov
+      - name: Upload generated archive
+        uses: actions/upload-artifact@v1
+        with:
+          name: linux-x86_64-binary
+          path: ${{ steps.create_archive.outputs.ARCNAME }}
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 15. Ubuntu  x86_64  dmd-master o   o   o   x   x
+  test-linux-x86_64-dmd-master:
+    name: test-linux-x86_64-dmd-master
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: dmd-master
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Run integration tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
+      - name: Build tests
+        run: dub build -a=x86_64 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 16. Ubuntu  x86_64  ldc-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 17. macOS   x86     dmd        x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 18. macOS   x86     ldc        x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 19. macOS   x86     dmd-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 20. macOS   x86     ldc-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 21. macOS   x86_64  dmd        o   o   x   x   o
+  test-macos-x86_64-dmd-latest:
+    name: test-macos-x86_64-dmd-latest
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: dmd-latest
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Run integration tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
+      - name: Upload coverage result
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage-osx
+          path: .cov
+
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 22. macOS   x86_64  ldc        o   x   O   o   x
+  test-macos-x86_64-ldc-latest:
+    name: test-macos-x86_64-ldc-latest
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install D compiler
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+      - name: Run unit tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
+      - name: Build tests
+        run: dub build -a=x86_64 -b=release -c=default
+      - name: Archive tests
+        id: create_archive
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
+      - name: Generate document tests
+        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
+      - name: Upload generated archive
+        uses: actions/upload-artifact@v1
+        with:
+          name: osx-x86_64-bainary
+          path: ${{ steps.create_archive.outputs.ARCNAME }}
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 23. macOS   x86_64  dmd-master x   x   x   x   x
+  # do-nothing
+
+  # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
+  # 24. macOS   x86_64  ldc-master x   x   x   x   x
+  # do-nothing
+
+  # Upload coverage to Codecov
+  upload-codecov:
+    name: upload-codecov
+    needs: [test-windows-x86-dmd-latest, test-windows-x86-ldc-latest, test-windows-x86_64-dmd-latest, test-windows-x86_64-ldc-latest, test-windows-x86_64-ldc-master, test-linux-x86-ldc-latest, test-linux-x86_64-dmd-latest, test-linux-x86_64-ldc-latest, test-linux-x86_64-dmd-master, test-macos-x86_64-dmd-latest, test-macos-x86_64-ldc-latest]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download coverage result
+        uses: actions/download-artifact@v1
+        with:
+          name: coverage-windows
+          path: coverage-windows
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -s coverage-windows
+      - name: Download coverage result
+        uses: actions/download-artifact@v1
+        with:
+          name: coverage-linux
+          path: coverage-linux
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -s coverage-linux
+      - name: Download coverage result
+        uses: actions/download-artifact@v1
+        with:
+          name: coverage-osx
+          path: coverage-osx
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -s coverage-osx

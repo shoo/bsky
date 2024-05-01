@@ -1,0 +1,18 @@
+{
+	"authors": [
+		"SHOO"
+	],
+	"copyright": "Copyright © 2024, SHOO",
+	"description": "Bluesky client",
+	"license": "BSL-1.0",
+	"name": "bsky",
+	"dependencies": {
+		"voile": {"version": "*", "optional": true}
+	},
+	"importPaths": ["src"],
+	"sourcePaths": ["src"],
+	"buildTypes": {
+		"vscode-debug": { "buildOptions": ["debugMode", "debugInfoC", "unittests"] },
+		"vscode-debug-cov": { "buildOptions": ["debugMode", "coverage", "debugInfoC", "unittests"] }
+	}
+}

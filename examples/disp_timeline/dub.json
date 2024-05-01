@@ -1,0 +1,8 @@
+{
+	"name": "disp_timeline",
+	"importPaths": ["."],
+	"sourcePaths": ["src"],
+	"dependencies": {
+		"bsky": {"path": "../.."}
+	}
+}

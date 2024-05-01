@@ -1,0 +1,36 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/bsky
+bsky.so
+bsky.dylib
+bsky.dll
+bsky.a
+bsky.lib
+bsky-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
+.*
+*.json
+*.sqlite
+*.csv
+*.log
+
+# for tests
+!/tests/*/dub.json
+
+# for examples
+!/examples/*/dub.json
+
+# for unittest data source
+!/tests/.ut-data_source
+/tests/.ut-data_source/*
+!/tests/.ut-data_source/*.json
+!/tests/.ut-data_source/*.png
+!/tests/.ut-data_source/*.jpg
+!/tests/.ut-data_source/*.txt
+!/tests/.ut-data_source/*.csv
