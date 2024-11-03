@@ -23,7 +23,7 @@ jobs:
         with:
           compiler: ldc-latest
       - name: Build binary
-        run: dub build -a=x86 -b=release -c=default
+        run: dub build -a=x86 -b=release
       - name: Create archive
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
@@ -45,7 +45,7 @@ jobs:
         with:
           compiler: ldc-latest
       - name: Build binary
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Create archive
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
@@ -67,7 +67,7 @@ jobs:
         with:
           compiler: ldc-latest
       - name: Build bianry
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Create archive
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
@@ -96,7 +96,7 @@ jobs:
         with:
           compiler: ldc-latest
       - name: Build binary
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Create archive
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive

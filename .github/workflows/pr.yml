@@ -55,7 +55,7 @@ jobs:
   #      run: rdmd ./.github/workflows/runner.d -a=${ARCH} --mode=integration-test
   #    # BLD:ビルドをする場合は以下を実行
   #    - name: Build tests
-  #      run: dub build -a=${ARCH} -b=release -c=default
+  #      run: dub build -a=${ARCH} -b=release
   #    # BLD:ビルド結果をアーカイブする場合は以下を実行
   #    - name: Archive tests
   #      id: create_archive
@@ -110,7 +110,7 @@ jobs:
       - name: Run integration tests
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=integration-test
       - name: Build tests
-        run: dub build -a=x86 -b=release -c=default
+        run: dub build -a=x86 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
@@ -163,7 +163,7 @@ jobs:
       - name: Run unit tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
       - name: Build tests
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
@@ -196,7 +196,7 @@ jobs:
       - name: Run integration tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
       - name: Build tests
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
@@ -223,7 +223,7 @@ jobs:
       - name: Run unit tests
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=unit-test
       - name: Build tests
-        run: dub build -a=x86 -b=release -c=default
+        run: dub build -a=x86 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
@@ -250,7 +250,7 @@ jobs:
       - name: Run unit tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
       - name: Build tests
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
@@ -278,7 +278,7 @@ jobs:
       - name: Run integration tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
       - name: Build tests
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
@@ -309,7 +309,7 @@ jobs:
       - name: Run integration tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
       - name: Build tests
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
@@ -370,7 +370,7 @@ jobs:
       - name: Run unit tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=unit-test
       - name: Build tests
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Archive tests
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
