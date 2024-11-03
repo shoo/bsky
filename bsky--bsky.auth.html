@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>bsky.auth</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>bsky</h2>
+        <p><span class="smallprint"><b>version:</b> ~main <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+		<li class="expand-container open"><a title='Client library to access Bluesky
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='Client library to access Bluesky
+		' href="
+			bsky--bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="Atproto authenticator" href="bsky--bsky.auth.html"><span >auth</span></a></li>
+
+
+
+	<li><a title="Bluesky client" href="bsky--bsky.client.html"><span >client</span></a></li>
+
+
+
+	<li><a title="Common data" href="bsky--bsky.data.html"><span >data</span></a></li>
+
+
+	
+		<li class="expand-container open"><a title='
+		' class='expand-toggle' href='#'><span >lexicons</span></a><ul><li><a title='
+		' href="
+			bsky--bsky.lexicons.html"><span >package</span></a></li>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >app</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons types of app.bsky.*
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='AtProto lexicons types of app.bsky.*
+		' href="
+			bsky--bsky.lexicons.app.bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of app.bsky.embed.*" href="bsky--bsky.lexicons.app.bsky.embed.html"><span >embed</span></a></li>
+
+
+
+	<li><a title="AtProto lexicons types of app.bsky.feed.*" href="bsky--bsky.lexicons.app.bsky.feed.html"><span >feed</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >com</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons record types of com.atproto.*
+		' class='expand-toggle' href='#'><span >atproto</span></a><ul><li><a title='AtProto lexicons record types of com.atproto.*
+		' href="
+			bsky--bsky.lexicons.com.atproto.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of com.atproto.repo.*" href="bsky--bsky.lexicons.com.atproto.repo.html"><span >repo</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="bsky--bsky.lexicons.data.html"><span >data</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+
+	<li><a title="Post information" href="bsky--bsky.post.html"><span >post</span></a></li>
+
+
+
+	<li><a title="User information" href="bsky--bsky.user.html"><span >user</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>bsky.auth</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                <div class="ddoc_summary">Atproto authenticator
+</div><div class="ddoc_license"><span class="ddoc_license_header">License:</span>
+ BSL-1.0</div>
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".LoginInfo"></span><div class="quickindex" id="quickindex.LoginInfo"></div>struct <code class="ddoc_psymbol">LoginInfo</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Login information
+</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".LoginInfo.identifier"></span><div class="quickindex" id="quickindex.LoginInfo.identifier"></div>string <code class="ddoc_psymbol">identifier</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".LoginInfo.password"></span><div class="quickindex" id="quickindex.LoginInfo.password"></div>string <code class="ddoc_psymbol">password</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo"></span><div class="quickindex" id="quickindex.SessionInfo"></div>struct <code class="ddoc_psymbol">SessionInfo</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Session information
+</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc"></div>struct <code class="ddoc_psymbol">DidDoc</code>;
+<br>
+<span class="def-anchor" id=".SessionInfo.didDoc"></span><div class="quickindex" id="quickindex.SessionInfo.didDoc"></div>DidDoc <code class="ddoc_psymbol">didDoc</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.atContext"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.atContext"></div>string[] <code class="ddoc_psymbol">atContext</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.id"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.id"></div>string <code class="ddoc_psymbol">id</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.alsoKnownAs"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.alsoKnownAs"></div>string[] <code class="ddoc_psymbol">alsoKnownAs</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.VerificationMethod"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.VerificationMethod"></div>struct <code class="ddoc_psymbol">VerificationMethod</code>;
+<br>
+<span class="def-anchor" id=".SessionInfo.DidDoc.verificationMethod"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.verificationMethod"></div>VerificationMethod[] <code class="ddoc_psymbol">verificationMethod</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.VerificationMethod.id"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.VerificationMethod.id"></div>string <code class="ddoc_psymbol">id</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.VerificationMethod.type"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.VerificationMethod.type"></div>string <code class="ddoc_psymbol">type</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.VerificationMethod.contoroller"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.VerificationMethod.contoroller"></div>string <code class="ddoc_psymbol">contoroller</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.VerificationMethod.publicKeyMultibase"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.VerificationMethod.publicKeyMultibase"></div>string <code class="ddoc_psymbol">publicKeyMultibase</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.Service"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.Service"></div>struct <code class="ddoc_psymbol">Service</code>;
+<br>
+<span class="def-anchor" id=".SessionInfo.DidDoc.service"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.service"></div>Service[] <code class="ddoc_psymbol">service</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.Service.id"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.Service.id"></div>string <code class="ddoc_psymbol">id</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.Service.type"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.Service.type"></div>string <code class="ddoc_psymbol">type</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.Service.serviceEndpoint"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.Service.serviceEndpoint"></div>string <code class="ddoc_psymbol">serviceEndpoint</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.DidDoc.opAssign"></span><div class="quickindex" id="quickindex.SessionInfo.DidDoc.opAssign"></div>@safe void <code class="ddoc_psymbol">opAssign</code>(in DidDoc <span class="ddoc_param">lhs</span>);
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.handle"></span><div class="quickindex" id="quickindex.SessionInfo.handle"></div>string <code class="ddoc_psymbol">handle</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.did"></span><div class="quickindex" id="quickindex.SessionInfo.did"></div>string <code class="ddoc_psymbol">did</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.accessJwt"></span><div class="quickindex" id="quickindex.SessionInfo.accessJwt"></div>string <code class="ddoc_psymbol">accessJwt</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.refreshJwt"></span><div class="quickindex" id="quickindex.SessionInfo.refreshJwt"></div>string <code class="ddoc_psymbol">refreshJwt</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.email"></span><div class="quickindex" id="quickindex.SessionInfo.email"></div>string <code class="ddoc_psymbol">email</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.emailConfirmed"></span><div class="quickindex" id="quickindex.SessionInfo.emailConfirmed"></div>bool <code class="ddoc_psymbol">emailConfirmed</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.active"></span><div class="quickindex" id="quickindex.SessionInfo.active"></div>bool <code class="ddoc_psymbol">active</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.opAssign"></span><div class="quickindex" id="quickindex.SessionInfo.opAssign"></div>@safe void <code class="ddoc_psymbol">opAssign</code>(in SessionInfo <span class="ddoc_param">lhs</span>);
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.fromJsonString"></span><div class="quickindex" id="quickindex.SessionInfo.fromJsonString"></div>static @safe SessionInfo <code class="ddoc_psymbol">fromJsonString</code>(string <span class="ddoc_param">json</span>);
+<br>
+<span class="def-anchor" id=".SessionInfo.fromJson"></span><div class="quickindex" id="quickindex.SessionInfo.fromJson"></div>static @safe SessionInfo <code class="ddoc_psymbol">fromJson</code>(JSONValue <span class="ddoc_param">json</span>);
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".SessionInfo.toJson"></span><div class="quickindex" id="quickindex.SessionInfo.toJson"></div>const @safe JSONValue <code class="ddoc_psymbol">toJson</code>();
+<br>
+<span class="def-anchor" id=".SessionInfo.toJsonString"></span><div class="quickindex" id="quickindex.SessionInfo.toJsonString"></div>const @safe string <code class="ddoc_psymbol">toJsonString</code>();
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth"></span><div class="quickindex" id="quickindex.AtprotoAuth"></div>class <code class="ddoc_psymbol">AtprotoAuth</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Bluesky authenticator
+</div><dl class="ddoc_members"><div class="ddoc_class_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.this"></span><div class="quickindex" id="quickindex.AtprotoAuth.this"></div>@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(string <span class="ddoc_param">endpoint</span> = "https://bsky.social", Client <span class="ddoc_param">client</span> = new Client);
+<br>
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">endpoint</span> = "https://bsky.social", Client <span class="ddoc_param">client</span>);
+<br>
+shared @safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(string <span class="ddoc_param">endpoint</span> = "https://bsky.social", Client <span class="ddoc_param">client</span> = new Client);
+<br>
+shared @trusted this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">endpoint</span> = "https://bsky.social", Client <span class="ddoc_param">client</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Constructor</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.createSession"></span><div class="quickindex" id="quickindex.AtprotoAuth.createSession"></div>@trusted void <code class="ddoc_psymbol">createSession</code>(LoginInfo <span class="ddoc_param">info</span>);
+<br>
+shared @trusted void <code class="ddoc_psymbol">createSession</code>(LoginInfo <span class="ddoc_param">info</span>);
+<br>
+@safe void <code class="ddoc_psymbol">createSession</code>(string <span class="ddoc_param">id</span>, string <span class="ddoc_param">password</span>);
+<br>
+shared @trusted void <code class="ddoc_psymbol">createSession</code>(string <span class="ddoc_param">id</span>, string <span class="ddoc_param">password</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">createSession</code> API</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.refreshSession"></span><div class="quickindex" id="quickindex.AtprotoAuth.refreshSession"></div>@trusted void <code class="ddoc_psymbol">refreshSession</code>();
+<br>
+shared void <code class="ddoc_psymbol">refreshSession</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">refreshSession</code> API</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.deleteSession"></span><div class="quickindex" id="quickindex.AtprotoAuth.deleteSession"></div>@trusted void <code class="ddoc_psymbol">deleteSession</code>();
+<br>
+shared @trusted void <code class="ddoc_psymbol">deleteSession</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">deleteSession</code> API</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.UpdateStrategy"></span><div class="quickindex" id="quickindex.AtprotoAuth.UpdateStrategy"></div>enum <code class="ddoc_psymbol">UpdateStrategy</code>: <span class="ddoc_enum_basetype">int</span>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Update strategy</div><dl class="ddoc_members"><div class="ddoc_enum_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.UpdateStrategy.force"></span><div class="quickindex" id="quickindex.AtprotoAuth.UpdateStrategy.force"></div><code class="ddoc_psymbol">force</code><br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.UpdateStrategy.expired"></span><div class="quickindex" id="quickindex.AtprotoAuth.UpdateStrategy.expired"></div><code class="ddoc_psymbol">expired</code><br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.UpdateStrategy.before5min"></span><div class="quickindex" id="quickindex.AtprotoAuth.UpdateStrategy.before5min"></div><code class="ddoc_psymbol">before5min</code><br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.UpdateStrategy.herf"></span><div class="quickindex" id="quickindex.AtprotoAuth.UpdateStrategy.herf"></div><code class="ddoc_psymbol">herf</code><br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.updateSession"></span><div class="quickindex" id="quickindex.AtprotoAuth.updateSession"></div>@trusted void <code class="ddoc_psymbol">updateSession</code>();
+<br>
+shared @trusted void <code class="ddoc_psymbol">updateSession</code>();
+<br>
+@trusted void <code class="ddoc_psymbol">updateSession</code>(UpdateStrategy <span class="ddoc_param">strategy</span>);
+<br>
+shared @trusted void <code class="ddoc_psymbol">updateSession</code>(UpdateStrategy <span class="ddoc_param">strategy</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Update session information</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.restoreSession"></span><div class="quickindex" id="quickindex.AtprotoAuth.restoreSession"></div>@trusted void <code class="ddoc_psymbol">restoreSession</code>(in SessionInfo <span class="ddoc_param">sessionInfo</span>);
+<br>
+shared @trusted void <code class="ddoc_psymbol">restoreSession</code>(in SessionInfo <span class="ddoc_param">sessionInfo</span>);
+<br>
+<span class="def-anchor" id=".AtprotoAuth.restoreSessionFromTokens"></span><div class="quickindex" id="quickindex.AtprotoAuth.restoreSessionFromTokens"></div>@trusted void <code class="ddoc_psymbol">restoreSessionFromTokens</code>(string <span class="ddoc_param">accessJwt</span>, string <span class="ddoc_param">refreshJwt</span>);
+<br>
+shared @trusted void <code class="ddoc_psymbol">restoreSessionFromTokens</code>(string <span class="ddoc_param">accessJwt</span>, string <span class="ddoc_param">refreshJwt</span>);
+<br>
+<span class="def-anchor" id=".AtprotoAuth.restoreSessionFromRefreshToken"></span><div class="quickindex" id="quickindex.AtprotoAuth.restoreSessionFromRefreshToken"></div>@trusted void <code class="ddoc_psymbol">restoreSessionFromRefreshToken</code>(string <span class="ddoc_param">refreshJwt</span>);
+<br>
+shared @trusted void <code class="ddoc_psymbol">restoreSessionFromRefreshToken</code>(string <span class="ddoc_param">refreshJwt</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">refreshSession API</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.storeSession"></span><div class="quickindex" id="quickindex.AtprotoAuth.storeSession"></div>const @trusted const(SessionInfo) <code class="ddoc_psymbol">storeSession</code>();
+<br>
+shared const @trusted const(SessionInfo) <code class="ddoc_psymbol">storeSession</code>();
+<br>
+<span class="def-anchor" id=".AtprotoAuth.storeSessionOnlyRefreshToken"></span><div class="quickindex" id="quickindex.AtprotoAuth.storeSessionOnlyRefreshToken"></div>const @trusted string <code class="ddoc_psymbol">storeSessionOnlyRefreshToken</code>();
+<br>
+shared const @trusted string <code class="ddoc_psymbol">storeSessionOnlyRefreshToken</code>();
+<br>
+<span class="def-anchor" id=".AtprotoAuth.storeSessionOnlyToken"></span><div class="quickindex" id="quickindex.AtprotoAuth.storeSessionOnlyToken"></div>const @trusted Tuple!(string, "accessJwt", string, "refreshJwt") <code class="ddoc_psymbol">storeSessionOnlyToken</code>();
+<br>
+shared const @trusted Tuple!(string, "accessJwt", string, "refreshJwt") <code class="ddoc_psymbol">storeSessionOnlyToken</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">refreshSession API</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.available"></span><div class="quickindex" id="quickindex.AtprotoAuth.available"></div>const @trusted bool <code class="ddoc_psymbol">available</code>();
+<br>
+shared const @trusted bool <code class="ddoc_psymbol">available</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Available</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.bearer"></span><div class="quickindex" id="quickindex.AtprotoAuth.bearer"></div>const @trusted string <code class="ddoc_psymbol">bearer</code>();
+<br>
+shared const @trusted string <code class="ddoc_psymbol">bearer</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">createSession API</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.did"></span><div class="quickindex" id="quickindex.AtprotoAuth.did"></div>const @trusted string <code class="ddoc_psymbol">did</code>();
+<br>
+shared const @trusted string <code class="ddoc_psymbol">did</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">createSession API</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".AtprotoAuth.expire"></span><div class="quickindex" id="quickindex.AtprotoAuth.expire"></div>const @safe SysTime <code class="ddoc_psymbol">expire</code>();
+<br>
+shared const @trusted SysTime <code class="ddoc_psymbol">expire</code>();
+<br>
+<span class="def-anchor" id=".AtprotoAuth.refreshExpire"></span><div class="quickindex" id="quickindex.AtprotoAuth.refreshExpire"></div>const @safe SysTime <code class="ddoc_psymbol">refreshExpire</code>();
+<br>
+shared const @trusted SysTime <code class="ddoc_psymbol">refreshExpire</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Expire duration of auth</div></dd>
+</div></dl>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>

@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>bsky.client</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>bsky</h2>
+        <p><span class="smallprint"><b>version:</b> ~main <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+		<li class="expand-container open"><a title='Client library to access Bluesky
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='Client library to access Bluesky
+		' href="
+			bsky--bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="Atproto authenticator" href="bsky--bsky.auth.html"><span >auth</span></a></li>
+
+
+
+	<li><a title="Bluesky client" href="bsky--bsky.client.html"><span >client</span></a></li>
+
+
+
+	<li><a title="Common data" href="bsky--bsky.data.html"><span >data</span></a></li>
+
+
+	
+		<li class="expand-container open"><a title='
+		' class='expand-toggle' href='#'><span >lexicons</span></a><ul><li><a title='
+		' href="
+			bsky--bsky.lexicons.html"><span >package</span></a></li>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >app</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons types of app.bsky.*
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='AtProto lexicons types of app.bsky.*
+		' href="
+			bsky--bsky.lexicons.app.bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of app.bsky.embed.*" href="bsky--bsky.lexicons.app.bsky.embed.html"><span >embed</span></a></li>
+
+
+
+	<li><a title="AtProto lexicons types of app.bsky.feed.*" href="bsky--bsky.lexicons.app.bsky.feed.html"><span >feed</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >com</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons record types of com.atproto.*
+		' class='expand-toggle' href='#'><span >atproto</span></a><ul><li><a title='AtProto lexicons record types of com.atproto.*
+		' href="
+			bsky--bsky.lexicons.com.atproto.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of com.atproto.repo.*" href="bsky--bsky.lexicons.com.atproto.repo.html"><span >repo</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="bsky--bsky.lexicons.data.html"><span >data</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+
+	<li><a title="Post information" href="bsky--bsky.post.html"><span >post</span></a></li>
+
+
+
+	<li><a title="User information" href="bsky--bsky.user.html"><span >user</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>bsky.client</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                <div class="ddoc_summary">Bluesky <code class="ddoc_psymbol">client</code>
+</div><div class="ddoc_license"><span class="ddoc_license_header">License:</span>
+ BSL-1.0</div>
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".FetchRange"></span><div class="quickindex" id="quickindex.FetchRange"></div>struct <code class="ddoc_psymbol">FetchRange</code>(T);
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".FetchRange.empty"></span><div class="quickindex" id="quickindex.FetchRange.empty"></div>const @safe bool <code class="ddoc_psymbol">empty</code>();
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".FetchRange.front"></span><div class="quickindex" id="quickindex.FetchRange.front"></div>const @trusted T <code class="ddoc_psymbol">front</code>();
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".FetchRange.popFront"></span><div class="quickindex" id="quickindex.FetchRange.popFront"></div>@safe void <code class="ddoc_psymbol">popFront</code>();
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".FetchRange.setFetchLength"></span><div class="quickindex" id="quickindex.FetchRange.setFetchLength"></div>@safe void <code class="ddoc_psymbol">setFetchLength</code>(size_t <span class="ddoc_param">len</span>);
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky"></span><div class="quickindex" id="quickindex.Bluesky"></div>class <code class="ddoc_psymbol">Bluesky</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">Bluesky</code> client</div><dl class="ddoc_members"><div class="ddoc_class_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ReplyRef"></span><div class="quickindex" id="quickindex.Bluesky.ReplyRef"></div>alias <code class="ddoc_psymbol">ReplyRef</code> = bsky.lexicons.app.bsky.feed.Post.<code class="ddoc_psymbol">ReplyRef</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.PostRef"></span><div class="quickindex" id="quickindex.Bluesky.PostRef"></div>alias <code class="ddoc_psymbol">PostRef</code> = bsky.lexicons.com.atproto.repo.StrongRef;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.Post"></span><div class="quickindex" id="quickindex.Bluesky.Post"></div>alias <code class="ddoc_psymbol">Post</code> = bsky.post.<code class="ddoc_psymbol">Post</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.this"></span><div class="quickindex" id="quickindex.Bluesky.this"></div>@trusted this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(string <span class="ddoc_param">endpoint</span>, AtprotoAuth <span class="ddoc_param">auth</span> = null, Client <span class="ddoc_param">client</span> = new Client);
+<br>
+@trusted this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">endpoint</span>, AtprotoAuth <span class="ddoc_param">auth</span> = null, Client <span class="ddoc_param">client</span>);
+<br>
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(string <span class="ddoc_param">endpoint</span>, shared AtprotoAuth <span class="ddoc_param">auth</span> = null, Client <span class="ddoc_param">client</span> = new Client);
+<br>
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">endpoint</span>, shared AtprotoAuth <span class="ddoc_param">auth</span> = null, Client <span class="ddoc_param">client</span>);
+<br>
+@trusted this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(AtprotoAuth <span class="ddoc_param">auth</span>, Client <span class="ddoc_param">client</span> = new Client);
+<br>
+@trusted this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(AtprotoAuth <span class="ddoc_param">auth</span>, Client <span class="ddoc_param">client</span>);
+<br>
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(shared AtprotoAuth <span class="ddoc_param">auth</span>, Client <span class="ddoc_param">client</span> = new Client);
+<br>
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(shared AtprotoAuth <span class="ddoc_param">auth</span>, Client <span class="ddoc_param">client</span>);
+<br>
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(Client <span class="ddoc_param">client</span> = new Client);
+<br>
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(Client <span class="ddoc_param">client</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Constructor</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.login"></span><div class="quickindex" id="quickindex.Bluesky.login"></div>@trusted void <code class="ddoc_psymbol">login</code>(AtprotoAuth <span class="ddoc_param">auth</span>);
+<br>
+@safe void <code class="ddoc_psymbol">login</code>(shared AtprotoAuth <span class="ddoc_param">auth</span>);
+<br>
+@safe void <code class="ddoc_psymbol">login</code><span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(string <span class="ddoc_param">id</span>, string <span class="ddoc_param">password</span>, Client <span class="ddoc_param">client</span> = null);
+<br>
+@safe void <code class="ddoc_psymbol">login</code><span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">id</span>, string <span class="ddoc_param">password</span>, Client <span class="ddoc_param">client</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Login</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.logout"></span><div class="quickindex" id="quickindex.Bluesky.logout"></div>@safe void <code class="ddoc_psymbol">logout</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Logout</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.available"></span><div class="quickindex" id="quickindex.Bluesky.available"></div>const @safe bool <code class="ddoc_psymbol">available</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Account availability</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.AutoUpdateStrategy"></span><div class="quickindex" id="quickindex.Bluesky.AutoUpdateStrategy"></div>enum <code class="ddoc_psymbol">AutoUpdateStrategy</code>: <span class="ddoc_enum_basetype">int</span>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Auto update access token types</div><dl class="ddoc_members"><div class="ddoc_enum_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.AutoUpdateStrategy.none"></span><div class="quickindex" id="quickindex.Bluesky.AutoUpdateStrategy.none"></div><code class="ddoc_psymbol">none</code><br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.AutoUpdateStrategy.herf"></span><div class="quickindex" id="quickindex.Bluesky.AutoUpdateStrategy.herf"></div><code class="ddoc_psymbol">herf</code><br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.AutoUpdateStrategy.before5min"></span><div class="quickindex" id="quickindex.Bluesky.AutoUpdateStrategy.before5min"></div><code class="ddoc_psymbol">before5min</code><br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.AutoUpdateStrategy.expired"></span><div class="quickindex" id="quickindex.Bluesky.AutoUpdateStrategy.expired"></div><code class="ddoc_psymbol">expired</code><br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.autoUpdateAccessTokens"></span><div class="quickindex" id="quickindex.Bluesky.autoUpdateAccessTokens"></div>@safe void <code class="ddoc_psymbol">autoUpdateAccessTokens</code>(bool <span class="ddoc_param">cond</span>);
+<br>
+@safe void <code class="ddoc_psymbol">autoUpdateAccessTokens</code>(AutoUpdateStrategy <span class="ddoc_param">type</span>);
+<br>
+const @safe AutoUpdateStrategy <code class="ddoc_psymbol">autoUpdateAccessTokens</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Auto update access tokens</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getProfile"></span><div class="quickindex" id="quickindex.Bluesky.getProfile"></div>@safe JSONValue <code class="ddoc_psymbol">getProfile</code>(string <span class="ddoc_param">name</span> = null);
+<br>
+<span class="def-anchor" id=".Bluesky.profile"></span><div class="quickindex" id="quickindex.Bluesky.profile"></div>@trusted Profile <code class="ddoc_psymbol">profile</code>(string <span class="ddoc_param">name</span> = null);
+<br>
+<span class="def-anchor" id=".Bluesky.getProfiles"></span><div class="quickindex" id="quickindex.Bluesky.getProfiles"></div>@trusted JSONValue <code class="ddoc_psymbol">getProfiles</code>(string[] <span class="ddoc_param">actors</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchProfiles"></span><div class="quickindex" id="quickindex.Bluesky.fetchProfiles"></div>@safe Profile[] <code class="ddoc_psymbol">fetchProfiles</code>(string[] <span class="ddoc_param">names</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.profiles"></span><div class="quickindex" id="quickindex.Bluesky.profiles"></div>@safe FetchRange!Profile <code class="ddoc_psymbol">profiles</code>(string[] <span class="ddoc_param">names</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Profile
+</div><div class="ddoc_description"><ul><li><code class="ddoc_psymbol">getProfile</code> : Raw API execution.</li>
+<li><code class="ddoc_psymbol">profile</code> : Get target <code class="ddoc_psymbol">profile</code>.</li>
+<li><code class="ddoc_psymbol">getProfiles</code> : Raw API execution.</li>
+<li><code class="ddoc_psymbol">fetchProfiles</code> : Execute multiple APIs to get all data.</li>
+<li><code class="ddoc_psymbol">profiles</code> : Range to perform API execution when needed.
+</li>
+</ul>
+</div>
+<div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">name</span></td>
+<td class="ddoc_param_desc">did or handle, default is user of current session.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string[] <span class="ddoc_param">names</span></td>
+<td class="ddoc_param_desc">did or handle list</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string[] <span class="ddoc_param">actors</span></td>
+<td class="ddoc_param_desc">did or handle list, max length is 25</td></tr>
+</table></div>
+
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getFollowers"></span><div class="quickindex" id="quickindex.Bluesky.getFollowers"></div>@safe JSONValue <code class="ddoc_psymbol">getFollowers</code>(string <span class="ddoc_param">actor</span>, string <span class="ddoc_param">cursor</span> = null, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchFollowers"></span><div class="quickindex" id="quickindex.Bluesky.fetchFollowers"></div>@safe User[] <code class="ddoc_psymbol">fetchFollowers</code>(string <span class="ddoc_param">name</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+@safe User[] <code class="ddoc_psymbol">fetchFollowers</code>();
+<br>
+<span class="def-anchor" id=".Bluesky.followers"></span><div class="quickindex" id="quickindex.Bluesky.followers"></div>@safe FetchRange!User <code class="ddoc_psymbol">followers</code>(string <span class="ddoc_param">name</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!User <code class="ddoc_psymbol">followers</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Followers
+</div><div class="ddoc_description"><ul><li><code class="ddoc_psymbol">getFollowers</code> : Raw API execution.</li>
+<li><code class="ddoc_psymbol">fetchFollowers</code> : Execute multiple APIs to get all data.</li>
+<li><code class="ddoc_psymbol">followers</code> : Range to perform API execution when needed.
+</li>
+</ul>
+</div>
+<div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">name</span></td>
+<td class="ddoc_param_desc">did or handle, default is user of current session.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">actor</span></td>
+<td class="ddoc_param_desc">did or handle, default is user of current session.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">cursor</span></td>
+<td class="ddoc_param_desc">Cursor for sequential data retrieval.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">size_t <span class="ddoc_param">len</span></td>
+<td class="ddoc_param_desc">Number of data to be acquired at one time.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">size_t <span class="ddoc_param">limit</span></td>
+<td class="ddoc_param_desc">Number to retrieve in a single API run.</td></tr>
+</table></div>
+
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getFollows"></span><div class="quickindex" id="quickindex.Bluesky.getFollows"></div>@safe JSONValue <code class="ddoc_psymbol">getFollows</code>(string <span class="ddoc_param">actor</span>, string <span class="ddoc_param">cursor</span> = null, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchFollows"></span><div class="quickindex" id="quickindex.Bluesky.fetchFollows"></div>@safe User[] <code class="ddoc_psymbol">fetchFollows</code>(string <span class="ddoc_param">name</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+@safe User[] <code class="ddoc_psymbol">fetchFollows</code>();
+<br>
+<span class="def-anchor" id=".Bluesky.follows"></span><div class="quickindex" id="quickindex.Bluesky.follows"></div>@safe FetchRange!User <code class="ddoc_psymbol">follows</code>(string <span class="ddoc_param">name</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!User <code class="ddoc_psymbol">follows</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Follows
+</div><div class="ddoc_description"><ul><li><code class="ddoc_psymbol">getFollows</code> : Raw API execution</li>
+<li><code class="ddoc_psymbol">fetchFollows</code> : Execute multiple APIs to get all data.</li>
+<li><code class="ddoc_psymbol">follows</code> : Range to perform API execution when needed.
+</li>
+</ul>
+</div>
+<div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">name</span></td>
+<td class="ddoc_param_desc">did or handle, default is user of current session.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">actor</span></td>
+<td class="ddoc_param_desc">did or handle, default is user of current session.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">cursor</span></td>
+<td class="ddoc_param_desc">Cursor for sequential data retrieval.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">size_t <span class="ddoc_param">limit</span></td>
+<td class="ddoc_param_desc">Number to retrieve in a single API run.</td></tr>
+</table></div>
+
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.TimelineResult"></span><div class="quickindex" id="quickindex.Bluesky.TimelineResult"></div>struct <code class="ddoc_psymbol">TimelineResult</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Result of get timeline</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.TimelineResult.feed"></span><div class="quickindex" id="quickindex.Bluesky.TimelineResult.feed"></div>Feed[] <code class="ddoc_psymbol">feed</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.TimelineResult.cursor"></span><div class="quickindex" id="quickindex.Bluesky.TimelineResult.cursor"></div>string <code class="ddoc_psymbol">cursor</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getTimeline"></span><div class="quickindex" id="quickindex.Bluesky.getTimeline"></div>@safe JSONValue <code class="ddoc_psymbol">getTimeline</code>(string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchTimeline"></span><div class="quickindex" id="quickindex.Bluesky.fetchTimeline"></div>@safe TimelineResult <code class="ddoc_psymbol">fetchTimeline</code>(string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+@safe Feed[] <code class="ddoc_psymbol">fetchTimeline</code>(size_t <span class="ddoc_param">len</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.timeline"></span><div class="quickindex" id="quickindex.Bluesky.timeline"></div>@safe FetchRange!Feed <code class="ddoc_psymbol">timeline</code>(string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Feed <code class="ddoc_psymbol">timeline</code>(size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get <code class="ddoc_psymbol">timeline</code>
+</div><div class="ddoc_description"><ul><li><code class="ddoc_psymbol">getTimeline</code> : Raw API execution.</li>
+<li><code class="ddoc_psymbol">fetchTimeline</code> : Execute multiple APIs to get all data.</li>
+<li><code class="ddoc_psymbol">timeline</code> : Range to perform API execution when needed.
+</li>
+</ul>
+ Params
+     <span class="ddoc_param">cursor</span> = Cursor for sequential data retrieval.
+     <span class="ddoc_param">len</span> = Number of data to be acquired at one time.
+     <span class="ddoc_param">limit</span> = Number to retrieve in a single API run.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.AuthorFeedResult"></span><div class="quickindex" id="quickindex.Bluesky.AuthorFeedResult"></div>alias <code class="ddoc_psymbol">AuthorFeedResult</code> = TimelineResult;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getAuthorFeed"></span><div class="quickindex" id="quickindex.Bluesky.getAuthorFeed"></div>@safe JSONValue <code class="ddoc_psymbol">getAuthorFeed</code>(string <span class="ddoc_param">actor</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchAuthorFeed"></span><div class="quickindex" id="quickindex.Bluesky.fetchAuthorFeed"></div>@safe AuthorFeedResult <code class="ddoc_psymbol">fetchAuthorFeed</code>(string <span class="ddoc_param">name</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+<span class="def-anchor" id=".Bluesky.authorFeed"></span><div class="quickindex" id="quickindex.Bluesky.authorFeed"></div>@safe FetchRange!Feed <code class="ddoc_psymbol">authorFeed</code>(string <span class="ddoc_param">name</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Feed <code class="ddoc_psymbol">authorFeed</code>(string <span class="ddoc_param">name</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Feed <code class="ddoc_psymbol">authorFeed</code>(size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Posts and reposts by any user
+</div><div class="ddoc_description"><ul><li><code class="ddoc_psymbol">getAuthorFeed</code> :</li>
+<li><code class="ddoc_psymbol">fetchAuthorFeed</code> :</li>
+<li><code class="ddoc_psymbol">authorFeed</code> :
+</li>
+</ul>
+</div>
+<div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">name</span></td>
+<td class="ddoc_param_desc">did or handle, default is user of current session.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">actor</span></td>
+<td class="ddoc_param_desc">did or handle, default is user of current session.</td></tr>
+</table></div>
+
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.FeedResult"></span><div class="quickindex" id="quickindex.Bluesky.FeedResult"></div>alias <code class="ddoc_psymbol">FeedResult</code> = TimelineResult;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getFeed"></span><div class="quickindex" id="quickindex.Bluesky.getFeed"></div>@safe JSONValue <code class="ddoc_psymbol">getFeed</code>(string <span class="ddoc_param">feedUri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchFeed"></span><div class="quickindex" id="quickindex.Bluesky.fetchFeed"></div>@safe FeedResult <code class="ddoc_psymbol">fetchFeed</code>(string <span class="ddoc_param">feedUri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+<span class="def-anchor" id=".Bluesky.feed"></span><div class="quickindex" id="quickindex.Bluesky.feed"></div>@safe FetchRange!Feed <code class="ddoc_psymbol">feed</code>(string <span class="ddoc_param">feedUri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Feed <code class="ddoc_psymbol">feed</code>(string <span class="ddoc_param">feedUri</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Posts by any <code class="ddoc_psymbol">feed</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListFeedResult"></span><div class="quickindex" id="quickindex.Bluesky.ListFeedResult"></div>alias <code class="ddoc_psymbol">ListFeedResult</code> = TimelineResult;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getListFeed"></span><div class="quickindex" id="quickindex.Bluesky.getListFeed"></div>@safe JSONValue <code class="ddoc_psymbol">getListFeed</code>(string <span class="ddoc_param">listUri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchListFeed"></span><div class="quickindex" id="quickindex.Bluesky.fetchListFeed"></div>@safe auto <code class="ddoc_psymbol">fetchListFeed</code>(string <span class="ddoc_param">listUri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.listFeed"></span><div class="quickindex" id="quickindex.Bluesky.listFeed"></div>@safe FetchRange!Feed <code class="ddoc_psymbol">listFeed</code>(string <span class="ddoc_param">listUri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Feed <code class="ddoc_psymbol">listFeed</code>(string <span class="ddoc_param">listUri</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Posts by any feed
+</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.SearchPostsResult"></span><div class="quickindex" id="quickindex.Bluesky.SearchPostsResult"></div>struct <code class="ddoc_psymbol">SearchPostsResult</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Result of search posts</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.SearchPostsResult.cursor"></span><div class="quickindex" id="quickindex.Bluesky.SearchPostsResult.cursor"></div>string <code class="ddoc_psymbol">cursor</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.SearchPostsResult.hitsTotal"></span><div class="quickindex" id="quickindex.Bluesky.SearchPostsResult.hitsTotal"></div>size_t <code class="ddoc_psymbol">hitsTotal</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.SearchPostsResult.posts"></span><div class="quickindex" id="quickindex.Bluesky.SearchPostsResult.posts"></div>Post[] <code class="ddoc_psymbol">posts</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.searchPosts"></span><div class="quickindex" id="quickindex.Bluesky.searchPosts"></div>@safe JSONValue <code class="ddoc_psymbol">searchPosts</code>(string <span class="ddoc_param">query</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchSearchPosts"></span><div class="quickindex" id="quickindex.Bluesky.fetchSearchPosts"></div>@safe SearchPostsResult <code class="ddoc_psymbol">fetchSearchPosts</code>(string <span class="ddoc_param">query</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+@safe Post[] <code class="ddoc_psymbol">fetchSearchPosts</code>(string <span class="ddoc_param">query</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+<span class="def-anchor" id=".Bluesky.searchPostItems"></span><div class="quickindex" id="quickindex.Bluesky.searchPostItems"></div>@safe FetchRange!Post <code class="ddoc_psymbol">searchPostItems</code>(string <span class="ddoc_param">query</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Post <code class="ddoc_psymbol">searchPostItems</code>(string <span class="ddoc_param">query</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Search posts</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getPosts"></span><div class="quickindex" id="quickindex.Bluesky.getPosts"></div>@safe JSONValue <code class="ddoc_psymbol">getPosts</code>(string[] <span class="ddoc_param">uris</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchPosts"></span><div class="quickindex" id="quickindex.Bluesky.fetchPosts"></div>@safe Post[] <code class="ddoc_psymbol">fetchPosts</code>(string[] <span class="ddoc_param">uris</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.getPostItems"></span><div class="quickindex" id="quickindex.Bluesky.getPostItems"></div>@safe auto <code class="ddoc_psymbol">getPostItems</code><span class="ddoc_template_param_list" title="Template parameter list">(Range)</span>(Range <span class="ddoc_param">uris</span>)<br><span class="ddoc_constraint">if(is(imported!"std.range".ElementType!Range : string))</span>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.GetRepostResult"></span><div class="quickindex" id="quickindex.Bluesky.GetRepostResult"></div>struct <code class="ddoc_psymbol">GetRepostResult</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.GetRepostResult.repostedBy"></span><div class="quickindex" id="quickindex.Bluesky.GetRepostResult.repostedBy"></div>User[] <code class="ddoc_psymbol">repostedBy</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.GetRepostResult.cursor"></span><div class="quickindex" id="quickindex.Bluesky.GetRepostResult.cursor"></div>string <code class="ddoc_psymbol">cursor</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getRepostedBy"></span><div class="quickindex" id="quickindex.Bluesky.getRepostedBy"></div>@safe JSONValue <code class="ddoc_psymbol">getRepostedBy</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchRepostedByUsers"></span><div class="quickindex" id="quickindex.Bluesky.fetchRepostedByUsers"></div>@safe GetRepostResult <code class="ddoc_psymbol">fetchRepostedByUsers</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+@safe User[] <code class="ddoc_psymbol">fetchRepostedByUsers</code>(string <span class="ddoc_param">uri</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+<span class="def-anchor" id=".Bluesky.repostedByUsers"></span><div class="quickindex" id="quickindex.Bluesky.repostedByUsers"></div>@safe FetchRange!User <code class="ddoc_psymbol">repostedByUsers</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!User <code class="ddoc_psymbol">repostedByUsers</code>(string <span class="ddoc_param">uri</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Users who has reposted the post</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.Like"></span><div class="quickindex" id="quickindex.Bluesky.Like"></div>struct <code class="ddoc_psymbol">Like</code>;
+<br>
+<span class="def-anchor" id=".Bluesky.GetLikeResult"></span><div class="quickindex" id="quickindex.Bluesky.GetLikeResult"></div>struct <code class="ddoc_psymbol">GetLikeResult</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.Like.indexedAt"></span><div class="quickindex" id="quickindex.Bluesky.Like.indexedAt"></div>SysTime <code class="ddoc_psymbol">indexedAt</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.Like.createdAt"></span><div class="quickindex" id="quickindex.Bluesky.Like.createdAt"></div>SysTime <code class="ddoc_psymbol">createdAt</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.Like.actor"></span><div class="quickindex" id="quickindex.Bluesky.Like.actor"></div>User <code class="ddoc_psymbol">actor</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getLikes"></span><div class="quickindex" id="quickindex.Bluesky.getLikes"></div>@safe JSONValue <code class="ddoc_psymbol">getLikes</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchLikeUsers"></span><div class="quickindex" id="quickindex.Bluesky.fetchLikeUsers"></div>@safe GetLikeResult <code class="ddoc_psymbol">fetchLikeUsers</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+@safe Like[] <code class="ddoc_psymbol">fetchLikeUsers</code>(string <span class="ddoc_param">uri</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+<span class="def-anchor" id=".Bluesky.likeUsers"></span><div class="quickindex" id="quickindex.Bluesky.likeUsers"></div>@safe FetchRange!Like <code class="ddoc_psymbol">likeUsers</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Like <code class="ddoc_psymbol">likeUsers</code>(string <span class="ddoc_param">uri</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Users who has liked the post</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.resolveHandle"></span><div class="quickindex" id="quickindex.Bluesky.resolveHandle"></div>@safe string <code class="ddoc_psymbol">resolveHandle</code>(string <span class="ddoc_param">handle</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Resolve <span class="ddoc_param">handle</span>
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">handle</span></td>
+<td class="ddoc_param_desc"><span class="ddoc_param">handle</span> of user</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ did</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.createRecord"></span><div class="quickindex" id="quickindex.Bluesky.createRecord"></div>@safe JSONValue <code class="ddoc_psymbol">createRecord</code>(JSONValue <span class="ddoc_param">record</span>, string <span class="ddoc_param">collection</span> = "app.bsky.feed.post", string <span class="ddoc_param">rkey</span> = null, bool <span class="ddoc_param">validate</span> = true, string <span class="ddoc_param">swapCommit</span> = null);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create repository <span class="ddoc_param">record</span>
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">JSONValue <span class="ddoc_param">record</span></td>
+<td class="ddoc_param_desc">Record to create as <collection></td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">collection</span></td>
+<td class="ddoc_param_desc">Collection of <span class="ddoc_param">record</span></td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">bool <span class="ddoc_param">validate</span></td>
+<td class="ddoc_param_desc">Can be set to '<code class="ddoc_keyword">false</code>' to skip Lexicon schema validation of <span class="ddoc_param">record</span> data,
+                '<code class="ddoc_keyword">true</code>' to require it, or leave unset to <span class="ddoc_param">validate</span> only for known Lexicons.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">rkey</span></td>
+<td class="ddoc_param_desc">The Record Key.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">swapCommit</span></td>
+<td class="ddoc_param_desc">Compare and swap with the previous commit by CID.</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ JSON of upload result data</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.deleteRecord"></span><div class="quickindex" id="quickindex.Bluesky.deleteRecord"></div>@safe void <code class="ddoc_psymbol">deleteRecord</code>(string <span class="ddoc_param">collection</span>, string <span class="ddoc_param">rkey</span>, string <span class="ddoc_param">swapRecord</span> = null, string <span class="ddoc_param">swapCommit</span> = null);
+<br></div></dt>
+<dd><div class="ddoc_summary">Delete repository record
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">collection</span></td>
+<td class="ddoc_param_desc">Collection of record</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">rkey</span></td>
+<td class="ddoc_param_desc">refresh key of record</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">swapRecord</span></td>
+<td class="ddoc_param_desc">Swap Record</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">swapCommit</span></td>
+<td class="ddoc_param_desc">Swap Commit</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ JSON of upload result data</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.uploadBlob"></span><div class="quickindex" id="quickindex.Bluesky.uploadBlob"></div>@safe Blob <code class="ddoc_psymbol">uploadBlob</code>(immutable(ubyte)[] <span class="ddoc_param">data</span>, string <span class="ddoc_param">mimeType</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Upload blob <span class="ddoc_param">data</span>
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">immutable(ubyte)[] <span class="ddoc_param">data</span></td>
+<td class="ddoc_param_desc">Upload <span class="ddoc_param">data</span></td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">mimeType</span></td>
+<td class="ddoc_param_desc">Upload <span class="ddoc_param">data</span> type</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ JSON of upload result <span class="ddoc_param">data</span></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getRecordRef"></span><div class="quickindex" id="quickindex.Bluesky.getRecordRef"></div>@safe StrongRef <code class="ddoc_psymbol">getRecordRef</code>(string <span class="ddoc_param">uri</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.getPostRef"></span><div class="quickindex" id="quickindex.Bluesky.getPostRef"></div>alias <code class="ddoc_psymbol">getPostRef</code> = getRecordRef;
+<br></div></dt>
+<dd><div class="ddoc_summary">Reply data from URI
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">uri</span></td>
+<td class="ddoc_param_desc">URI of reply parent</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ </div>
+<div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">PostRef:</span>
+bsky.lexcons.com.atproto.repo.StrongRef</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedImage"></span><div class="quickindex" id="quickindex.Bluesky.EmbedImage"></div>struct <code class="ddoc_psymbol">EmbedImage</code>;
+<br>
+<span class="def-anchor" id=".Bluesky.getEmbedImage"></span><div class="quickindex" id="quickindex.Bluesky.getEmbedImage"></div>@safe app.bsky.embed.Images.Image <code class="ddoc_psymbol">getEmbedImage</code>(EmbedImage <span class="ddoc_param">image</span>);
+<br>
+@safe app.bsky.embed.Images.Image <code class="ddoc_psymbol">getEmbedImage</code>(immutable(ubyte)[] <span class="ddoc_param">imageData</span>, string <span class="ddoc_param">mimeType</span>, string <span class="ddoc_param">alt</span>);
+<br>
+<span class="def-anchor" id=".Bluesky.getEmbedImages"></span><div class="quickindex" id="quickindex.Bluesky.getEmbedImages"></div>@safe app.bsky.embed.Images <code class="ddoc_psymbol">getEmbedImages</code>(EmbedImage[] <span class="ddoc_param">images</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of <span class="ddoc_param">image</span></div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedImage.image"></span><div class="quickindex" id="quickindex.Bluesky.EmbedImage.image"></div>immutable(ubyte)[] <code class="ddoc_psymbol">image</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Binary of <code class="ddoc_psymbol">image</code>
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">Limitation:</span>
+&lt; 1MB</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedImage.mimeType"></span><div class="quickindex" id="quickindex.Bluesky.EmbedImage.mimeType"></div>string <code class="ddoc_psymbol">mimeType</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">MimeType of image</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedImage.alt"></span><div class="quickindex" id="quickindex.Bluesky.EmbedImage.alt"></div>string <code class="ddoc_psymbol">alt</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Alt text</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedExternal"></span><div class="quickindex" id="quickindex.Bluesky.EmbedExternal"></div>struct <code class="ddoc_psymbol">EmbedExternal</code>;
+<br>
+<span class="def-anchor" id=".Bluesky.getEmbedExternal"></span><div class="quickindex" id="quickindex.Bluesky.getEmbedExternal"></div>@safe app.bsky.embed.External <code class="ddoc_psymbol">getEmbedExternal</code>(EmbedExternal <span class="ddoc_param">external</span>);
+<br>
+@safe app.bsky.embed.External <code class="ddoc_psymbol">getEmbedExternal</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">title</span>, string <span class="ddoc_param">description</span>, immutable(ubyte)[] <span class="ddoc_param">thumb</span> = null, string <span class="ddoc_param">thumbMimeType</span> = null);
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of <span class="ddoc_param">external</span> link</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedExternal.uri"></span><div class="quickindex" id="quickindex.Bluesky.EmbedExternal.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">URL of external link</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedExternal.title"></span><div class="quickindex" id="quickindex.Bluesky.EmbedExternal.title"></div>string <code class="ddoc_psymbol">title</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Title of external link</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedExternal.description"></span><div class="quickindex" id="quickindex.Bluesky.EmbedExternal.description"></div>string <code class="ddoc_psymbol">description</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Descriptions</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedExternal.thumb"></span><div class="quickindex" id="quickindex.Bluesky.EmbedExternal.thumb"></div>immutable(ubyte)[] <code class="ddoc_psymbol">thumb</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Thumbnail of external link</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedExternal.thumbMimeType"></span><div class="quickindex" id="quickindex.Bluesky.EmbedExternal.thumbMimeType"></div>string <code class="ddoc_psymbol">thumbMimeType</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Thumbnail of external link</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedRecord"></span><div class="quickindex" id="quickindex.Bluesky.EmbedRecord"></div>alias <code class="ddoc_psymbol">EmbedRecord</code> = bsky.lexicons.com.atproto.repo.StrongRef;
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of external link</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedRecordWithMedia"></span><div class="quickindex" id="quickindex.Bluesky.EmbedRecordWithMedia"></div>struct <code class="ddoc_psymbol">EmbedRecordWithMedia</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of external link</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedRecordWithMedia.record"></span><div class="quickindex" id="quickindex.Bluesky.EmbedRecordWithMedia.record"></div>PostRef <code class="ddoc_psymbol">record</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">URI of <code class="ddoc_psymbol">record</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedRecordWithMedia.Media"></span><div class="quickindex" id="quickindex.Bluesky.EmbedRecordWithMedia.Media"></div>alias <code class="ddoc_psymbol">Media</code> = std.sumtype.SumType!(EmbedImage[], EmbedExternal).SumType;
+<br>
+<span class="def-anchor" id=".Bluesky.EmbedRecordWithMedia.media"></span><div class="quickindex" id="quickindex.Bluesky.EmbedRecordWithMedia.media"></div>Media <code class="ddoc_psymbol">media</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Image data</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedData"></span><div class="quickindex" id="quickindex.Bluesky.EmbedData"></div>alias <code class="ddoc_psymbol">EmbedData</code> = std.sumtype.SumType!(EmbedImage[], EmbedExternal, StrongRef, EmbedRecordWithMedia).SumType;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getReplyRef"></span><div class="quickindex" id="quickindex.Bluesky.getReplyRef"></div>@safe ReplyRef <code class="ddoc_psymbol">getReplyRef</code>(string <span class="ddoc_param">uri</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Reply data from URI
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">uri</span></td>
+<td class="ddoc_param_desc">URI of reply parent</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ </div>
+<div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">ReplyRef:</span>
+bsky.lexcons.app.bsky.feed.ReplyRef</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.sendPost"></span><div class="quickindex" id="quickindex.Bluesky.sendPost"></div>@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, Embed <span class="ddoc_param">embed</span>, ReplyRef <span class="ddoc_param">replyRef</span> = ReplyRef.init, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedData <span class="ddoc_param">embed</span>, ReplyRef <span class="ddoc_param">replyRef</span> = ReplyRef.init, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Record <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.RecordWithMedia <span class="ddoc_param">rwm</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecordWithMedia <span class="ddoc_param">recordWithMedia</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedImage[] <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+<span class="def-anchor" id=".Bluesky.sendReplyPost"></span><div class="quickindex" id="quickindex.Bluesky.sendReplyPost"></div>@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, Embed <span class="ddoc_param">embed</span> = Embed.init, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Record <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.RecordWithMedia <span class="ddoc_param">recordWithMedia</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedRecordWithMedia <span class="ddoc_param">recordWithMedia</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+<span class="def-anchor" id=".Bluesky.sendQuotePost"></span><div class="quickindex" id="quickindex.Bluesky.sendQuotePost"></div>@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+<br></div></dt>
+<dd><div class="ddoc_summary">Post <span class="ddoc_param">message</span>
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">app.bsky.<span class="ddoc_param">embed</span>.Record <span class="ddoc_param">record</span></td>
+<td class="ddoc_param_desc">Record of post</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">message</span></td>
+<td class="ddoc_param_desc">Main text of post</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string[] <span class="ddoc_param">langs</span></td>
+<td class="ddoc_param_desc">Array of language of post, default (<code class="ddoc_keyword">null</code>) is nothing</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">app.bsky.<span class="ddoc_param">embed</span>.Images <span class="ddoc_param">images</span></td>
+<td class="ddoc_param_desc">Embed <span class="ddoc_param">images</span> of post</td></tr>
+</table></div>
+
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.deletePost"></span><div class="quickindex" id="quickindex.Bluesky.deletePost"></div>@safe void <code class="ddoc_psymbol">deletePost</code>(string <span class="ddoc_param">uri</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Delete posts</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.markLike"></span><div class="quickindex" id="quickindex.Bluesky.markLike"></div>@trusted StrongRef <code class="ddoc_psymbol">markLike</code>(string <span class="ddoc_param">uri</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Mark like the post</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.deleteLike"></span><div class="quickindex" id="quickindex.Bluesky.deleteLike"></div>@safe void <code class="ddoc_psymbol">deleteLike</code>(string <span class="ddoc_param">uri</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Delete like mark</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.repost"></span><div class="quickindex" id="quickindex.Bluesky.repost"></div>@safe StrongRef <code class="ddoc_psymbol">repost</code>(string <span class="ddoc_param">uri</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Repost posts</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.deleteRepost"></span><div class="quickindex" id="quickindex.Bluesky.deleteRepost"></div>@safe void <code class="ddoc_psymbol">deleteRepost</code>(string <span class="ddoc_param">uri</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Delete the repost</div></dd>
+</div></dl>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>

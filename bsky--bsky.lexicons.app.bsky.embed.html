@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>bsky.lexicons.app.bsky.embed</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>bsky</h2>
+        <p><span class="smallprint"><b>version:</b> ~main <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+		<li class="expand-container open"><a title='Client library to access Bluesky
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='Client library to access Bluesky
+		' href="
+			bsky--bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="Atproto authenticator" href="bsky--bsky.auth.html"><span >auth</span></a></li>
+
+
+
+	<li><a title="Bluesky client" href="bsky--bsky.client.html"><span >client</span></a></li>
+
+
+
+	<li><a title="Common data" href="bsky--bsky.data.html"><span >data</span></a></li>
+
+
+	
+		<li class="expand-container open"><a title='
+		' class='expand-toggle' href='#'><span >lexicons</span></a><ul><li><a title='
+		' href="
+			bsky--bsky.lexicons.html"><span >package</span></a></li>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >app</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons types of app.bsky.*
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='AtProto lexicons types of app.bsky.*
+		' href="
+			bsky--bsky.lexicons.app.bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of app.bsky.embed.*" href="bsky--bsky.lexicons.app.bsky.embed.html"><span >embed</span></a></li>
+
+
+
+	<li><a title="AtProto lexicons types of app.bsky.feed.*" href="bsky--bsky.lexicons.app.bsky.feed.html"><span >feed</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >com</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons record types of com.atproto.*
+		' class='expand-toggle' href='#'><span >atproto</span></a><ul><li><a title='AtProto lexicons record types of com.atproto.*
+		' href="
+			bsky--bsky.lexicons.com.atproto.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of com.atproto.repo.*" href="bsky--bsky.lexicons.com.atproto.repo.html"><span >repo</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="bsky--bsky.lexicons.data.html"><span >data</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+
+	<li><a title="Post information" href="bsky--bsky.post.html"><span >post</span></a></li>
+
+
+
+	<li><a title="User information" href="bsky--bsky.user.html"><span >user</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>bsky.lexicons.app.bsky.embed</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                <div class="ddoc_summary">AtProto lexicons record types of app.bsky.<code class="ddoc_psymbol">embed</code>.*
+</div><div class="ddoc_see_also"><span class="ddoc_see_also_header">See Also:</span>
+ <a href="https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/embed">https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky/embed</a></div>
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Images"></span><div class="quickindex" id="quickindex.Images"></div>struct <code class="ddoc_psymbol">Images</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of images</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Images.type"></span><div class="quickindex" id="quickindex.Images.type"></div>string <code class="ddoc_psymbol">type</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Type</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Images.Image"></span><div class="quickindex" id="quickindex.Images.Image"></div>struct <code class="ddoc_psymbol">Image</code>;
+<br>
+<span class="def-anchor" id=".Images.images"></span><div class="quickindex" id="quickindex.Images.images"></div>Image[] <code class="ddoc_psymbol">images</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Images data</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Images.Image.image"></span><div class="quickindex" id="quickindex.Images.Image.image"></div>Blob <code class="ddoc_psymbol">image</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Blob of <code class="ddoc_psymbol">image</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Images.Image.alt"></span><div class="quickindex" id="quickindex.Images.Image.alt"></div>string <code class="ddoc_psymbol">alt</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Alt text</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Images.this"></span><div class="quickindex" id="quickindex.Images.this"></div>pure nothrow @nogc @safe this(Image[] <span class="ddoc_param">images</span>);
+<br>
+pure nothrow @safe this(Image <span class="ddoc_param">image</span>);
+<br>
+pure nothrow @safe this(Blob <span class="ddoc_param">blob</span>, string <span class="ddoc_param">alt</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Constructor</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".External"></span><div class="quickindex" id="quickindex.External"></div>struct <code class="ddoc_psymbol">External</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of external link</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".External.type"></span><div class="quickindex" id="quickindex.External.type"></div>string <code class="ddoc_psymbol">type</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Type</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".External.External"></span><div class="quickindex" id="quickindex.External.External"></div>struct <code class="ddoc_psymbol">External</code>;
+<br>
+<span class="def-anchor" id=".External.external"></span><div class="quickindex" id="quickindex.External.external"></div>External <code class="ddoc_psymbol">external</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">External</code> data</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".External.External.uri"></span><div class="quickindex" id="quickindex.External.External.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">URL of external link</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".External.External.title"></span><div class="quickindex" id="quickindex.External.External.title"></div>string <code class="ddoc_psymbol">title</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Title of external link</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".External.External.description"></span><div class="quickindex" id="quickindex.External.External.description"></div>string <code class="ddoc_psymbol">description</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Descriptions</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".External.External.thumb"></span><div class="quickindex" id="quickindex.External.External.thumb"></div>Blob <code class="ddoc_psymbol">thumb</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Thumbnail of external link</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".External.this"></span><div class="quickindex" id="quickindex.External.this"></div>pure nothrow @nogc @safe this(External <span class="ddoc_param">external</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Constructor</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Record"></span><div class="quickindex" id="quickindex.Record"></div>struct <code class="ddoc_psymbol">Record</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of record</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Record.type"></span><div class="quickindex" id="quickindex.Record.type"></div>string <code class="ddoc_psymbol">type</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Type</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Record.Record"></span><div class="quickindex" id="quickindex.Record.Record"></div>alias <code class="ddoc_psymbol">Record</code> = bsky.lexicons.com.atproto.repo.StrongRef;
+<br>
+<span class="def-anchor" id=".Record.record"></span><div class="quickindex" id="quickindex.Record.record"></div>Record <code class="ddoc_psymbol">record</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">Record</code> data</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Record.this"></span><div class="quickindex" id="quickindex.Record.this"></div>pure nothrow @nogc @safe this(Record <span class="ddoc_param">record</span>);
+<br>
+pure nothrow @nogc @safe this(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cid</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Constructor</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".RecordWithMedia"></span><div class="quickindex" id="quickindex.RecordWithMedia"></div>struct <code class="ddoc_psymbol">RecordWithMedia</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of external link</div><div class="ddoc_examples"><span class="ddoc_examples_header">Examples:</span>
+ Embed data of external link
+<pre class="d_code notranslate"><span class="d_keyword">import</span> std.json;
+<span class="d_keyword">import</span> bsky._internal.json;
+<span class="d_keyword">auto</span> rwm = <span class="d_psymbol">RecordWithMedia</span>(
+	record: Record(<span class="d_string">"at://test.bsly.social/app.bsky.feed.post/3kpadeirzya27"</span>, <span class="d_string">"abcde"</span>),
+	image: Images.Image(Blob.init, <span class="d_string">"test"</span>));
+<span class="d_keyword">auto</span> jv = rwm.serializeToJson();
+<span class="d_keyword">assert</span>(jv.getValue!string(<span class="d_string">"$type"</span>) == <span class="d_string">"app.bsky.embed.recordWithMedia"</span>);
+<span class="d_keyword">assert</span>(<span class="d_string">"record"</span> <span class="d_keyword">in</span> jv);
+<span class="d_keyword">assert</span>(<span class="d_string">"record"</span> <span class="d_keyword">in</span> jv[<span class="d_string">"record"</span>]);
+<span class="d_keyword">assert</span>(<span class="d_string">"media"</span> <span class="d_keyword">in</span> jv);
+<span class="d_keyword">assert</span>(jv[<span class="d_string">"record"</span>][<span class="d_string">"record"</span>].type == JSONType.object);
+<span class="d_keyword">assert</span>(jv[<span class="d_string">"record"</span>][<span class="d_string">"record"</span>].getValue!string(<span class="d_string">"uri"</span>) == <span class="d_string">"at://test.bsly.social/app.bsky.feed.post/3kpadeirzya27"</span>);
+<span class="d_keyword">assert</span>(jv[<span class="d_string">"record"</span>][<span class="d_string">"record"</span>].getValue!string(<span class="d_string">"cid"</span>) == <span class="d_string">"abcde"</span>);
+<span class="d_keyword">assert</span>(jv[<span class="d_string">"media"</span>].getValue!string(<span class="d_string">"$type"</span>) == <span class="d_string">"app.bsky.embed.images"</span>);
+<span class="d_keyword">auto</span> rwm2 = jv.deserializeFromJson!<span class="d_psymbol">RecordWithMedia</span>;
+<span class="d_keyword">assert</span>(rwm == rwm2);
+</pre>
+</div>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".RecordWithMedia.type"></span><div class="quickindex" id="quickindex.RecordWithMedia.type"></div>string <code class="ddoc_psymbol">type</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Type</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".RecordWithMedia.record"></span><div class="quickindex" id="quickindex.RecordWithMedia.record"></div>Record <code class="ddoc_psymbol">record</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Record data</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".RecordWithMedia.Media"></span><div class="quickindex" id="quickindex.RecordWithMedia.Media"></div>alias <code class="ddoc_psymbol">Media</code> = std.sumtype.SumType!(Images, External).SumType;
+<br>
+<span class="def-anchor" id=".RecordWithMedia.media"></span><div class="quickindex" id="quickindex.RecordWithMedia.media"></div>Media <code class="ddoc_psymbol">media</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Image/External data</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".RecordWithMedia.this"></span><div class="quickindex" id="quickindex.RecordWithMedia.this"></div>pure nothrow @nogc @safe this(Record <span class="ddoc_param">record</span>, Media <span class="ddoc_param">media</span>);
+<br>
+pure nothrow @nogc @safe this(Record <span class="ddoc_param">record</span>, External <span class="ddoc_param">external</span>);
+<br>
+pure nothrow @nogc @safe this(Record <span class="ddoc_param">record</span>, Images <span class="ddoc_param">images</span>);
+<br>
+pure nothrow @safe this(Record <span class="ddoc_param">record</span>, Images.Image <span class="ddoc_param">image</span>);
+<br>
+pure nothrow @nogc @safe this(StrongRef <span class="ddoc_param">record</span>, Media <span class="ddoc_param">media</span>);
+<br>
+pure nothrow @nogc @safe this(StrongRef <span class="ddoc_param">record</span>, External <span class="ddoc_param">external</span>);
+<br>
+pure nothrow @safe this(StrongRef <span class="ddoc_param">record</span>, Images.Image <span class="ddoc_param">image</span>);
+<br>
+pure nothrow @nogc @safe this(StrongRef <span class="ddoc_param">record</span>, Images <span class="ddoc_param">images</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Constructor</div></dd>
+</div></dl>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>

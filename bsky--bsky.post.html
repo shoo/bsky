@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>bsky.post</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>bsky</h2>
+        <p><span class="smallprint"><b>version:</b> ~main <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+		<li class="expand-container open"><a title='Client library to access Bluesky
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='Client library to access Bluesky
+		' href="
+			bsky--bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="Atproto authenticator" href="bsky--bsky.auth.html"><span >auth</span></a></li>
+
+
+
+	<li><a title="Bluesky client" href="bsky--bsky.client.html"><span >client</span></a></li>
+
+
+
+	<li><a title="Common data" href="bsky--bsky.data.html"><span >data</span></a></li>
+
+
+	
+		<li class="expand-container open"><a title='
+		' class='expand-toggle' href='#'><span >lexicons</span></a><ul><li><a title='
+		' href="
+			bsky--bsky.lexicons.html"><span >package</span></a></li>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >app</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons types of app.bsky.*
+		' class='expand-toggle' href='#'><span >bsky</span></a><ul><li><a title='AtProto lexicons types of app.bsky.*
+		' href="
+			bsky--bsky.lexicons.app.bsky.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of app.bsky.embed.*" href="bsky--bsky.lexicons.app.bsky.embed.html"><span >embed</span></a></li>
+
+
+
+	<li><a title="AtProto lexicons types of app.bsky.feed.*" href="bsky--bsky.lexicons.app.bsky.feed.html"><span >feed</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >com</span></a><ul>
+			
+	
+		<li class="expand-container open"><a title='AtProto lexicons record types of com.atproto.*
+		' class='expand-toggle' href='#'><span >atproto</span></a><ul><li><a title='AtProto lexicons record types of com.atproto.*
+		' href="
+			bsky--bsky.lexicons.com.atproto.html"><span >package</span></a></li>
+			
+
+	<li><a title="AtProto lexicons record types of com.atproto.repo.*" href="bsky--bsky.lexicons.com.atproto.repo.html"><span >repo</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="bsky--bsky.lexicons.data.html"><span >data</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+
+	<li><a title="Post information" href="bsky--bsky.post.html"><span >post</span></a></li>
+
+
+
+	<li><a title="User information" href="bsky--bsky.user.html"><span >user</span></a></li>
+
+</ul></li>
+	
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>bsky.post</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                <div class="ddoc_summary">Post information
+</div><div class="ddoc_license"><span class="ddoc_license_header">License:</span>
+ BSL-1.0</div>
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post"></span><div class="quickindex" id="quickindex.Post"></div>struct <code class="ddoc_psymbol">Post</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">Post</code> information</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.uri"></span><div class="quickindex" id="quickindex.Post.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.cid"></span><div class="quickindex" id="quickindex.Post.cid"></div>string <code class="ddoc_psymbol">cid</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Author"></span><div class="quickindex" id="quickindex.Post.Author"></div>struct <code class="ddoc_psymbol">Author</code>;
+<br>
+<span class="def-anchor" id=".Post.author"></span><div class="quickindex" id="quickindex.Post.author"></div>Author <code class="ddoc_psymbol">author</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Author.did"></span><div class="quickindex" id="quickindex.Post.Author.did"></div>string <code class="ddoc_psymbol">did</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Author.handle"></span><div class="quickindex" id="quickindex.Post.Author.handle"></div>string <code class="ddoc_psymbol">handle</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Author.displayName"></span><div class="quickindex" id="quickindex.Post.Author.displayName"></div>string <code class="ddoc_psymbol">displayName</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Author.avatar"></span><div class="quickindex" id="quickindex.Post.Author.avatar"></div>string <code class="ddoc_psymbol">avatar</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Author.viewer"></span><div class="quickindex" id="quickindex.Post.Author.viewer"></div>User.Viewer <code class="ddoc_psymbol">viewer</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Author.labels"></span><div class="quickindex" id="quickindex.Post.Author.labels"></div>Label[] <code class="ddoc_psymbol">labels</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.record"></span><div class="quickindex" id="quickindex.Post.record"></div>JSONValue <code class="ddoc_psymbol">record</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.embed"></span><div class="quickindex" id="quickindex.Post.embed"></div>JSONValue <code class="ddoc_psymbol">embed</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.replyCount"></span><div class="quickindex" id="quickindex.Post.replyCount"></div>size_t <code class="ddoc_psymbol">replyCount</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.repostCount"></span><div class="quickindex" id="quickindex.Post.repostCount"></div>size_t <code class="ddoc_psymbol">repostCount</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.likeCount"></span><div class="quickindex" id="quickindex.Post.likeCount"></div>size_t <code class="ddoc_psymbol">likeCount</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.indexedAt"></span><div class="quickindex" id="quickindex.Post.indexedAt"></div>SysTime <code class="ddoc_psymbol">indexedAt</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Viewer"></span><div class="quickindex" id="quickindex.Post.Viewer"></div>struct <code class="ddoc_psymbol">Viewer</code>;
+<br>
+<span class="def-anchor" id=".Post.viewer"></span><div class="quickindex" id="quickindex.Post.viewer"></div>Viewer <code class="ddoc_psymbol">viewer</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Viewer.repost"></span><div class="quickindex" id="quickindex.Post.Viewer.repost"></div>string <code class="ddoc_psymbol">repost</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Viewer.like"></span><div class="quickindex" id="quickindex.Post.Viewer.like"></div>string <code class="ddoc_psymbol">like</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.Viewer.replyDisabled"></span><div class="quickindex" id="quickindex.Post.Viewer.replyDisabled"></div>bool <code class="ddoc_psymbol">replyDisabled</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.labels"></span><div class="quickindex" id="quickindex.Post.labels"></div>Label[] <code class="ddoc_psymbol">labels</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate"></span><div class="quickindex" id="quickindex.Post.ThreadGate"></div>struct <code class="ddoc_psymbol">ThreadGate</code>;
+<br>
+<span class="def-anchor" id=".Post.threadgate"></span><div class="quickindex" id="quickindex.Post.threadgate"></div>ThreadGate <code class="ddoc_psymbol">threadgate</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.uri"></span><div class="quickindex" id="quickindex.Post.ThreadGate.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.cid"></span><div class="quickindex" id="quickindex.Post.ThreadGate.cid"></div>string <code class="ddoc_psymbol">cid</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.record"></span><div class="quickindex" id="quickindex.Post.ThreadGate.record"></div>JSONValue <code class="ddoc_psymbol">record</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List"></div>struct <code class="ddoc_psymbol">List</code>;
+<br>
+<span class="def-anchor" id=".Post.ThreadGate.lists"></span><div class="quickindex" id="quickindex.Post.ThreadGate.lists"></div>List[] <code class="ddoc_psymbol">lists</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.uri"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.cid"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.cid"></div>string <code class="ddoc_psymbol">cid</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.name"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.name"></div>string <code class="ddoc_psymbol">name</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.purpose"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.purpose"></div>string <code class="ddoc_psymbol">purpose</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.avatar"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.avatar"></div>string <code class="ddoc_psymbol">avatar</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.labels"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.labels"></div>Label[] <code class="ddoc_psymbol">labels</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.Viewer"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.Viewer"></div>struct <code class="ddoc_psymbol">Viewer</code>;
+<br>
+<span class="def-anchor" id=".Post.ThreadGate.List.viewer"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.viewer"></div>Viewer <code class="ddoc_psymbol">viewer</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.Viewer.muted"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.Viewer.muted"></div>bool <code class="ddoc_psymbol">muted</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.Viewer.blocked"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.Viewer.blocked"></div>bool <code class="ddoc_psymbol">blocked</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Post.ThreadGate.List.indexedAt"></span><div class="quickindex" id="quickindex.Post.ThreadGate.List.indexedAt"></div>SysTime <code class="ddoc_psymbol">indexedAt</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+</div></dl>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply"></span><div class="quickindex" id="quickindex.Reply"></div>struct <code class="ddoc_psymbol">Reply</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Post information</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.NotFoundPost"></span><div class="quickindex" id="quickindex.Reply.NotFoundPost"></div>struct <code class="ddoc_psymbol">NotFoundPost</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.NotFoundPost.uri"></span><div class="quickindex" id="quickindex.Reply.NotFoundPost.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.NotFoundPost.notFound"></span><div class="quickindex" id="quickindex.Reply.NotFoundPost.notFound"></div>bool <code class="ddoc_psymbol">notFound</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.BlockedPost"></span><div class="quickindex" id="quickindex.Reply.BlockedPost"></div>struct <code class="ddoc_psymbol">BlockedPost</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.BlockedPost.uri"></span><div class="quickindex" id="quickindex.Reply.BlockedPost.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.BlockedPost.blocked"></span><div class="quickindex" id="quickindex.Reply.BlockedPost.blocked"></div>bool <code class="ddoc_psymbol">blocked</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.BlockedPost.author"></span><div class="quickindex" id="quickindex.Reply.BlockedPost.author"></div>Post.Author <code class="ddoc_psymbol">author</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.root"></span><div class="quickindex" id="quickindex.Reply.root"></div>SumType!(NotFoundPost, BlockedPost, Post) <code class="ddoc_psymbol">root</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Reply.parent"></span><div class="quickindex" id="quickindex.Reply.parent"></div>SumType!(NotFoundPost, BlockedPost, Post) <code class="ddoc_psymbol">parent</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Feed"></span><div class="quickindex" id="quickindex.Feed"></div>struct <code class="ddoc_psymbol">Feed</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Feed.post"></span><div class="quickindex" id="quickindex.Feed.post"></div>Post <code class="ddoc_psymbol">post</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Feed.reply"></span><div class="quickindex" id="quickindex.Feed.reply"></div>Reply <code class="ddoc_psymbol">reply</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Feed.Reason"></span><div class="quickindex" id="quickindex.Feed.Reason"></div>struct <code class="ddoc_psymbol">Reason</code>;
+<br>
+<span class="def-anchor" id=".Feed.reason"></span><div class="quickindex" id="quickindex.Feed.reason"></div>Reason <code class="ddoc_psymbol">reason</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Feed.Reason.by"></span><div class="quickindex" id="quickindex.Feed.Reason.by"></div>Post.Author <code class="ddoc_psymbol">by</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Feed.Reason.indexedAt"></span><div class="quickindex" id="quickindex.Feed.Reason.indexedAt"></div>SysTime <code class="ddoc_psymbol">indexedAt</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message"></span><div class="quickindex" id="quickindex.Message"></div>struct <code class="ddoc_psymbol">Message</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.uri"></span><div class="quickindex" id="quickindex.Message.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Uri of post as <code class="d_inlinecode donthyphenate notranslate">at://...</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.text"></span><div class="quickindex" id="quickindex.Message.text"></div>string <code class="ddoc_psymbol">text</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Post <code class="ddoc_psymbol">text</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.Image"></span><div class="quickindex" id="quickindex.Message.Image"></div>struct <code class="ddoc_psymbol">Image</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">Image</code> data</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.Image.uri"></span><div class="quickindex" id="quickindex.Message.Image.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Image <code class="ddoc_psymbol">uri</code> as <code class="d_inlinecode donthyphenate notranslate">https://...</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.Image.thumb"></span><div class="quickindex" id="quickindex.Message.Image.thumb"></div>string <code class="ddoc_psymbol">thumb</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Thumbnail uri as <code class="d_inlinecode donthyphenate notranslate">https://...</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.Image.alt"></span><div class="quickindex" id="quickindex.Message.Image.alt"></div>string <code class="ddoc_psymbol">alt</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Alt message of image</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.images"></span><div class="quickindex" id="quickindex.Message.images"></div>Image[] <code class="ddoc_psymbol">images</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Post <code class="ddoc_psymbol">images</code> uri as <code class="d_inlinecode donthyphenate notranslate">https://...</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.User"></span><div class="quickindex" id="quickindex.Message.User"></div>struct <code class="ddoc_psymbol">User</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">User</code> data</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.User.did"></span><div class="quickindex" id="quickindex.Message.User.did"></div>string <code class="ddoc_psymbol">did</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">ID of user</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.User.handle"></span><div class="quickindex" id="quickindex.Message.User.handle"></div>string <code class="ddoc_psymbol">handle</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Handle name</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.User.displayName"></span><div class="quickindex" id="quickindex.Message.User.displayName"></div>string <code class="ddoc_psymbol">displayName</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Display name</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.postBy"></span><div class="quickindex" id="quickindex.Message.postBy"></div>User <code class="ddoc_psymbol">postBy</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">User data of the post author</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.repostBy"></span><div class="quickindex" id="quickindex.Message.repostBy"></div>User <code class="ddoc_psymbol">repostBy</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">User data of the author who made this repost</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.replyTo"></span><div class="quickindex" id="quickindex.Message.replyTo"></div>User <code class="ddoc_psymbol">replyTo</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">User data of the author whom this reply message was sent</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.replyToUri"></span><div class="quickindex" id="quickindex.Message.replyToUri"></div>string <code class="ddoc_psymbol">replyToUri</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Reply target message uri as <code class="d_inlinecode donthyphenate notranslate">at://...</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.likeCount"></span><div class="quickindex" id="quickindex.Message.likeCount"></div>size_t <code class="ddoc_psymbol">likeCount</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Liking count of this post</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.repostCount"></span><div class="quickindex" id="quickindex.Message.repostCount"></div>size_t <code class="ddoc_psymbol">repostCount</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Repost count of this post</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.postTime"></span><div class="quickindex" id="quickindex.Message.postTime"></div>SysTime <code class="ddoc_psymbol">postTime</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Time of post created</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.repostTime"></span><div class="quickindex" id="quickindex.Message.repostTime"></div>SysTime <code class="ddoc_psymbol">repostTime</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Time of repost created</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.isReply"></span><div class="quickindex" id="quickindex.Message.isReply"></div>bool <code class="ddoc_psymbol">isReply</code>();
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Message.isRepost"></span><div class="quickindex" id="quickindex.Message.isRepost"></div>bool <code class="ddoc_psymbol">isRepost</code>();
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".toMessage"></span><div class="quickindex" id="quickindex.toMessage"></div>@safe Message <code class="ddoc_psymbol">toMessage</code>(in Post <span class="ddoc_param">post</span>);
+<br>
+@safe Message <code class="ddoc_psymbol">toMessage</code>(Feed <span class="ddoc_param">feed</span>);
+<br>
+<span class="def-anchor" id=".toMessages"></span><div class="quickindex" id="quickindex.toMessages"></div>@safe auto <code class="ddoc_psymbol">toMessages</code><span class="ddoc_template_param_list" title="Template parameter list">(Range)</span>(Range <span class="ddoc_param">posts</span>)<br><span class="ddoc_constraint">if(isInputRange!Range &amp;&amp; is(ElementType!Range : Post))</span>;
+<br>
+@safe auto <code class="ddoc_psymbol">toMessages</code><span class="ddoc_template_param_list" title="Template parameter list">(Range)</span>(Range <span class="ddoc_param">feeds</span>)<br><span class="ddoc_constraint">if(isInputRange!Range &amp;&amp; is(ElementType!Range : Feed))</span>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>
