@@ -232,14 +232,17 @@ version (unittest) package(bsky) SessionInfo _createDummySession(
 class AtprotoAuth
 {
 private:
+	import core.sync.mutex;
 	import std.array: Appender;
 	import std.datetime: SysTime;
 	import std.typecons: Tuple;
 	import bsky._internal.httpc;
 	import bsky._internal.misc;
 	string _endpoint;
-	ManagedShared!HttpClientBase _httpClient;
-	ManagedShared!SessionInfo _session;
+	Mutex          _mutHttpClient;
+	HttpClientBase _httpClient;
+	Mutex          _mutSession;
+	SessionInfo    _session;
 	struct HttpResult
 	{
 		JSONValue response;
@@ -251,7 +254,7 @@ private:
 	{
 		HttpResult ret;
 		auto url = _endpoint ~ path;
-		with (_httpClient.locked)
+		synchronized (_mutHttpClient) with (_httpClient)
 		{
 			ret.response = get(url, param, () @safe => bearer);
 			ret.code = getLastStatusCode;
@@ -266,7 +269,7 @@ private:
 		HttpResult ret;
 		auto url = _endpoint ~ path;
 		auto p = param is JSONValue.init ? (immutable(ubyte)[]).init : param.toJSON().representation;
-		with (_httpClient.locked)
+		synchronized (_mutHttpClient) with (_httpClient)
 		{
 			ret.response = post(url, p, "application/json", () @safe => bearer);
 			ret.code = getLastStatusCode;
@@ -286,10 +289,10 @@ public:
 	/// ditto
 	this(Client: HttpClientBase)(string endpoint = "https://bsky.social", Client client) @safe
 	{
-		_httpClient = new ManagedShared!HttpClientBase;
-		() @trusted { _httpClient.asUnshared = client; }();
+		_httpClient = client;
 		_endpoint = endpoint;
-		_session = new shared ManagedShared!SessionInfo();
+		_mutHttpClient = new Mutex;
+		_mutSession    = new Mutex;
 	}
 	/// ditto
 	this(Client = CurlHttpClient!())(string endpoint = "https://bsky.social", Client client = new Client) shared @safe
@@ -297,12 +300,12 @@ public:
 		this(endpoint, cast(HttpClientBase)client);
 	}
 	/// ditto
-	this(Client: HttpClientBase)(string endpoint = "https://bsky.social", Client client) shared @safe
+	this(Client: HttpClientBase)(string endpoint = "https://bsky.social", Client client) shared @trusted
 	{
-		_httpClient = new ManagedShared!HttpClientBase;
-		() @trusted { _httpClient.asUnshared = client; }();
+		_httpClient = cast(shared)client;
 		_endpoint = endpoint;
-		_session = new shared ManagedShared!SessionInfo();
+		_mutHttpClient = new shared Mutex;
+		_mutSession    = new shared Mutex;
 	}
 	
 	/***************************************************************************
@@ -312,8 +315,8 @@ public:
 	{
 		auto param = info.serializeToJson();
 		auto res = _post("/xrpc/com.atproto.server.createSession", param);
-		synchronized (_session)
-			_session.asUnshared.deserializeFromJson(res.response);
+		synchronized (_mutSession)
+			_session.deserializeFromJson(res.response);
 	}
 	/// ditto
 	void createSession(LoginInfo info) shared @trusted
@@ -338,7 +341,7 @@ public:
 	{
 		enforce(available);
 		Appender!(ubyte[]) app;
-		synchronized (_session) with (_session.asUnshared)
+		synchronized (_mutSession) with (_session)
 		{
 			auto res = _post("/xrpc/com.atproto.server.refreshSession", JSONValue.init, refreshJwt);
 			enforce(res.code == 200, res.reason ~ "\n\n"
@@ -376,14 +379,14 @@ public:
 		if (!available)
 			return;
 		
-		synchronized (_session)
+		synchronized (_mutSession)
 		{
-			auto refreshJwt = _session.asUnshared.refreshJwt;
+			auto refreshJwt = _session.refreshJwt;
 			auto res = _post("/xrpc/com.atproto.server.deleteSession", JSONValue.init, refreshJwt);
 			enforce(res.code == 200, res.reason ~ "\n\n"
 				~ res.response.getValue("error", "Error")
 				~ res.response.getValue("message", ": Unknown error occurred."));
-				_session.asUnshared = SessionInfo.init;
+			_session = SessionInfo.init;
 		}
 	}
 	/// ditto
@@ -422,14 +425,14 @@ public:
 	{
 		if (!available)
 			return;
-		synchronized (_session)
+		synchronized (_mutSession)
 		{
-			auto res = _get("/xrpc/com.atproto.server.getSession", null, _session.asUnshared.accessJwt);
+			auto res = _get("/xrpc/com.atproto.server.getSession", null, _session.accessJwt);
 			// 400エラー(ExpiredToken)だった場合はリフレッシュトークンを使って更新を試みる
 			if (res.code == 400 && res.response.getValue("error", "") == "ExpiredToken")
 			{
 				refreshSession();
-				res = _get("/xrpc/com.atproto.server.getSession", null, _session.asUnshared.accessJwt);
+				res = _get("/xrpc/com.atproto.server.getSession", null, _session.accessJwt);
 			}
 			enforce(res.code == 200, res.reason ~ "\n\n"
 				~ res.response.getValue("error", "Error")
@@ -444,11 +447,11 @@ public:
 			}
 			UpdateSessionInfo dat;
 			dat.deserializeFromJson(res.response);
-			_session.asUnshared.handle = dat.handle;
-			_session.asUnshared.did = dat.did;
-			_session.asUnshared.email = dat.email;
-			_session.asUnshared.emailConfirmed = dat.emailConfirmed;
-			_session.asUnshared.didDoc = dat.didDoc;
+			_session.handle = dat.handle;
+			_session.did = dat.did;
+			_session.email = dat.email;
+			_session.emailConfirmed = dat.emailConfirmed;
+			_session.didDoc = dat.didDoc;
 		}
 	}
 	/// ditto
@@ -493,8 +496,8 @@ public:
 	 */
 	void restoreSession(in SessionInfo sessionInfo) @trusted
 	{
-		synchronized (_session)
-			_session.asUnshared = sessionInfo;
+		synchronized (_mutSession)
+			_session = sessionInfo;
 	}
 	/// ditto
 	void restoreSession(in SessionInfo sessionInfo) shared @trusted
@@ -504,10 +507,10 @@ public:
 	/// ditto
 	void restoreSessionFromTokens(string accessJwt, string refreshJwt) @trusted
 	{
-		synchronized (_session)
+		synchronized (_mutSession)
 		{
-			_session.asUnshared.accessJwt = accessJwt;
-			_session.asUnshared.refreshJwt = refreshJwt;
+			_session.accessJwt = accessJwt;
+			_session.refreshJwt = refreshJwt;
 		}
 		updateSession();
 	}
@@ -519,9 +522,9 @@ public:
 	/// ditto
 	void restoreSessionFromRefreshToken(string refreshJwt) @trusted
 	{
-		synchronized (_session)
+		synchronized (_mutSession)
 		{
-			_session.asUnshared.refreshJwt = refreshJwt;
+			_session.refreshJwt = refreshJwt;
 			refreshSession();
 			updateSession();
 		}
@@ -537,8 +540,8 @@ public:
 	 */
 	const(SessionInfo) storeSession() const @trusted
 	{
-		synchronized (_session)
-			return _session.asUnshared;
+		synchronized (_mutSession)
+			return _session;
 	}
 	/// ditto
 	const(SessionInfo) storeSession() const shared @trusted
@@ -548,8 +551,8 @@ public:
 	/// ditto
 	string storeSessionOnlyRefreshToken() const @trusted
 	{
-		synchronized (_session)
-			return _session.asUnshared.refreshJwt;
+		synchronized (_mutSession)
+			return _session.refreshJwt;
 	}
 	/// ditto
 	string storeSessionOnlyRefreshToken() const shared @trusted
@@ -559,7 +562,7 @@ public:
 	/// ditto
 	Tuple!(string, "accessJwt", string, "refreshJwt") storeSessionOnlyToken() const @trusted
 	{
-		synchronized (_session) with (_session.asUnshared)
+		synchronized (_mutSession) with (_session)
 			return typeof(return)(accessJwt, refreshJwt);
 	}
 	/// ditto
@@ -573,8 +576,8 @@ public:
 	 */
 	bool available() const @trusted
 	{
-		synchronized (_session)
-			return _session.asUnshared.accessJwt.length > 0;
+		synchronized (_mutSession)
+			return _session.accessJwt.length > 0;
 	}
 	/// ditto
 	bool available() const shared @trusted
@@ -587,8 +590,8 @@ public:
 	 */
 	string bearer() const @trusted
 	{
-		synchronized (_session)
-			return _session.asUnshared.accessJwt;
+		synchronized (_mutSession)
+			return _session.accessJwt;
 	}
 	/// ditto
 	string bearer() const shared @trusted
@@ -601,8 +604,8 @@ public:
 	 */
 	string did() const @trusted
 	{
-		synchronized (_session)
-			return _session.asUnshared.did;
+		synchronized (_mutSession)
+			return _session.did;
 	}
 	/// ditto
 	string did() const shared @trusted
@@ -621,8 +624,8 @@ public:
 		import std.exception;
 		alias B64 = Base64Impl!('+', '/', Base64.NoPadding);
 		string jwt;
-		synchronized (_session)
-			jwt = (() @trusted => _session.asUnshared)().accessJwt;
+		synchronized (_mutSession)
+			jwt = _session.accessJwt;
 		auto values = jwt.split(".");
 		enforce(values.length == 3);
 		auto jv = parseJSON((() @trusted => cast(string)B64.decode(values[1]))());
@@ -642,8 +645,8 @@ public:
 		import std.exception;
 		alias B64 = Base64Impl!('+', '/', Base64.NoPadding);
 		string jwt;
-		synchronized (_session)
-			jwt = (() @trusted => _session.asUnshared)().refreshJwt;
+		synchronized (_mutSession)
+			jwt = _session.refreshJwt;
 		auto values = jwt.split(".");
 		enforce(values.length == 3);
 		auto jv = parseJSON((() @trusted => cast(string)B64.decode(values[1]))());

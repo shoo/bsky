@@ -236,10 +236,7 @@ private void _setValue(T)(ref JSONValue v, ref string name, ref T val)
  */
 void setValue(T)(ref JSONValue v, string name, T val) pure nothrow @trusted
 {
-	try
-	{
-		assumePure!(_setValue!T)(v, name, val);
-	}
+	try (cast(void function(ref JSONValue, ref string, ref T) pure)&_setValue!T)(v, name, val);
 	catch (Throwable)
 	{
 	}
@@ -600,18 +597,12 @@ private T _getValue(T)(in JSONValue v, string name, lazy scope T defaultVal = T.
 ///
 T getValue(T)(in JSONValue v, string name, lazy scope T defaultVal = T.init) nothrow pure @trusted
 {
-	import bsky._internal.misc: assumePure;
-	try
-	{
-		return assumePure(&_getValue!(Unqual!T))(v, name, defaultVal);
-	}
+	try return (cast(T function(in JSONValue, string, lazy scope T) pure)&_getValue!(Unqual!T))(
+			v, name, defaultVal);
 	catch(Throwable)
 	{
 	}
-	try
-	{
-		return defaultVal;
-	}
+	try return defaultVal;
 	catch (Throwable)
 	{
 	}
