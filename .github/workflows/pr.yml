@@ -65,22 +65,23 @@ jobs:
   #      run: rdmd ./.github/workflows/runner.d -a=${ARCH} --mode=generate-document
   #    # BLD:ビルド結果のアーカイブを記録する場合は以下を実行
   #    - name: Upload generated archive
-  #      uses: actions/upload-artifact@v1
+  #      uses: actions/upload-artifact@v4
   #      with:
   #        name: ${OS}-${ARCH}-bainary
   #        path: ${{ steps.create_archive.outputs.ARCNAME }}
   #    # DOC:ドキュメントを記録する場合は以下を実行(Artifactに6か月保管されます)
   #    - name: Upload generated pages
-  #      uses: actions/upload-artifact@v1
+  #      uses: actions/upload-artifact@v4
   #      with:
   #        name: docs
   #        path: docs
   #    # COV:カバレッジを記録する場合は以下を実行(Artifactに6か月保管されます)
   #    - name: Upload coverage result
-  #      uses: actions/upload-artifact@v1
+  #      uses: actions/upload-artifact@v4
   #      with:
   #        name: coverage-${OS}
   #        path: .cov
+  #        include-hidden-files: true
 
   # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
   #  1. Windows x86     dmd        o   x   x   x   x
@@ -115,7 +116,7 @@ jobs:
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
       - name: Upload generated archive
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: windows-x86-binary
           path: ${{ steps.create_archive.outputs.ARCNAME }}
@@ -144,10 +145,11 @@ jobs:
       - name: Run integration tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
       - name: Upload coverage result
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-windows
           path: .cov
+          include-hidden-files: true
 
   # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
   #  6. Windows x86_64  ldc        o   x   O   o   x
@@ -170,7 +172,7 @@ jobs:
       - name: Generate document tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
       - name: Upload generated archive
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: windows-x86_64-binary
           path: ${{ steps.create_archive.outputs.ARCNAME }}
@@ -257,7 +259,7 @@ jobs:
       - name: Generate document tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
       - name: Upload generated pages
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: docs
           path: docs
@@ -283,12 +285,13 @@ jobs:
         id: create_archive
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
       - name: Upload coverage result
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-linux
           path: .cov
+          include-hidden-files: true
       - name: Upload generated archive
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: linux-x86_64-binary
           path: ${{ steps.create_archive.outputs.ARCNAME }}
@@ -350,10 +353,11 @@ jobs:
       - name: Run integration tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=integration-test
       - name: Upload coverage result
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-osx
           path: .cov
+          include-hidden-files: true
 
 
   # No. OS      ARCH    COMPILER   UT  TT  BLD DOC COV
@@ -377,7 +381,7 @@ jobs:
       - name: Generate document tests
         run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
       - name: Upload generated archive
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: osx-x86_64-bainary
           path: ${{ steps.create_archive.outputs.ARCNAME }}
@@ -398,21 +402,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download coverage result
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: coverage-windows
           path: coverage-windows
       - name: Upload coverage to Codecov
         run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -s coverage-windows
       - name: Download coverage result
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: coverage-linux
           path: coverage-linux
       - name: Upload coverage to Codecov
         run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -s coverage-linux
       - name: Download coverage result
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v4
         with:
           name: coverage-osx
           path: coverage-osx
