@@ -1,3 +1,10 @@
+<!-- [![GitHub tag](https://img.shields.io/github/tag/shoo/bsky.svg?maxAge=86400)](#) -->
+[![GitHub tag](https://img.shields.io/github/tag/shoo/bsky.svg?maxAge=86400)](#)
+[![CI Status](https://github.com/shoo/bsky/actions/workflows/main.yml/badge.svg)](https://github.com/shoo/voile/actions/workflows/main.yml)
+[![downloads](https://img.shields.io/dub/dt/bsky.svg?cacheSeconds=3600)](https://code.dlang.org/packages/bsky)
+[![BSL-1.0](http://img.shields.io/badge/license-BSL--1.0-blue.svg?style=flat)](./LICENSE)
+[![codecov](https://codecov.io/gh/shoo/bsky/branch/main/graph/badge.svg)](https://codecov.io/gh/shoo/bsky)
+
 # Abstract
 The client library of [Bluesky](https://bsky.app/).
 
@@ -5,6 +12,8 @@ The client library of [Bluesky](https://bsky.app/).
 ```sh
 dub add bsky
 ```
+
+[API Documents](http://shoo.github.io/bsky)
 
 # Examlple codes
 ```d
@@ -18,7 +27,7 @@ foreach (post; client.timeline.take(100).toMessages)
 	writeln(i"$(post.postBy.displayName) < $(post.text)");
 ```
 
-[examples](./examples)
+[Examples](./examples)
 
 # List of Supported API
 | API                             | Supported functions |
