@@ -45,7 +45,7 @@ jobs:
   #  name: test-${OS}-${ARCH}-${COMPILER}
   #  runs-on: ${OS}
   #  steps:
-  #    - uses: actions/checkout@v2
+  #    - uses: actions/checkout@v4
   #    - name: Install D compiler
   #      uses: dlang-community/setup-dlang@v1
   #      with:
@@ -82,7 +82,7 @@ jobs:
     name: test-windows-x86-dmd-latest
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -96,7 +96,7 @@ jobs:
     name: test-windows-x86-ldc-latest
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -120,7 +120,7 @@ jobs:
     name: test-windows-x86_64-dmd-latest
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -142,7 +142,7 @@ jobs:
     name: test-windows-x86_64-ldc-latest
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -164,7 +164,7 @@ jobs:
     name: test-windows-x86_64-ldc-master
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -187,7 +187,7 @@ jobs:
     name: test-linux-x86-ldc-latest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -195,7 +195,7 @@ jobs:
       - name: Install gcc-multilib
         run: |
           sudo apt update
-          sudo apt install gcc-multilib
+          sudo apt install -y gcc-multilib
       - name: Run unit tests
         run: rdmd ./.github/workflows/runner.d -a=x86 --mode=unit-test
       - name: Build tests
@@ -215,7 +215,7 @@ jobs:
     name: test-linux-x86_64-dmd-latest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -238,7 +238,7 @@ jobs:
     name: test-linux-x86_64-ldc-latest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -260,7 +260,7 @@ jobs:
     name: test-linux-x86_64-dmd-master
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -299,7 +299,7 @@ jobs:
     name: test-macos-x86_64-dmd-latest
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -322,7 +322,7 @@ jobs:
     name: test-macos-x86_64-ldc-latest
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
@@ -348,7 +348,7 @@ jobs:
     needs: [test-windows-x86-dmd-latest, test-windows-x86-ldc-latest, test-windows-x86_64-dmd-latest, test-windows-x86_64-ldc-latest, test-windows-x86_64-ldc-master, test-linux-x86-ldc-latest, test-linux-x86_64-dmd-latest, test-linux-x86_64-ldc-latest, test-linux-x86_64-dmd-master, test-macos-x86_64-dmd-latest, test-macos-x86_64-ldc-latest]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Download coverage result
         uses: actions/download-artifact@v4
         with:
@@ -389,7 +389,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           allow_empty_commit: false
-          
           publish_dir: docs
           publish_branch: gh-pages
           user_name: GitHub Actions Bot

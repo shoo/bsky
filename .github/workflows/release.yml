@@ -2,188 +2,59 @@ name: Release
 on:
   push:
     tags:
-      - v*
+      - v*.*.*
 
 jobs:
   # No. OS      ARCH    COMPILER
-  #  2. Windows x86     ldc
-  #  6. Windows x86_64  ldc
   # 14. Ubuntu  x86_64  ldc
-  # 22. macOS   x86_64  ldc
-
-  # No. OS      ARCH    COMPILER
-  #  2. Windows x86     ldc
-  create-windows-x86:
-    name: create-windows-x86
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install D compiler
-        uses: dlang-community/setup-dlang@v1
-        with:
-          compiler: ldc-latest
-      - name: Build binary
-        run: dub build -a=x86 -b=release
-      - name: Create archive
-        id: create_archive
-        run: rdmd ./.github/workflows/runner.d -a=x86 --mode=create-archive
-      - name: Upload created archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-x86-binary
-          path: ${{ steps.create_archive.outputs.ARCNAME }}
-
-  # No. OS      ARCH    COMPILER
-  #  6. Windows x86_64  ldc
-  create-windows-x86_64:
-    name: create-windows-x86_64
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install D compiler
-        uses: dlang-community/setup-dlang@v1
-        with:
-          compiler: ldc-latest
-      - name: Build binary
-        run: dub build -a=x86_64 -b=release
-      - name: Create archive
-        id: create_archive
-        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
-      - name: Upload created archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-x86_64-binary
-          path: ${{ steps.create_archive.outputs.ARCNAME }}
-
-  # No. OS      ARCH    COMPILER
-  # 14. Ubuntu  x86_64  ldc
-  create-linux-x86_64:
-    name: create-linux-x86_64
+  create-document:
+    name: create-document
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install D compiler
         uses: dlang-community/setup-dlang@v1
         with:
           compiler: ldc-latest
       - name: Build bianry
-        run: dub build -a=x86_64 -b=release
-      - name: Create archive
-        id: create_archive
-        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
+        run: dub build -a=x86_64 -b=release -c=default
       - name: Generate document
-        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
-      - name: Upload created archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux-x86_64-binary
-          path: ${{ steps.create_archive.outputs.ARCNAME }}
+        run: |
+          (which dot >/dev/null 2>&1) || (sudo apt-get update && sudo apt-get install -y graphviz)
+          rdmd ./scripts/runner.d -a=x86_64 --mode=generate-document
+        #  dub build -b=ddeps
       - name: Upload generated pages
         uses: actions/upload-artifact@v4
         with:
           name: docs
           path: docs
 
-  # No. OS      ARCH    COMPILER
-  # 22. macOS   x86_64  ldc
-  create-macos-x86_64:
-    name: create-macos-x86_64
-    runs-on: macos-12
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install D compiler
-        uses: dlang-community/setup-dlang@v1
-        with:
-          compiler: ldc-latest
-      - name: Build binary
-        run: dub build -a=x86_64 -b=release
-      - name: Create archive
-        id: create_archive
-        run: rdmd ./.github/workflows/runner.d -a=x86_64 --mode=create-archive
-      - name: Upload created archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: osx-x86_64-binary
-          path: ${{ steps.create_archive.outputs.ARCNAME }}
-
   # Deploy Pages
-  create-release:
-    name: create-release
-    needs: [create-windows-x86, create-windows-x86_64, create-linux-x86_64, create-macos-x86_64]
+  deploy-pages:
+    name: deploy-pages
+    needs: create-document
     runs-on: ubuntu-latest
     steps:
-      - name: Get Names
-        id: get_names
-        run: |
-          echo ::set-output name=TAGNAME::${GITHUB_REF#refs/tags/}
-          echo ::set-output name=PROJNAME::${GITHUB_REPOSITORY#$GITHUB_ACTOR/}
-      - name: Download windows-x86-binary
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+      # バージョン値確認
+      - name: Set version
+        id: set_ver
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      # ドキュメントのアーティファクトダウンロード
+      - name: Download generated pages
         uses: actions/download-artifact@v4
         with:
-          name: windows-x86-binary
-          path: ./
-      - name: Download windows-x86_64-binary
-        uses: actions/download-artifact@v4
+          name: docs
+          path: ${{ steps.set_ver.outputs.VERSION }}
+      # キュメントをGitHub Pagesへデプロイ
+      - name: Deploy pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: windows-x86_64-binary
-          path: ./
-      - name: Download linux-x86_64-binary
-        uses: actions/download-artifact@v4
-        with:
-          name: linux-x86_64-binary
-          path: ./
-      - name: Download osx-x86_64-binary
-        uses: actions/download-artifact@v4
-        with:
-          name: osx-x86_64-binary
-          path: ./
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset Win32
-        id: upload-release-asset-win32
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-windows-x86.zip
-          asset_name: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-windows-x86.zip
-          asset_content_type: application/zip
-      - name: Upload Release Asset Win64
-        id: upload-release-asset-win64
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-windows-x86_64.zip
-          asset_name: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-windows-x86_64.zip
-          asset_content_type: application/zip
-      - name: Upload Release Asset Linux
-        id: upload-release-asset-linux
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-linux-x86_64.tar.gz
-          asset_name: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-linux-x86_64.tar.gz
-          asset_content_type: application/x-gzip
-      - name: Upload Release Asset OSX
-        id: upload-release-asset-osx
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-macos-x86_64.tar.gz
-          asset_name: ${{ steps.get_names.outputs.PROJNAME }}-${{ steps.get_names.outputs.TAGNAME }}-macos-x86_64.tar.gz
-          asset_content_type: application/x-gzip
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          allow_empty_commit: false
+          publish_dir: .
+          publish_branch: gh-pages
+          user_name: GitHub Actions Bot
+          user_email: <>
