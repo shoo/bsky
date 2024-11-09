@@ -1,0 +1,5 @@
+[
+{"body":{"blob":{"$type":"blob","mimeType":"video/mp4","ref":{"$link":"ew7k3lcbapyv7vbturw6xtkrhwp3bejmkpp4mchwfam4fu7xxxjczwz3tou"},"size":362842}},"code":200,"mimeType":"application/json; charset=utf-8","reason":"OK"},
+{"body":{"cid":"dx2imfjwbdohkh4re7hh6dguhpczu5mhruw4ofkn6sdmhk4uimas37c5a74","uri":"at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/5ni6rkonpzlx2","value":{"$type":"app.bsky.feed.post","createdAt":"2024-04-03T14:49:37.630675Z","text":"こんにちは、青空さん！\n空の色、めっちゃ綺麗なブルーやな。\nまるで、海原に浮かぶ船みたいや。\nそやけど、その船はどこへ行くんやろ？\nもしかしたら、宝島を目指してるんかもしれへんな。"}},"code":200,"mimeType":"application/json; charset=utf-8","reason":"OK"},
+{"body":{"cid":"g26lz3rbld5w2clel6a7t5b643ujbxtj2gnmmmtf3ibrpigelhbqsuxhipf","commit":{"cid":"gig3b67nbtte5iqkm52kjfo23lxyb66ydllgu6cxl4c4umdfs7vnq2xoylj","rev":"afi3fam23pvoy"},"uri":"at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/g3x434awoucyf","validationStatus":"valid"},"code":200,"mimeType":"application/json; charset=utf-8","reason":"OK"}
+]

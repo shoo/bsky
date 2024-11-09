@@ -1622,20 +1622,31 @@ public:
 		 * Alt text
 		 */
 		string alt;
+		/***********************************************************************
+		 * Aspect ratio - width
+		 */
+		int width;
+		/***********************************************************************
+		 * Aspect ratio - height
+		 */
+		int height;
 	}
 	/// ditto
 	app.bsky.embed.Images.Image getEmbedImage(EmbedImage image) @safe
 	{
 		return app.bsky.embed.Images.Image(
 			image: uploadBlob(image.image, image.mimeType),
-			alt: image.alt);
+			alt: image.alt,
+			aspectRatio: app.bsky.embed.AspectRatio(image.width, image.height));
 	}
 	/// ditto
-	app.bsky.embed.Images.Image getEmbedImage(immutable(ubyte)[] imageData, string mimeType, string alt) @safe
+	app.bsky.embed.Images.Image getEmbedImage(immutable(ubyte)[] imageData, string mimeType, string alt,
+		int width = 0, int height = 0) @safe
 	{
 		return app.bsky.embed.Images.Image(
 			image: uploadBlob(imageData, mimeType),
-			alt: alt);
+			alt: alt,
+			aspectRatio: app.bsky.embed.AspectRatio(width, height));
 	}
 	/// ditto
 	app.bsky.embed.Images getEmbedImages(EmbedImage[] images) @safe
@@ -1713,8 +1724,63 @@ public:
 		Media media;
 	}
 	
-	///
-	alias EmbedData = SumType!(EmbedImage[], EmbedExternal, EmbedRecord, EmbedRecordWithMedia);
+	/***************************************************************************
+	 * Embed data of image
+	 */
+	struct EmbedVideo
+	{
+		/***********************************************************************
+		 * Binary of image
+		 * 
+		 * Limitation: &lt; 1MB
+		 */
+		immutable(ubyte)[] video;
+		/***********************************************************************
+		 * MimeType of image
+		 */
+		string mimeType;
+		/***********************************************************************
+		 * Alt text
+		 */
+		string alt;
+		/***********************************************************************
+		 * Aspect ratio - width
+		 */
+		int width;
+		/***********************************************************************
+		 * Aspect ratio - height
+		 */
+		int height;
+		/***********************************************************************
+		 * Caption file
+		 */
+		struct Caption
+		{
+			///
+			string lang;
+			///
+			immutable(ubyte)[] data;
+		}
+		/// ditto
+		Caption[] captions;
+	}
+	/// ditto
+	app.bsky.embed.Video getEmbedVideo(EmbedVideo video) @safe
+	{
+		import std.array, std.algorithm;
+		return app.bsky.embed.Video(
+			video: uploadBlob(video.video, video.mimeType),
+			captions: video.captions.map!(cap => app.bsky.embed.Video.Caption(
+				file: uploadBlob(cap.data, "text/vtt"), lang: cap.lang)).array,
+			alt: video.alt,
+			aspectRatio: app.bsky.embed.AspectRatio(video.width, video.height));
+	}
+	/// ditto
+	app.bsky.embed.Video getEmbedVideo(immutable(ubyte)[] videoData, string mimeType, string alt,
+		int width = 0, int height = 0) @safe
+	{
+		return getEmbedVideo(EmbedVideo(videoData, mimeType, alt, width, height));
+	}
 	
 	/***************************************************************************
 	 * Reply data from URI
@@ -1785,105 +1851,6 @@ public:
 		}
 		if (embed !is Embed.init)
 			jvPost["embed"] = embed.serializeToJson();
-		if (replyRef !is ReplyRef.init)
-			jvPost["reply"] = _getReplyData(replyRef);
-		return createRecord(jvPost).deserializeFromJson!PostRef();
-	}
-	/// ditto
-	PostRef sendPost(string message, EmbedData embed,
-		ReplyRef replyRef = ReplyRef.init, string[] langs = null) @safe
-	{
-		import std.datetime: Clock;
-		import std.algorithm: map;
-		auto jvPost = JSONValue([
-			"$type": "app.bsky.feed.post",
-			"text": message,
-			"createdAt": Clock.currTime.toUTC.toISOExtString]);
-		auto jvFacets = JSONValue.emptyArray;
-		_parseFacet(jvFacets, message);
-		if ((() @trusted => jvFacets.array.length)() > 0)
-			jvPost["facets"] = jvFacets;
-		if (langs.length > 0)
-			jvPost["langs"] = JSONValue(langs);
-		
-		JSONValue _getEmbedImageData(EmbedImage[] images) @safe
-		{
-			return JSONValue(images.map!(img => JSONValue([
-				"alt": JSONValue(img.alt),
-				"image": uploadBlob(img.image, img.mimeType).serializeToJson])).array);
-		}
-		JSONValue _getEmbedImage(EmbedImage[] images) @safe
-		{
-			return JSONValue([
-				"$type": JSONValue("app.bsky.embed.images"),
-				"images": _getEmbedImageData(images)]);
-		}
-		JSONValue _getEmbedExternal(EmbedExternal external) @safe
-		{
-			return JSONValue([
-				"$type": JSONValue("app.bsky.embed.external"),
-				"external": JSONValue(external.thumb.length > 0
-					? [
-						"uri": JSONValue(external.uri),
-						"title": JSONValue(external.title),
-						"description": JSONValue(external.description),
-						"thumb": uploadBlob(external.thumb, external.thumbMimeType).serializeToJson()
-					] : [
-						"uri": JSONValue(external.uri),
-						"title": JSONValue(external.title),
-						"description": JSONValue(external.description)
-					])
-			]);
-		}
-		JSONValue _getEmbedRecord(EmbedRecord record) @safe
-		{
-			return JSONValue([
-				"$type": JSONValue("app.bsky.embed.record"),
-				"record": JSONValue([
-					"uri": record.uri,
-					"cid": record.cid])]);
-		}
-		JSONValue _getEmbedRecordWithMedia(EmbedRecordWithMedia rwm) @safe
-		{
-			return JSONValue([
-				"$type": JSONValue("app.bsky.embed.record_with_media"),
-				"record": JSONValue(["record": JSONValue([
-					"uri": rwm.record.uri,
-					"cid": rwm.record.cid])]),
-				"media": rwm.media.match!(
-					(EmbedImage[] images) => _getEmbedImage(images),
-					(EmbedExternal external) => _getEmbedExternal(external),
-				)
-			]);
-		}
-		JSONValue _getReplyData(ReplyRef reply) @safe
-		{
-			return JSONValue([
-				"root": JSONValue([
-					"uri": reply.root.uri,
-					"cid": reply.root.cid]),
-				"parent": JSONValue([
-					"uri": reply.parent.uri,
-					"cid": reply.parent.cid]),
-			]);
-		}
-		if (embed !is EmbedData.init)
-		{
-			embed.match!(
-				(EmbedImage[] images) @safe {
-					jvPost["embed"] = _getEmbedImage(images);
-				},
-				(EmbedExternal external) @safe {
-					jvPost["embed"] = _getEmbedExternal(external);
-				},
-				(EmbedRecord record) @safe {
-					jvPost["embed"] = _getEmbedRecord(record);
-				},
-				(EmbedRecordWithMedia record) @safe {
-					jvPost["embed"] = _getEmbedRecordWithMedia(record);
-				}
-			);
-		}
 		if (replyRef !is ReplyRef.init)
 			jvPost["reply"] = _getReplyData(replyRef);
 		return createRecord(jvPost).deserializeFromJson!PostRef();
@@ -1967,6 +1934,16 @@ public:
 		return sendPost(message, app.bsky.embed.RecordWithMedia(
 			record: app.bsky.embed.Record(record),
 			media: app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external))), langs);
+	}
+	/// ditto
+	PostRef sendPost(string message, app.bsky.embed.Video video, string[] langs = null) @safe
+	{
+		return sendPost(message, Embed(video), ReplyRef.init, langs);
+	}
+	/// ditto
+	PostRef sendPost(string message, EmbedVideo image, string[] langs = null) @safe
+	{
+		return sendPost(message, getEmbedVideo(image), langs);
 	}
 	
 	// sendPost/createRecord
@@ -2054,6 +2031,40 @@ public:
 		}
 	}
 	
+	// sendPost (with video)
+	@safe unittest
+	{
+		// 動画投稿
+		auto client = _createDummyClient("5da79f65-15fe-4701-a837-0e2826e93b05");
+		auto videoBin = readDataSource("sample-video.mp4");
+		auto postRes = client.sendPost("動画テスト", Bluesky.EmbedVideo(videoBin, "video/mp4", "サンプルビデオ"));
+		with (client.req(0))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.uploadBlob`);
+			assert(mimeType == `video/mp4`);
+			assert(bodyBinary == videoBin);
+		}
+		with (client.req(1))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.createRecord`);
+			assert(query == "");
+			assert(mimeType == "application/json");
+			auto params = parseJSON(cast(const char[])bodyBinary);
+			assert(params["collection"].str == "app.bsky.feed.post");
+			assert(params["record"]["embed"]["$type"].str == "app.bsky.embed.video");
+			assert(params["record"]["embed"]["video"]["$type"].str == "blob");
+			assert(params["record"]["embed"]["video"]["mimeType"].str == "video/mp4");
+			assert(params["record"]["embed"]["video"]["ref"]["$link"].str
+				== "ew7k3lcbapyv7vbturw6xtkrhwp3bejmkpp4mchwfam4fu7xxxjczwz3tou");
+			assert(params["record"]["embed"]["video"]["size"].get!uint == videoBin.length);
+			assert(params["record"]["embed"]["alt"].str == "サンプルビデオ");
+		}
+		assert(postRes.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/ibzjnrqzw33uz");
+		assert(postRes.cid == "2jmp7mofugukoo72a4rj4ypcwjhzjnovhmkxqvsrnnugtfpi3qliy3oxudg");
+	}
+	
 	/// ditto
 	PostRef sendReplyPost(string uri, string message, Embed embed = Embed.init, string[] langs = null) @safe
 	{
@@ -2118,6 +2129,16 @@ public:
 			media: recordWithMedia.media.match!(
 				(EmbedImage[] images)    => app.bsky.embed.RecordWithMedia.Media(getEmbedImages(images)),
 				(EmbedExternal external) => app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external)))), langs);
+	}
+	/// ditto
+	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Video video, string[] langs = null) @safe
+	{
+		return sendReplyPost(uri, message, Embed(video), langs);
+	}
+	/// ditto
+	PostRef sendReplyPost(string uri, string message, EmbedVideo video, string[] langs = null) @safe
+	{
+		return sendReplyPost(uri, message, getEmbedVideo(video), langs);
 	}
 	
 	// sendReplyPost/getRecord/createRecord
@@ -2331,10 +2352,62 @@ public:
 		assert(postRes.cid == "xy2frqraadrxv6xxq3bo2x4rxeppbqny4otupfja5cjqrrprnnwiik2ym4i");
 	}
 	
+	// sendReplyPost (with video)
+	@safe unittest
+	{
+		auto client = _createDummyClient("b716e6a4-d8f1-4fab-9073-d66013b3b59a");
+		auto videoBin = readDataSource("sample-video.mp4");
+		auto postRes = client.sendReplyPost("at://did:plc:mhz3szj7pcjfpzv7pylcmlgx/app.bsky.feed.post/sjxklekf4hsir",
+			"動画テスト", EmbedVideo(videoBin, "video/mp4", "サンプルビデオ"));
+		with (client.req(0))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.uploadBlob`);
+			assert(mimeType == `video/mp4`);
+			assert(bodyBinary == videoBin);
+		}
+		with (client.req(1))
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.getRecord`);
+			assert(query
+				== "rkey=sjxklekf4hsir&repo=did%3Aplc%3Amhz3szj7pcjfpzv7pylcmlgx&collection=app.bsky.feed.post");
+			assert(bodyBinary == ``.representation);
+		}
+		with (client.req(2))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.createRecord`);
+			assert(query == "");
+			assert(mimeType == "application/json");
+			auto params = parseJSON(cast(const char[])bodyBinary);
+			assert(params["collection"].str == "app.bsky.feed.post");
+			
+			assert(params["record"]["reply"]["parent"]["cid"].str
+				== "dx2imfjwbdohkh4re7hh6dguhpczu5mhruw4ofkn6sdmhk4uimas37c5a74");
+			assert(params["record"]["reply"]["parent"]["uri"].str
+				== "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/5ni6rkonpzlx2");
+			assert(params["record"]["reply"]["root"]["cid"].str
+				== "dx2imfjwbdohkh4re7hh6dguhpczu5mhruw4ofkn6sdmhk4uimas37c5a74");
+			assert(params["record"]["reply"]["root"]["uri"].str
+				== "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/5ni6rkonpzlx2");
+			
+			assert(params["record"]["embed"]["$type"].str == "app.bsky.embed.video");
+			assert(params["record"]["embed"]["video"]["$type"].str == "blob");
+			assert(params["record"]["embed"]["video"]["mimeType"].str == "video/mp4");
+			assert(params["record"]["embed"]["video"]["ref"]["$link"].str
+				== "ew7k3lcbapyv7vbturw6xtkrhwp3bejmkpp4mchwfam4fu7xxxjczwz3tou");
+			assert(params["record"]["embed"]["video"]["size"].get!uint == videoBin.length);
+			assert(params["record"]["embed"]["alt"].str == "サンプルビデオ");
+		}
+		assert(postRes.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/2h3dz4kvz4hwa");
+		assert(postRes.cid == "ox5yoxngzmhcqacxuvzikrqqypfwswbtf4l2ynhvsip5jjkkoqzo4cv2fb3");
+	}
+	
 	/// ditto
 	PostRef sendQuotePost(string uri, string message, string[] langs = null) @safe
 	{
-		return sendPost(message, EmbedData(getPostRef(uri)), ReplyRef.init, langs);
+		return sendPost(message, Embed(app.bsky.embed.Record(getPostRef(uri))), ReplyRef.init, langs);
 	}
 	/// ditto
 	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Images images, string[] langs = null) @safe
@@ -2376,6 +2449,19 @@ public:
 	PostRef sendQuotePost(string uri, string message, EmbedExternal external, string[] langs = null) @safe
 	{
 		return sendQuotePost(uri, message, getEmbedExternal(external), langs);
+	}
+	/// ditto
+	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Video video, string[] langs = null) @safe
+	{
+		return sendPost(message, Embed(app.bsky.embed.RecordWithMedia(
+			record: getPostRef(uri),
+			media: app.bsky.embed.RecordWithMedia.Media(video))),
+			ReplyRef.init, langs);
+	}
+	/// ditto
+	PostRef sendQuotePost(string uri, string message, EmbedVideo video, string[] langs = null) @safe
+	{
+		return sendQuotePost(uri, message, getEmbedVideo(video), langs);
 	}
 	
 	// sendQuotePost
@@ -2514,6 +2600,57 @@ public:
 		}
 		assert(postRes.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/gc5wkr6ugklb6");
 		assert(postRes.cid == "7snq6kjyin5s5mth2omrbriiy5bsi4eb5laet6zmyfkn7zt64nqy4vsb2ub");
+	}
+	
+	// sendQuotePost (with video)
+	@safe unittest
+	{
+		auto client = _createDummyClient("77a41238-9d21-4d88-881d-4fbbdec2c4ec");
+		auto videoBin = readDataSource("sample-video.mp4");
+		auto postRes = client.sendQuotePost("at://did:plc:mhz3szj7pcjfpzv7pylcmlgx/app.bsky.feed.post/sjxklekf4hsir",
+			"Quote video post test", EmbedVideo(videoBin, "video/mp4", "サンプルビデオ"));
+		with (client.req(0))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.uploadBlob`);
+			assert(mimeType == `video/mp4`);
+			assert(bodyBinary == videoBin);
+		}
+		with (client.req(1))
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.getRecord`);
+			assert(query
+				== "rkey=sjxklekf4hsir&repo=did%3Aplc%3Amhz3szj7pcjfpzv7pylcmlgx&collection=app.bsky.feed.post");
+			assert(bodyBinary == ``.representation);
+		}
+		with (client.req(2))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.createRecord`);
+			assert(query == "");
+			assert(mimeType == "application/json");
+			auto params = parseJSON(cast(const char[])bodyBinary);
+			assert(params["collection"].str == "app.bsky.feed.post");
+			assert(params["record"]["$type"].str == "app.bsky.feed.post");
+			assert(params["record"]["embed"]["$type"].str == "app.bsky.embed.recordWithMedia");
+			assert(params["record"]["embed"]["record"]["record"]["cid"].str
+				== "dx2imfjwbdohkh4re7hh6dguhpczu5mhruw4ofkn6sdmhk4uimas37c5a74");
+			assert(params["record"]["embed"]["record"]["record"]["uri"].str
+				== "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/5ni6rkonpzlx2");
+			
+			assert(params["record"]["embed"]["media"]["$type"].str == "app.bsky.embed.video");
+			assert(params["record"]["embed"]["media"]["video"]["$type"].str == "blob");
+			assert(params["record"]["embed"]["media"]["video"]["mimeType"].str == "video/mp4");
+			assert(params["record"]["embed"]["media"]["video"]["ref"]["$link"].str
+				== "ew7k3lcbapyv7vbturw6xtkrhwp3bejmkpp4mchwfam4fu7xxxjczwz3tou");
+			assert(params["record"]["embed"]["media"]["video"]["size"].get!size_t() == 362842);
+			assert(params["record"]["embed"]["media"]["alt"].str == "サンプルビデオ");
+			
+			assert(params["record"]["text"].str == "Quote video post test");
+		}
+		assert(postRes.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/g3x434awoucyf");
+		assert(postRes.cid == "g26lz3rbld5w2clel6a7t5b643ujbxtj2gnmmmtf3ibrpigelhbqsuxhipf");
 	}
 	
 	/***************************************************************************
@@ -2739,8 +2876,15 @@ debug (ProvisioningDataSource) @safe unittest
 	version (none)
 	{
 		// 画像投稿
-		auto imgBin = (() @trusted => cast(immutable(ubyte)[])std.file.read("tests/.ut-data_source/d-man.png"))();
+		auto imgBin = readDataSource("d-man.png");
 		auto postRes = client.sendPost("画像テスト", [Bluesky.EmbedImage(imgBin, "image/png", "D言語くん")]);
+		client.deletePost(postRes.uri);
+	}
+	version (none)
+	{
+		// 動画投稿
+		auto videoBin = readDataSource("sample-video.mp4");
+		auto postRes = client.sendPost("動画テスト", Bluesky.EmbedVideo(videoBin, "video/mp4", "サンプルビデオ"));
 		client.deletePost(postRes.uri);
 	}
 	version (none)
@@ -2761,6 +2905,14 @@ debug (ProvisioningDataSource) @safe unittest
 		auto imgBin = readDataSource("d-man.png");
 		auto postRes = client.sendReplyPost("at://did:plc:vuc5dzl4377xhfuwkcyyfrqc/app.bsky.feed.post/3kpadeirzya27",
 			"画像テスト", [Bluesky.EmbedImage(imgBin, "image/png", "D言語くん")]);
+		client.deletePost(postRes.uri);
+	}
+	version (none)
+	{
+		// 動画投稿
+		auto videoBin = readDataSource("sample-video.mp4");
+		auto postRes = client.sendReplyPost("at://did:plc:vuc5dzl4377xhfuwkcyyfrqc/app.bsky.feed.post/3kpadeirzya27",
+			"動画テスト", Bluesky.EmbedVideo(videoBin, "video/mp4", "サンプルビデオ"));
 		client.deletePost(postRes.uri);
 	}
 	
@@ -2809,6 +2961,15 @@ debug (ProvisioningDataSource) @safe unittest
 			"D is a general-purpose programming language with static typing, systems-level access, and C-like syntax.",
 			thumbImg, "image/png"));
 	}
+	version (none)
+	{
+		// 動画引用ポスト
+		auto videoBin = readDataSource("sample-video.mp4");
+		auto postRes = client.sendQuotePost("at://did:plc:vuc5dzl4377xhfuwkcyyfrqc/app.bsky.feed.post/3kpadeirzya27",
+			"Quote video post test", Bluesky.EmbedVideo(videoBin, "video/mp4", "サンプルビデオ"));
+		client.deletePost(postRes.uri);
+	}
+	
 }
 
 version (unittest) package(bsky) auto _createDummyClient(string uuid = null,

@@ -12,10 +12,33 @@ public import bsky.lexicons.com.atproto.repo: StrongRef;
 
 import std.sumtype;
 
-
+/*******************************************************************************
+ * app.bsky.embed.defs.aspectRatio
+ * 
+ * width:height represents an aspect ratio. It may be approximate, and may not
+ * correspond to absolute dimensions in any given unit.
+ */
+struct AspectRatio
+{
+	/***************************************************************************
+	 * Width
+	 * 
+	 * minimum = 1
+	 */
+	int width;
+	
+	/***************************************************************************
+	 * Height
+	 * 
+	 * minimum = 1
+	 */
+	int height;
+}
 
 /*******************************************************************************
- * Embed data of images
+ * app.bsky.embed.images: Embed data of images
+ * 
+ * A set of images embedded in a Bluesky record (eg, a post).
  */
 struct Images
 {
@@ -38,6 +61,11 @@ struct Images
 		 * Alt text
 		 */
 		string alt;
+		/***********************************************************************
+		 * Aspect ratio
+		 */
+		@ignoreIf!(img => img.aspectRatio is AspectRatio.init)
+		AspectRatio aspectRatio;
 	}
 	/// ditto
 	Image[] images;
@@ -55,9 +83,14 @@ struct Images
 		this.images = [image];
 	}
 	/// ditto
-	this(Blob blob, string alt) pure nothrow @safe
+	this(Blob blob, string alt, AspectRatio aspect = AspectRatio.init) pure nothrow @safe
 	{
-		this.images = [Image(blob, alt)];
+		this(Image(blob, alt, aspect));
+	}
+	/// ditto
+	this(Blob blob, string alt, int width, int height) pure nothrow @safe
+	{
+		this(blob, alt, AspectRatio(width, height));
 	}
 }
 
@@ -72,12 +105,24 @@ struct Images
 	assert("images" in jv);
 	assert(jv["images"].type == JSONType.array);
 	assert(jv["images"][0].getValue!string("alt") == "test");
+	assert("aspectRatio" !in jv["images"][0]);
 	auto imgs2 = jv.deserializeFromJson!Images;
 	assert(imgs == imgs2);
+	
+	jv = Images(Blob.init, "test", 100, 40).serializeToJson();
+	assert(jv.getValue!string("$type") == "app.bsky.embed.images");
+	assert("images" in jv);
+	assert(jv["images"].type == JSONType.array);
+	assert(jv["images"][0].getValue!string("alt") == "test");
+	assert(jv["images"][0]["aspectRatio"]["width"].get!int == 100);
+	assert(jv["images"][0]["aspectRatio"]["height"].get!int == 40);
 }
 
 /*******************************************************************************
- * Embed data of external link
+ * app.bsky.embed.external: Embed data of external link
+ * 
+ * A representation of some externally linked content (eg, a URL and 'card'),
+ * embedded in a Bluesky record (eg, a post).
  */
 struct External
 {
@@ -139,7 +184,10 @@ struct External
 }
 
 /*******************************************************************************
- * Embed data of record
+ * app.bsky.embed.record: Embed data of record
+ * 
+ * A representation of a record embedded in a Bluesky record (eg, a post).
+ * For example, a quote-post, or sharing a feed generator record.
  */
 struct Record
 {
@@ -207,7 +255,7 @@ struct RecordWithMedia
 	/***************************************************************************
 	 * Image/External data
 	 */
-	alias Media = SumType!(Images, External);
+	alias Media = SumType!(Images, Video, External);
 	/// ditto
 	Media media;
 	
@@ -235,6 +283,11 @@ struct RecordWithMedia
 		this(record, Images(image));
 	}
 	/// ditto
+	this(Record record, Video video) pure nothrow @nogc @safe
+	{
+		this(record, Media(video));
+	}
+	/// ditto
 	this(StrongRef record, Media media) pure nothrow @nogc @safe
 	{
 		this(Record(record), media);
@@ -254,10 +307,13 @@ struct RecordWithMedia
 	{
 		this(Record(record), images);
 	}
+	/// ditto
+	this(StrongRef record, Video video) pure nothrow @nogc @safe
+	{
+		this(Record(record), video);
+	}
 }
-/*******************************************************************************
- * Embed data of external link
- */
+/// ditto
 @safe unittest
 {
 	import std.json;
@@ -278,7 +334,92 @@ struct RecordWithMedia
 	assert(rwm == rwm2);
 }
 
-alias Embed = SumType!(Images, External, Record, RecordWithMedia);
+
+/*******************************************************************************
+ * app.bsky.embed.video: Embed data of video
+ * 
+ * A video embedded in a Bluesky record (eg, a post).
+ */
+struct Video
+{
+	/***************************************************************************
+	 * Type
+	 */
+	@name("$type") @key @value!"app.bsky.embed.video"
+	string type = "app.bsky.embed.video";
+	
+	/***************************************************************************
+	 * Video data
+	 */
+	Blob video;
+	
+	/***************************************************************************
+	 * Caption data
+	 */
+	struct Caption
+	{
+		/***********************************************************************
+		 * Language
+		 */
+		string lang;
+		/***********************************************************************
+		 * File
+		 * 
+		 * Accept: text/vtt
+		 */
+		Blob file;
+	}
+	/// ditto
+	@ignoreIf!(video => video.captions.length == 0)
+	Caption[] captions;
+	
+	/***************************************************************************
+	 * Alt string
+	 * 
+	 * Alt text description of the video, for accessibility.
+	 */
+	@ignoreIf!(video => video.alt.length == 0)
+	string alt;
+	
+	/***************************************************************************
+	 * Aspect ratio
+	 */
+	@ignoreIf!(video => video.aspectRatio is AspectRatio.init)
+	AspectRatio aspectRatio;
+}
+
+@safe unittest
+{
+	import std.json;
+	import bsky._internal.json;
+	auto video = Video();
+	auto jv = video.serializeToJson();
+	assert(jv.getValue!string("$type") == "app.bsky.embed.video");
+	assert("video" in jv);
+	assert(jv["video"].type == JSONType.object);
+	assert(jv["video"]["ref"]["$link"].type == JSONType.string);
+	assert("alt" !in jv["video"]);
+	assert("aspectRatio" !in jv["video"]);
+	assert("captions" !in jv["video"]);
+	auto video2 = jv.deserializeFromJson!Video;
+	assert(video == video2);
+	
+	jv = Video(
+		video: Blob.init,
+		captions: [Video.Caption("ja", Blob.init)],
+		alt: "test",
+		aspectRatio: AspectRatio(100, 40)).serializeToJson();
+	assert(jv.getValue!string("$type") == "app.bsky.embed.video");
+	assert("video" in jv);
+	assert(jv["video"].type == JSONType.object);
+	assert(jv["alt"].str == "test");
+	assert(jv["captions"][0]["lang"].str == "ja");
+	assert(jv["aspectRatio"]["width"].get!int == 100);
+	assert(jv["aspectRatio"]["height"].get!int == 40);
+}
+
+
+alias Embed = SumType!(Images, External, Record, RecordWithMedia, Video);
 @safe unittest
 {
 	import std.json;
