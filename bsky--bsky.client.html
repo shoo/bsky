@@ -508,7 +508,11 @@ const @safe AutoUpdateStrategy <code class="ddoc_psymbol">autoUpdateAccessTokens
 <div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
  did</div>
 </dd>
-<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.createRecord"></span><div class="quickindex" id="quickindex.Bluesky.createRecord"></div>@safe JSONValue <code class="ddoc_psymbol">createRecord</code>(JSONValue <span class="ddoc_param">record</span>, string <span class="ddoc_param">collection</span> = "app.bsky.feed.post", string <span class="ddoc_param">rkey</span> = null, bool <span class="ddoc_param">validate</span> = true, string <span class="ddoc_param">swapCommit</span> = null);
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.createRecord"></span><div class="quickindex" id="quickindex.Bluesky.createRecord"></div>@safe JSONValue <code class="ddoc_psymbol">createRecord</code>(JSONValue <span class="ddoc_param">record</span>, string <span class="ddoc_param">collection</span>, JSONValue <span class="ddoc_param">opts</span>);
+<br>
+@safe JSONValue <code class="ddoc_psymbol">createRecord</code>(JSONValue <span class="ddoc_param">record</span>, string <span class="ddoc_param">collection</span>, string <span class="ddoc_param">rkey</span>, bool <span class="ddoc_param">validate</span>, string <span class="ddoc_param">swapCommit</span>);
+<br>
+@safe JSONValue <code class="ddoc_psymbol">createRecord</code>(JSONValue <span class="ddoc_param">record</span>, string <span class="ddoc_param">collection</span> = "app.bsky.feed.post", string <span class="ddoc_param">rkey</span> = null, string <span class="ddoc_param">swapCommit</span> = null);
 <br></div></dt>
 <dd><div class="ddoc_summary">Create repository <span class="ddoc_param">record</span>
 </div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
@@ -523,6 +527,25 @@ const @safe AutoUpdateStrategy <code class="ddoc_psymbol">autoUpdateAccessTokens
 <td class="ddoc_param_desc">The Record Key.</td></tr>
 <tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">swapCommit</span></td>
 <td class="ddoc_param_desc">Compare and swap with the previous commit by CID.</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ JSON of upload result data</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getRecord"></span><div class="quickindex" id="quickindex.Bluesky.getRecord"></div>@safe JSONValue <code class="ddoc_psymbol">getRecord</code>(string <span class="ddoc_param">authority</span>, string <span class="ddoc_param">collection</span>, string <span class="ddoc_param">rkey</span>);
+<br>
+@safe JSONValue <code class="ddoc_psymbol">getRecord</code>(AtProtoURI <span class="ddoc_param">uri</span>);
+<br>
+@safe JSONValue <code class="ddoc_psymbol">getRecord</code>(string <span class="ddoc_param">uri</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get repository record
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">authority</span></td>
+<td class="ddoc_param_desc">Author of repository.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">collection</span></td>
+<td class="ddoc_param_desc">Collection of records.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">rkey</span></td>
+<td class="ddoc_param_desc">The Record Key.</td></tr>
 </table></div>
 
 <div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
@@ -577,7 +600,7 @@ bsky.lexcons.com.atproto.repo.StrongRef</div>
 <br>
 <span class="def-anchor" id=".Bluesky.getEmbedImage"></span><div class="quickindex" id="quickindex.Bluesky.getEmbedImage"></div>@safe app.bsky.embed.Images.Image <code class="ddoc_psymbol">getEmbedImage</code>(EmbedImage <span class="ddoc_param">image</span>);
 <br>
-@safe app.bsky.embed.Images.Image <code class="ddoc_psymbol">getEmbedImage</code>(immutable(ubyte)[] <span class="ddoc_param">imageData</span>, string <span class="ddoc_param">mimeType</span>, string <span class="ddoc_param">alt</span>);
+@safe app.bsky.embed.Images.Image <code class="ddoc_psymbol">getEmbedImage</code>(immutable(ubyte)[] <span class="ddoc_param">imageData</span>, string <span class="ddoc_param">mimeType</span>, string <span class="ddoc_param">alt</span>, int <span class="ddoc_param">width</span> = 0, int <span class="ddoc_param">height</span> = 0);
 <br>
 <span class="def-anchor" id=".Bluesky.getEmbedImages"></span><div class="quickindex" id="quickindex.Bluesky.getEmbedImages"></div>@safe app.bsky.embed.Images <code class="ddoc_psymbol">getEmbedImages</code>(EmbedImage[] <span class="ddoc_param">images</span>);
 <br></div></dt>
@@ -593,6 +616,12 @@ bsky.lexcons.com.atproto.repo.StrongRef</div>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedImage.alt"></span><div class="quickindex" id="quickindex.Bluesky.EmbedImage.alt"></div>string <code class="ddoc_psymbol">alt</code>;
 <br></div></dt>
 <dd><div class="ddoc_summary">Alt text</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedImage.width"></span><div class="quickindex" id="quickindex.Bluesky.EmbedImage.width"></div>int <code class="ddoc_psymbol">width</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Aspect ratio - <code class="ddoc_psymbol">width</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedImage.height"></span><div class="quickindex" id="quickindex.Bluesky.EmbedImage.height"></div>int <code class="ddoc_psymbol">height</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Aspect ratio - <code class="ddoc_psymbol">height</code></div></dd>
 </div></dl>
 </dd>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedExternal"></span><div class="quickindex" id="quickindex.Bluesky.EmbedExternal"></div>struct <code class="ddoc_psymbol">EmbedExternal</code>;
@@ -633,9 +662,45 @@ bsky.lexcons.com.atproto.repo.StrongRef</div>
 <dd><div class="ddoc_summary">Image data</div></dd>
 </div></dl>
 </dd>
-<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedData"></span><div class="quickindex" id="quickindex.Bluesky.EmbedData"></div>alias <code class="ddoc_psymbol">EmbedData</code> = std.sumtype.SumType!(EmbedImage[], EmbedExternal, StrongRef, EmbedRecordWithMedia).SumType;
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo"></div>struct <code class="ddoc_psymbol">EmbedVideo</code>;
+<br>
+<span class="def-anchor" id=".Bluesky.getEmbedVideo"></span><div class="quickindex" id="quickindex.Bluesky.getEmbedVideo"></div>@safe app.bsky.embed.Video <code class="ddoc_psymbol">getEmbedVideo</code>(EmbedVideo <span class="ddoc_param">video</span>);
+<br>
+@safe app.bsky.embed.Video <code class="ddoc_psymbol">getEmbedVideo</code>(immutable(ubyte)[] <span class="ddoc_param">videoData</span>, string <span class="ddoc_param">mimeType</span>, string <span class="ddoc_param">alt</span>, int <span class="ddoc_param">width</span> = 0, int <span class="ddoc_param">height</span> = 0);
+<br></div></dt>
+<dd><div class="ddoc_summary">Embed data of image</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.video"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.video"></div>immutable(ubyte)[] <code class="ddoc_psymbol">video</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Binary of image
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">Limitation:</span>
+&lt; 1MB</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.mimeType"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.mimeType"></div>string <code class="ddoc_psymbol">mimeType</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">MimeType of image</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.alt"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.alt"></div>string <code class="ddoc_psymbol">alt</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Alt text</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.width"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.width"></div>int <code class="ddoc_psymbol">width</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Aspect ratio - <code class="ddoc_psymbol">width</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.height"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.height"></div>int <code class="ddoc_psymbol">height</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Aspect ratio - <code class="ddoc_psymbol">height</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.Caption"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.Caption"></div>struct <code class="ddoc_psymbol">Caption</code>;
+<br>
+<span class="def-anchor" id=".Bluesky.EmbedVideo.captions"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.captions"></div>Caption[] <code class="ddoc_psymbol">captions</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary"><code class="ddoc_psymbol">Caption</code> file</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.Caption.lang"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.Caption.lang"></div>string <code class="ddoc_psymbol">lang</code>;
 <br></div></dt>
 <dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.EmbedVideo.Caption.data"></span><div class="quickindex" id="quickindex.Bluesky.EmbedVideo.Caption.data"></div>immutable(ubyte)[] <code class="ddoc_psymbol">data</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+</div></dl>
 </dd>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getReplyRef"></span><div class="quickindex" id="quickindex.Bluesky.getReplyRef"></div>@safe ReplyRef <code class="ddoc_psymbol">getReplyRef</code>(string <span class="ddoc_param">uri</span>);
 <br></div></dt>
@@ -650,77 +715,87 @@ bsky.lexcons.com.atproto.repo.StrongRef</div>
 <div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">ReplyRef:</span>
 bsky.lexcons.app.bsky.feed.ReplyRef</div>
 </dd>
-<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.sendPost"></span><div class="quickindex" id="quickindex.Bluesky.sendPost"></div>@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, Embed <span class="ddoc_param">embed</span>, ReplyRef <span class="ddoc_param">replyRef</span> = ReplyRef.init, string[] <span class="ddoc_param">langs</span> = null);
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.sendPost"></span><div class="quickindex" id="quickindex.Bluesky.sendPost"></div>@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, Embed <span class="ddoc_param">embed</span>, ReplyRef <span class="ddoc_param">replyRef</span> = ReplyRef.init, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedData <span class="ddoc_param">embed</span>, ReplyRef <span class="ddoc_param">replyRef</span> = ReplyRef.init, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Record <span class="ddoc_param">record</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Record <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.RecordWithMedia <span class="ddoc_param">rwm</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.RecordWithMedia <span class="ddoc_param">rwm</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecordWithMedia <span class="ddoc_param">recordWithMedia</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecordWithMedia <span class="ddoc_param">recordWithMedia</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedImage <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedImage[] <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedImage[] <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedExternal <span class="ddoc_param">external</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, app.bsky.embed.Video <span class="ddoc_param">video</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-<span class="def-anchor" id=".Bluesky.sendReplyPost"></span><div class="quickindex" id="quickindex.Bluesky.sendReplyPost"></div>@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, Embed <span class="ddoc_param">embed</span> = Embed.init, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendPost</code>(string <span class="ddoc_param">message</span>, EmbedVideo <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+<span class="def-anchor" id=".Bluesky.sendReplyPost"></span><div class="quickindex" id="quickindex.Bluesky.sendReplyPost"></div>@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, Embed <span class="ddoc_param">embed</span> = Embed.init, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image[] <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Record <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Record <span class="ddoc_param">record</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.RecordWithMedia <span class="ddoc_param">recordWithMedia</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedRecord <span class="ddoc_param">record</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedRecordWithMedia <span class="ddoc_param">recordWithMedia</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.RecordWithMedia <span class="ddoc_param">recordWithMedia</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-<span class="def-anchor" id=".Bluesky.sendQuotePost"></span><div class="quickindex" id="quickindex.Bluesky.sendQuotePost"></div>@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedRecordWithMedia <span class="ddoc_param">recordWithMedia</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Video <span class="ddoc_param">video</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendReplyPost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedVideo <span class="ddoc_param">video</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+<span class="def-anchor" id=".Bluesky.sendQuotePost"></span><div class="quickindex" id="quickindex.Bluesky.sendQuotePost"></div>@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image[] <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Images.Image <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br>
-@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, string[] <span class="ddoc_param">langs</span> = null);
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage <span class="ddoc_param">image</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedImage[] <span class="ddoc_param">images</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.External <span class="ddoc_param">external</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedExternal <span class="ddoc_param">external</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, app.bsky.embed.Video <span class="ddoc_param">video</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
+<br>
+@safe PostRef <code class="ddoc_psymbol">sendQuotePost</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">message</span>, EmbedVideo <span class="ddoc_param">video</span>, JSONValue <span class="ddoc_param">opts</span> = JSONValue.init);
 <br></div></dt>
 <dd><div class="ddoc_summary">Post <span class="ddoc_param">message</span>
 </div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
@@ -728,10 +803,13 @@ bsky.lexcons.app.bsky.feed.ReplyRef</div>
 <td class="ddoc_param_desc">Record of post</td></tr>
 <tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">message</span></td>
 <td class="ddoc_param_desc">Main text of post</td></tr>
-<tr class="ddoc_param_row"><td class="ddoc_param_id">string[] <span class="ddoc_param">langs</span></td>
-<td class="ddoc_param_desc">Array of language of post, default (<code class="ddoc_keyword">null</code>) is nothing</td></tr>
 <tr class="ddoc_param_row"><td class="ddoc_param_id">app.bsky.<span class="ddoc_param">embed</span>.Images <span class="ddoc_param">images</span></td>
 <td class="ddoc_param_desc">Embed <span class="ddoc_param">images</span> of post</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">JSONValue <span class="ddoc_param">opts</span></td>
+<td class="ddoc_param_desc">Optional parameter of <code class="d_inlinecode donthyphenate notranslate">com.atproto.repo.createRecord</code> <br />
+            (ex1) langs: <code class="d_inlinecode donthyphenate notranslate">JSONValue(["<span class="ddoc_param">record</span>": JSONValue(["langs": JSONValue(["th", "en-US"])])])</code> <br />
+            (ex2) validation: <code class="d_inlinecode donthyphenate notranslate">JSONValue(["validation": true])</code> <br />
+            (ex3) optional field: <code class="d_inlinecode donthyphenate notranslate">JSONValue(["validation": JSONValue(false), "<span class="ddoc_param">record</span>": JSONValue(["optionalField": "data"])])</code></td></tr>
 </table></div>
 
 </dd>

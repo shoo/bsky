@@ -4286,7 +4286,65 @@
       "comment" : " Create repository record\n\n Params:\n     record = Record to create as <collection>\n     collection = Collection of record\n     validate = Can be set to 'false' to skip Lexicon schema validation of record data,\n                'true' to require it, or leave unset to validate only for known Lexicons.\n     rkey = The Record Key.\n     swapCommit = Compare and swap with the previous commit by CID.\n Returns:\n     JSON of upload result data\n",
       "line" : 1521,
       "char" : 12,
+      "deco" : "FNfS3std4json9JSONValueAyaQxZQBa",
+      "parameters" : [
+       {
+        "name" : "record",
+        "deco" : "S3std4json9JSONValue"
+       },
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue"
+       }
+      ],
+      "endline" : 1532,
+      "endchar" : 2
+     },
+     {
+      "name" : "createRecord",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1534,
+      "char" : 12,
       "deco" : "FNfS3std4json9JSONValueAyaQdbQgZQBd",
+      "parameters" : [
+       {
+        "name" : "record",
+        "deco" : "S3std4json9JSONValue"
+       },
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "rkey",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "validate",
+        "deco" : "b"
+       },
+       {
+        "name" : "swapCommit",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 1544,
+      "endchar" : 2
+     },
+     {
+      "name" : "createRecord",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1546,
+      "char" : 12,
+      "deco" : "FNfS3std4json9JSONValueAyaQdQfZQBc",
       "parameters" : [
        {
         "name" : "record",
@@ -4303,17 +4361,71 @@
         "default" : "null"
        },
        {
-        "name" : "validate",
-        "deco" : "b",
-        "default" : "true"
-       },
-       {
         "name" : "swapCommit",
         "deco" : "Aya",
         "default" : "null"
        }
       ],
-      "endline" : 1537,
+      "endline" : 1556,
+      "endchar" : 2
+     },
+     {
+      "name" : "getRecord",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : " Get repository record\n\n Params:\n     authority = Author of repository.\n     collection = Collection of records.\n     rkey = The Record Key.\n Returns:\n     JSON of upload result data\n",
+      "line" : 1568,
+      "char" : 12,
+      "deco" : "FNfAyaQdQfZS3std4json9JSONValue",
+      "parameters" : [
+       {
+        "name" : "authority",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "rkey",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 1576,
+      "endchar" : 2
+     },
+     {
+      "name" : "getRecord",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1579,
+      "char" : 12,
+      "deco" : "FNfS4bsky4data10AtProtoURIZS3std4json9JSONValue",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "S4bsky4data10AtProtoURI"
+       }
+      ],
+      "endline" : 1582,
+      "endchar" : 2
+     },
+     {
+      "name" : "getRecord",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1585,
+      "char" : 12,
+      "deco" : "FNfAyaZS3std4json9JSONValue",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 1588,
       "endchar" : 2
      },
      {
@@ -4321,7 +4433,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Delete repository record\n\n Params:\n     collection = Collection of record\n     rkey = refresh key of record\n     swapRecord = Swap Record\n     swapCommit = Swap Commit\n Returns:\n     JSON of upload result data\n",
-      "line" : 1550,
+      "line" : 1601,
       "char" : 7,
       "deco" : "FNfAyaQdQfQhZv",
       "parameters" : [
@@ -4344,7 +4456,7 @@
         "default" : "null"
        }
       ],
-      "endline" : 1563,
+      "endline" : 1614,
       "endchar" : 2
      },
      {
@@ -4352,7 +4464,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Upload blob data\n\n Params:\n     data = Upload data\n     mimeType = Upload data type\n Returns:\n     JSON of upload result data\n",
-      "line" : 1574,
+      "line" : 1625,
       "char" : 7,
       "deco" : "FNfAyhAyaZS4bsky8lexicons4data4Blob",
       "parameters" : [
@@ -4365,7 +4477,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1579,
+      "endline" : 1630,
       "endchar" : 2
      },
      {
@@ -4373,7 +4485,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Reply data from URI\n\n Params:\n     uri = URI of reply parent\n Returns:\n     PostRef: bsky.lexcons.com.atproto.repo.StrongRef\n",
-      "line" : 1589,
+      "line" : 1640,
       "char" : 12,
       "deco" : "FNfAyaZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "parameters" : [
@@ -4382,7 +4494,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1602,
+      "endline" : 1648,
       "endchar" : 2
      },
      {
@@ -4390,7 +4502,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1604,
+      "line" : 1650,
       "char" : 2,
       "originalType" : "getRecordRef"
      },
@@ -4399,7 +4511,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Embed data of image\n",
-      "line" : 1609,
+      "line" : 1655,
       "char" : 2,
       "members" : [
        {
@@ -4407,7 +4519,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Binary of image\n\n Limitation: &lt; 1MB\n",
-        "line" : 1616,
+        "line" : 1662,
         "char" : 22,
         "deco" : "Ayh",
         "offset" : 0
@@ -4417,7 +4529,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " MimeType of image\n",
-        "line" : 1620,
+        "line" : 1666,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -4427,10 +4539,30 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Alt text\n",
-        "line" : 1624,
+        "line" : 1670,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
+       },
+       {
+        "name" : "width",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Aspect ratio - width\n",
+        "line" : 1674,
+        "char" : 7,
+        "deco" : "i",
+        "offset" : 48
+       },
+       {
+        "name" : "height",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Aspect ratio - height\n",
+        "line" : 1678,
+        "char" : 7,
+        "deco" : "i",
+        "offset" : 52
        }
       ]
      },
@@ -4439,7 +4571,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1627,
+      "line" : 1681,
       "char" : 30,
       "deco" : "FNfS4bsky6client7Bluesky10EmbedImageZSQBi8lexicons3appQBy5embed6Images5Image",
       "originalType" : "@safe app.bsky.embed.Images.Image(EmbedImage image)",
@@ -4449,7 +4581,7 @@
         "deco" : "S4bsky6client7Bluesky10EmbedImage"
        }
       ],
-      "endline" : 1632,
+      "endline" : 1687,
       "endchar" : 2
      },
      {
@@ -4457,10 +4589,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1634,
+      "line" : 1689,
       "char" : 30,
-      "deco" : "FNfAyhAyaQdZS4bsky8lexicons3appQs5embed6Images5Image",
-      "originalType" : "@safe app.bsky.embed.Images.Image(immutable(ubyte)[] imageData, string mimeType, string alt)",
+      "deco" : "FNfAyhAyaQdiiZS4bsky8lexicons3appQs5embed6Images5Image",
+      "originalType" : "@safe app.bsky.embed.Images.Image(immutable(ubyte)[] imageData, string mimeType, string alt, int width = 0, int height = 0)",
       "parameters" : [
        {
         "name" : "imageData",
@@ -4473,9 +4605,19 @@
        {
         "name" : "alt",
         "deco" : "Aya"
+       },
+       {
+        "name" : "width",
+        "deco" : "i",
+        "default" : "0"
+       },
+       {
+        "name" : "height",
+        "deco" : "i",
+        "default" : "0"
        }
       ],
-      "endline" : 1639,
+      "endline" : 1696,
       "endchar" : 2
      },
      {
@@ -4483,7 +4625,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1641,
+      "line" : 1698,
       "char" : 24,
       "deco" : "FNfAS4bsky6client7Bluesky10EmbedImageZSQBi8lexicons3appQBy5embed6Images",
       "originalType" : "@safe app.bsky.embed.Images(EmbedImage[] images)",
@@ -4493,7 +4635,7 @@
         "deco" : "AS4bsky6client7Bluesky10EmbedImage"
        }
       ],
-      "endline" : 1646,
+      "endline" : 1703,
       "endchar" : 2
      },
      {
@@ -4501,7 +4643,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Embed data of external link\n",
-      "line" : 1651,
+      "line" : 1708,
       "char" : 2,
       "members" : [
        {
@@ -4509,7 +4651,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " URL of external link\n",
-        "line" : 1656,
+        "line" : 1713,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -4519,7 +4661,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Title of external link\n",
-        "line" : 1660,
+        "line" : 1717,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -4529,7 +4671,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Descriptions\n",
-        "line" : 1664,
+        "line" : 1721,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
@@ -4539,7 +4681,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Thumbnail of external link\n",
-        "line" : 1668,
+        "line" : 1725,
         "char" : 22,
         "deco" : "Ayh",
         "offset" : 48
@@ -4549,7 +4691,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Thumbnail of external link\n",
-        "line" : 1672,
+        "line" : 1729,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 64
@@ -4561,7 +4703,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1675,
+      "line" : 1732,
       "char" : 26,
       "deco" : "FNfS4bsky6client7Bluesky13EmbedExternalZSQBl8lexicons3appQCb5embed8External",
       "originalType" : "@safe app.bsky.embed.External(EmbedExternal external)",
@@ -4571,7 +4713,7 @@
         "deco" : "S4bsky6client7Bluesky13EmbedExternal"
        }
       ],
-      "endline" : 1686,
+      "endline" : 1743,
       "endchar" : 2
      },
      {
@@ -4579,7 +4721,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1688,
+      "line" : 1745,
       "char" : 26,
       "deco" : "FNfAyaQdQfAyhQkZS4bsky8lexicons3appQs5embed8External",
       "originalType" : "@safe app.bsky.embed.External(string uri, string title, string description, immutable(ubyte)[] thumb = null, string thumbMimeType = null)",
@@ -4607,7 +4749,7 @@
         "default" : "null"
        }
       ],
-      "endline" : 1692,
+      "endline" : 1749,
       "endchar" : 2
      },
      {
@@ -4615,7 +4757,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : " Embed data of external link\n",
-      "line" : 1697,
+      "line" : 1754,
       "char" : 2,
       "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef"
      },
@@ -4624,7 +4766,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Embed data of external link\n",
-      "line" : 1702,
+      "line" : 1759,
       "char" : 2,
       "members" : [
        {
@@ -4632,7 +4774,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " URI of record\n",
-        "line" : 1707,
+        "line" : 1764,
         "char" : 11,
         "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef",
         "originalType" : "PostRef",
@@ -4643,7 +4785,7 @@
         "kind" : "alias",
         "protection" : "public",
         "comment" : " Image data\n",
-        "line" : 1711,
+        "line" : 1768,
         "char" : 3,
         "deco" : "S3std7sumtype__T7SumTypeTAS4bsky6client7Bluesky10EmbedImageTSQBiQBgQBc13EmbedExternalZQCs"
        },
@@ -4652,7 +4794,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "ditto\n",
-        "line" : 1713,
+        "line" : 1770,
         "char" : 9,
         "deco" : "S3std7sumtype__T7SumTypeTAS4bsky6client7Bluesky10EmbedImageTSQBiQBgQBc13EmbedExternalZQCs",
         "originalType" : "Media",
@@ -4662,7 +4804,7 @@
         "name" : "opAssign",
         "kind" : "generated function",
         "protection" : "public",
-        "line" : 1702,
+        "line" : 1759,
         "char" : 2,
         "deco" : "FNaNbNcNiNjS4bsky6client7Bluesky20EmbedRecordWithMediaZQBs",
         "originalType" : "ref EmbedRecordWithMedia(EmbedRecordWithMedia p) return",
@@ -4676,21 +4818,165 @@
       ]
      },
      {
-      "name" : "EmbedData",
-      "kind" : "alias",
+      "name" : "EmbedVideo",
+      "kind" : "struct",
       "protection" : "public",
-      "comment" : "\n",
-      "line" : 1717,
+      "comment" : " Embed data of image\n",
+      "line" : 1776,
       "char" : 2,
-      "deco" : "S3std7sumtype__T7SumTypeTAS4bsky6client7Bluesky10EmbedImageTSQBiQBgQBc13EmbedExternalTSQCi8lexicons3com7atproto4repo9StrongRefTSQDxQDvQDr20EmbedRecordWithMediaZQFo",
-      "originalType" : "SumType!(EmbedImage[], EmbedExternal, EmbedRecord, EmbedRecordWithMedia)"
+      "members" : [
+       {
+        "name" : "video",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Binary of image\n\n Limitation: &lt; 1MB\n",
+        "line" : 1783,
+        "char" : 22,
+        "deco" : "Ayh",
+        "offset" : 0
+       },
+       {
+        "name" : "mimeType",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " MimeType of image\n",
+        "line" : 1787,
+        "char" : 10,
+        "deco" : "Aya",
+        "offset" : 16
+       },
+       {
+        "name" : "alt",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Alt text\n",
+        "line" : 1791,
+        "char" : 10,
+        "deco" : "Aya",
+        "offset" : 32
+       },
+       {
+        "name" : "width",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Aspect ratio - width\n",
+        "line" : 1795,
+        "char" : 7,
+        "deco" : "i",
+        "offset" : 48
+       },
+       {
+        "name" : "height",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Aspect ratio - height\n",
+        "line" : 1799,
+        "char" : 7,
+        "deco" : "i",
+        "offset" : 52
+       },
+       {
+        "name" : "Caption",
+        "kind" : "struct",
+        "protection" : "public",
+        "comment" : " Caption file\n",
+        "line" : 1803,
+        "char" : 3,
+        "members" : [
+         {
+          "name" : "lang",
+          "kind" : "variable",
+          "protection" : "public",
+          "comment" : "\n",
+          "line" : 1806,
+          "char" : 11,
+          "deco" : "Aya",
+          "offset" : 0
+         },
+         {
+          "name" : "data",
+          "kind" : "variable",
+          "protection" : "public",
+          "comment" : "\n",
+          "line" : 1808,
+          "char" : 23,
+          "deco" : "Ayh",
+          "offset" : 16
+         }
+        ]
+       },
+       {
+        "name" : "captions",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : "ditto\n",
+        "line" : 1811,
+        "char" : 13,
+        "deco" : "AS4bsky6client7Bluesky10EmbedVideo7Caption",
+        "offset" : 56
+       }
+      ]
+     },
+     {
+      "name" : "getEmbedVideo",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1814,
+      "char" : 23,
+      "deco" : "FNfS4bsky6client7Bluesky10EmbedVideoZSQBi8lexicons3appQBy5embed5Video",
+      "originalType" : "@safe app.bsky.embed.Video(EmbedVideo video)",
+      "parameters" : [
+       {
+        "name" : "video",
+        "deco" : "S4bsky6client7Bluesky10EmbedVideo"
+       }
+      ],
+      "endline" : 1823,
+      "endchar" : 2
+     },
+     {
+      "name" : "getEmbedVideo",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1825,
+      "char" : 23,
+      "deco" : "FNfAyhAyaQdiiZS4bsky8lexicons3appQs5embed5Video",
+      "originalType" : "@safe app.bsky.embed.Video(immutable(ubyte)[] videoData, string mimeType, string alt, int width = 0, int height = 0)",
+      "parameters" : [
+       {
+        "name" : "videoData",
+        "deco" : "Ayh"
+       },
+       {
+        "name" : "mimeType",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "alt",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "width",
+        "deco" : "i",
+        "default" : "0"
+       },
+       {
+        "name" : "height",
+        "deco" : "i",
+        "default" : "0"
+       }
+      ],
+      "endline" : 1829,
+      "endchar" : 2
      },
      {
       "name" : "getReplyRef",
       "kind" : "function",
       "protection" : "public",
       "comment" : " Reply data from URI\n\n Params:\n     uri = URI of reply parent\n Returns:\n     ReplyRef: bsky.lexcons.app.bsky.feed.ReplyRef\n",
-      "line" : 1727,
+      "line" : 1839,
       "char" : 11,
       "deco" : "FNfAyaZS4bsky8lexicons3appQs4feed4Post8ReplyRef",
       "parameters" : [
@@ -4699,18 +4985,18 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1747,
+      "endline" : 1854,
       "endchar" : 2
      },
      {
       "name" : "sendPost",
       "kind" : "function",
       "protection" : "public",
-      "comment" : " Post message\n\n Params:\n     record = Record of post\n     message = Main text of post\n     langs = Array of language of post, default (null) is nothing\n     images = Embed images of post\n\n",
-      "line" : 1759,
+      "comment" : " Post message\n\n Params:\n     record = Record of post\n     message = Main text of post\n     images = Embed images of post\n     opts = Optional parameter of `com.atproto.repo.createRecord` <br />\n            (ex1) langs: `JSONValue([\"record\": JSONValue([\"langs\": JSONValue([\"th\", \"en-US\"])])])` <br />\n            (ex2) validation: `JSONValue([\"validation\": true])` <br />\n            (ex3) optional field: `JSONValue([\"validation\": JSONValue(false), \"record\": JSONValue([\"optionalField\": \"data\"])])`\n",
+      "line" : 1868,
       "char" : 10,
-      "deco" : "FNfAyaS3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaZQEySQEsQEqQEkQFb4feed4Post8ReplyRefAQHbZSQGdQGb3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, Embed embed, ReplyRef replyRef = ReplyRef.init, string[] langs = null)",
+      "deco" : "FNfAyaS3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaTSQEpQEnQEhQEyQEh5VideoZQFvSQFpQFnQFhQFy4feed4Post8ReplyRefSQHu4json9JSONValueZSQHpQHn3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, Embed embed, ReplyRef replyRef = ReplyRef.init, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4718,7 +5004,7 @@
        },
        {
         "name" : "embed",
-        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaZQEy"
+        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaTSQEpQEnQEhQEyQEh5VideoZQFv"
        },
        {
         "name" : "replyRef",
@@ -4726,12 +5012,12 @@
         "default" : "ReplyRef(StrongRef(null, null), StrongRef(null, null))"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1791,
+      "endline" : 1898,
       "endchar" : 2
      },
      {
@@ -4739,31 +5025,22 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1793,
+      "line" : 1900,
       "char" : 10,
-      "deco" : "FNfAyaS3std7sumtype__T7SumTypeTAS4bsky6client7Bluesky10EmbedImageTSQBiQBgQBc13EmbedExternalTSQCi8lexicons3com7atproto4repo9StrongRefTSQDxQDvQDr20EmbedRecordWithMediaZQFoSQFhQCz3appQFr4feed4Post8ReplyRefAQHsZQEl",
-      "originalType" : "@safe PostRef(string message, EmbedData embed, ReplyRef replyRef = ReplyRef.init, string[] langs = null)",
+      "deco" : "FNfAyaS3std4json9JSONValueZS4bsky8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
         "deco" : "Aya"
        },
        {
-        "name" : "embed",
-        "deco" : "S3std7sumtype__T7SumTypeTAS4bsky6client7Bluesky10EmbedImageTSQBiQBgQBc13EmbedExternalTSQCi8lexicons3com7atproto4repo9StrongRefTSQDxQDvQDr20EmbedRecordWithMediaZQFo"
-       },
-       {
-        "name" : "replyRef",
-        "deco" : "S4bsky8lexicons3appQs4feed4Post8ReplyRef",
-        "default" : "ReplyRef(StrongRef(null, null), StrongRef(null, null))"
-       },
-       {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1890,
+      "endline" : 1903,
       "endchar" : 2
      },
      {
@@ -4771,33 +5048,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1892,
+      "line" : 1905,
       "char" : 10,
-      "deco" : "FNfAyaAQeZS4bsky8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, string[] langs = null)",
-      "parameters" : [
-       {
-        "name" : "message",
-        "deco" : "Aya"
-       },
-       {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
-       }
-      ],
-      "endline" : 1895,
-      "endchar" : 2
-     },
-     {
-      "name" : "sendPost",
-      "kind" : "function",
-      "protection" : "public",
-      "comment" : "ditto\n",
-      "line" : 1897,
-      "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6Images5ImageAQBsZSQBtQBr3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, app.bsky.embed.Images.Image image, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, app.bsky.embed.Images.Image image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4808,12 +5062,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images5Image"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1900,
+      "endline" : 1908,
       "endchar" : 2
      },
      {
@@ -4821,10 +5075,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1902,
+      "line" : 1910,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6ImagesAQBmZSQBnQBl3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, app.bsky.embed.Images images, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6ImagesS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, app.bsky.embed.Images images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4835,12 +5089,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1905,
+      "endline" : 1913,
       "endchar" : 2
      },
      {
@@ -4848,10 +5102,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1907,
+      "line" : 1915,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky6client7Bluesky10EmbedImageAQBlZSQBm8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, EmbedImage image, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, EmbedImage image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4862,12 +5116,12 @@
         "deco" : "S4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1910,
+      "endline" : 1918,
       "endchar" : 2
      },
      {
@@ -4875,10 +5129,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1912,
+      "line" : 1920,
       "char" : 10,
-      "deco" : "FNfAyaAS4bsky6client7Bluesky10EmbedImageAQBmZSQBm8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, EmbedImage[] images, string[] langs = null)",
+      "deco" : "FNfAyaAS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, EmbedImage[] images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4889,12 +5143,12 @@
         "deco" : "AS4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1915,
+      "endline" : 1923,
       "endchar" : 2
      },
      {
@@ -4902,10 +5156,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1917,
+      "line" : 1925,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed8ExternalAQBoZSQBpQBn3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, app.bsky.embed.External external, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed8ExternalS3std4json9JSONValueZSQCfQCd3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, app.bsky.embed.External external, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4916,12 +5170,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed8External"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1920,
+      "endline" : 1928,
       "endchar" : 2
      },
      {
@@ -4929,10 +5183,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1922,
+      "line" : 1930,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky6client7Bluesky13EmbedExternalAQBoZSQBp8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, EmbedExternal external, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky6client7Bluesky13EmbedExternalS3std4json9JSONValueZSQCf8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, EmbedExternal external, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4943,12 +5197,12 @@
         "deco" : "S4bsky6client7Bluesky13EmbedExternal"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1925,
+      "endline" : 1933,
       "endchar" : 2
      },
      {
@@ -4956,10 +5210,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1927,
+      "line" : 1935,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6RecordAQBmZSQBnQBl3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, app.bsky.embed.Record record, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6RecordS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, app.bsky.embed.Record record, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4970,12 +5224,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Record"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1930,
+      "endline" : 1938,
       "endchar" : 2
      },
      {
@@ -4983,10 +5237,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1932,
+      "line" : 1940,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefAQBuZQBv",
-      "originalType" : "@safe PostRef(string message, EmbedRecord record, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefS3std4json9JSONValueZQCl",
+      "originalType" : "@safe PostRef(string message, EmbedRecord record, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -4997,12 +5251,12 @@
         "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1935,
+      "endline" : 1943,
       "endchar" : 2
      },
      {
@@ -5010,10 +5264,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1937,
+      "line" : 1945,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed15RecordWithMediaAQBwZSQBxQBv3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, app.bsky.embed.RecordWithMedia rwm, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed15RecordWithMediaS3std4json9JSONValueZSQCnQCl3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, app.bsky.embed.RecordWithMedia rwm, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -5024,12 +5278,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed15RecordWithMedia"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1940,
+      "endline" : 1948,
       "endchar" : 2
      },
      {
@@ -5037,10 +5291,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1942,
+      "line" : 1950,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky6client7Bluesky20EmbedRecordWithMediaAQBvZSQBw8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string message, EmbedRecordWithMedia recordWithMedia, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky6client7Bluesky20EmbedRecordWithMediaS3std4json9JSONValueZSQCm8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, EmbedRecordWithMedia recordWithMedia, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -5051,12 +5305,12 @@
         "deco" : "S4bsky6client7Bluesky20EmbedRecordWithMedia"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1949,
+      "endline" : 1957,
       "endchar" : 2
      },
      {
@@ -5064,10 +5318,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1951,
+      "line" : 1959,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefSQBq6client7Bluesky10EmbedImageAQCzZQDa",
-      "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedImage image, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefSQBq6client7Bluesky10EmbedImageS3std4json9JSONValueZQDq",
+      "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedImage image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -5082,12 +5336,12 @@
         "deco" : "S4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1956,
+      "endline" : 1964,
       "endchar" : 2
      },
      {
@@ -5095,10 +5349,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1958,
+      "line" : 1966,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefASQBr6client7Bluesky10EmbedImageAQDaZQDb",
-      "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedImage[] image, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefASQBr6client7Bluesky10EmbedImageS3std4json9JSONValueZQDr",
+      "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedImage[] image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -5113,12 +5367,12 @@
         "deco" : "AS4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1963,
+      "endline" : 1971,
       "endchar" : 2
      },
      {
@@ -5126,10 +5380,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1965,
+      "line" : 1973,
       "char" : 10,
-      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefSQBq6client7Bluesky13EmbedExternalAQDcZQDd",
-      "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedExternal external, string[] langs = null)",
+      "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefSQBq6client7Bluesky13EmbedExternalS3std4json9JSONValueZQDt",
+      "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedExternal external, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "message",
@@ -5144,48 +5398,126 @@
         "deco" : "S4bsky6client7Bluesky13EmbedExternal"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1970,
+      "endline" : 1978,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1973_C8",
+      "name" : "sendPost",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1973,
+      "comment" : "ditto\n",
+      "line" : 1980,
+      "char" : 10,
+      "deco" : "FNfAyaS4bsky8lexicons3appQs5embed5VideoS3std4json9JSONValueZSQCcQCa3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init)",
+      "parameters" : [
+       {
+        "name" : "message",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "video",
+        "deco" : "S4bsky8lexicons3appQs5embed5Video"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
+       }
+      ],
+      "endline" : 1983,
+      "endchar" : 2
+     },
+     {
+      "name" : "sendPost",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1985,
+      "char" : 10,
+      "deco" : "FNfAyaS4bsky6client7Bluesky10EmbedVideoS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string message, EmbedVideo image, JSONValue opts = JSONValue.init)",
+      "parameters" : [
+       {
+        "name" : "message",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "image",
+        "deco" : "S4bsky6client7Bluesky10EmbedVideo"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
+       }
+      ],
+      "endline" : 1988,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L1991_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 1991,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1992,
+      "endline" : 2010,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1992_C8",
+      "name" : "__unittest_L2010_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1992,
+      "line" : 2010,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2025,
+      "endline" : 2043,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2025_C8",
+      "name" : "__unittest_L2043_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2025,
+      "line" : 2043,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2058,
+      "endline" : 2076,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2076_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2076,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2110,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2110_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2110,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2133,
       "endchar" : 2
      },
      {
@@ -5193,10 +5525,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2058,
+      "line" : 2133,
       "char" : 10,
-      "deco" : "FNfAyaQdS3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaZQEyAQFxZSQExQEv3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, Embed embed = Embed.init, string[] langs = null)",
+      "deco" : "FNfAyaQdS3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaTSQEpQEnQEhQEyQEh5VideoZQFvSQGo4json9JSONValueZSQGjQGh3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, Embed embed = Embed.init, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5208,16 +5540,16 @@
        },
        {
         "name" : "embed",
-        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaZQEy",
-        "default" : "SumType(Storage(Images(\"app.bsky.embed.images\", null), , , ), cast(ubyte)0u)"
+        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaTSQEpQEnQEhQEyQEh5VideoZQFv",
+        "default" : "SumType(Storage(Images(\"app.bsky.embed.images\", null), , , , ), cast(ubyte)0u)"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2061,
+      "endline" : 2136,
       "endchar" : 2
      },
      {
@@ -5225,10 +5557,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2063,
+      "line" : 2138,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6ImagesAQBoZSQBnQBl3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images images, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6ImagesS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5243,12 +5575,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2066,
+      "endline" : 2142,
       "endchar" : 2
      },
      {
@@ -5256,10 +5588,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2068,
+      "line" : 2144,
       "char" : 10,
-      "deco" : "FNfAyaQdAS4bsky8lexicons3appQs5embed6Images5ImageAQBvZSQBtQBr3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image[] images, string[] langs = null)",
+      "deco" : "FNfAyaQdAS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image[] images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5274,12 +5606,12 @@
         "deco" : "AS4bsky8lexicons3appQs5embed6Images5Image"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2071,
+      "endline" : 2148,
       "endchar" : 2
      },
      {
@@ -5287,10 +5619,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2073,
+      "line" : 2150,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6Images5ImageAQBuZSQBtQBr3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image image, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5305,12 +5637,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images5Image"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2076,
+      "endline" : 2154,
       "endchar" : 2
      },
      {
@@ -5318,10 +5650,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2078,
+      "line" : 2156,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedImageAQBnZSQBm8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedImage image, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedImage image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5336,12 +5668,12 @@
         "deco" : "S4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2081,
+      "endline" : 2159,
       "endchar" : 2
      },
      {
@@ -5349,10 +5681,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2083,
+      "line" : 2161,
       "char" : 10,
-      "deco" : "FNfAyaQdAS4bsky6client7Bluesky10EmbedImageAQBoZSQBm8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedImage[] images, string[] langs = null)",
+      "deco" : "FNfAyaQdAS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedImage[] images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5367,12 +5699,12 @@
         "deco" : "AS4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2086,
+      "endline" : 2164,
       "endchar" : 2
      },
      {
@@ -5380,10 +5712,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2088,
+      "line" : 2166,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed8ExternalAQBqZSQBpQBn3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.External external, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed8ExternalS3std4json9JSONValueZSQCfQCd3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.External external, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5398,12 +5730,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed8External"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2091,
+      "endline" : 2170,
       "endchar" : 2
      },
      {
@@ -5411,10 +5743,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2093,
+      "line" : 2172,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky6client7Bluesky13EmbedExternalAQBqZSQBp8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedExternal external, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky6client7Bluesky13EmbedExternalS3std4json9JSONValueZSQCf8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedExternal external, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5429,12 +5761,12 @@
         "deco" : "S4bsky6client7Bluesky13EmbedExternal"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2096,
+      "endline" : 2175,
       "endchar" : 2
      },
      {
@@ -5442,10 +5774,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2098,
+      "line" : 2177,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6RecordAQBoZSQBnQBl3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Record record, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6RecordS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Record record, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5460,12 +5792,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Record"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2101,
+      "endline" : 2181,
       "endchar" : 2
      },
      {
@@ -5473,10 +5805,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2103,
+      "line" : 2183,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3com7atproto4repo9StrongRefAQBwZQBv",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedRecord record, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3com7atproto4repo9StrongRefS3std4json9JSONValueZQCl",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedRecord record, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5491,12 +5823,12 @@
         "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2106,
+      "endline" : 2186,
       "endchar" : 2
      },
      {
@@ -5504,10 +5836,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2108,
+      "line" : 2188,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed15RecordWithMediaAQByZSQBxQBv3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.RecordWithMedia recordWithMedia, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed15RecordWithMediaS3std4json9JSONValueZSQCnQCl3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.RecordWithMedia recordWithMedia, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5522,12 +5854,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed15RecordWithMedia"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2112,
+      "endline" : 2192,
       "endchar" : 2
      },
      {
@@ -5535,10 +5867,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2114,
+      "line" : 2194,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky6client7Bluesky20EmbedRecordWithMediaAQBxZSQBw8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedRecordWithMedia recordWithMedia, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky6client7Bluesky20EmbedRecordWithMediaS3std4json9JSONValueZSQCm8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedRecordWithMedia recordWithMedia, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5553,71 +5885,23 @@
         "deco" : "S4bsky6client7Bluesky20EmbedRecordWithMedia"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2121,
+      "endline" : 2202,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2124_C8",
-      "kind" : "function",
-      "protection" : "public",
-      "line" : 2124,
-      "char" : 8,
-      "storageClass" : [
-       "@safe"
-      ],
-      "endline" : 2161,
-      "endchar" : 2
-     },
-     {
-      "name" : "__unittest_L2161_C8",
-      "kind" : "function",
-      "protection" : "public",
-      "line" : 2161,
-      "char" : 8,
-      "storageClass" : [
-       "@safe"
-      ],
-      "endline" : 2213,
-      "endchar" : 2
-     },
-     {
-      "name" : "__unittest_L2213_C8",
-      "kind" : "function",
-      "protection" : "public",
-      "line" : 2213,
-      "char" : 8,
-      "storageClass" : [
-       "@safe"
-      ],
-      "endline" : 2267,
-      "endchar" : 2
-     },
-     {
-      "name" : "__unittest_L2267_C8",
-      "kind" : "function",
-      "protection" : "public",
-      "line" : 2267,
-      "char" : 8,
-      "storageClass" : [
-       "@safe"
-      ],
-      "endline" : 2335,
-      "endchar" : 2
-     },
-     {
-      "name" : "sendQuotePost",
+      "name" : "sendReplyPost",
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2335,
+      "line" : 2204,
       "char" : 10,
-      "deco" : "FNfAyaQdAQgZS4bsky8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed5VideoS3std4json9JSONValueZSQCcQCa3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5628,12 +5912,107 @@
         "deco" : "Aya"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "video",
+        "deco" : "S4bsky8lexicons3appQs5embed5Video"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2338,
+      "endline" : 2207,
+      "endchar" : 2
+     },
+     {
+      "name" : "sendReplyPost",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 2209,
+      "char" : 10,
+      "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedVideoS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedVideo video, JSONValue opts = JSONValue.init)",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "message",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "video",
+        "deco" : "S4bsky6client7Bluesky10EmbedVideo"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
+       }
+      ],
+      "endline" : 2212,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2215_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2215,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2252,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2252_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2252,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2304,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2304_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2304,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2358,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2358_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2358,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2426,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2426_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2426,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2478,
       "endchar" : 2
      },
      {
@@ -5641,10 +6020,37 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2340,
+      "line" : 2478,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6ImagesAQBoZSQBnQBl3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images images, string[] langs = null)",
+      "deco" : "FNfAyaQdS3std4json9JSONValueZS4bsky8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, JSONValue opts = JSONValue.init)",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "message",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
+       }
+      ],
+      "endline" : 2481,
+      "endchar" : 2
+     },
+     {
+      "name" : "sendQuotePost",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 2483,
+      "char" : 10,
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6ImagesS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5659,12 +6065,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2346,
+      "endline" : 2490,
       "endchar" : 2
      },
      {
@@ -5672,10 +6078,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2348,
+      "line" : 2492,
       "char" : 10,
-      "deco" : "FNfAyaQdAS4bsky8lexicons3appQs5embed6Images5ImageAQBvZSQBtQBr3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image[] images, string[] langs = null)",
+      "deco" : "FNfAyaQdAS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image[] images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5690,12 +6096,12 @@
         "deco" : "AS4bsky8lexicons3appQs5embed6Images5Image"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2351,
+      "endline" : 2496,
       "endchar" : 2
      },
      {
@@ -5703,10 +6109,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2353,
+      "line" : 2498,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6Images5ImageAQBuZSQBtQBr3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image image, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5721,12 +6127,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images5Image"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2356,
+      "endline" : 2502,
       "endchar" : 2
      },
      {
@@ -5734,10 +6140,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2358,
+      "line" : 2504,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedImageAQBnZSQBm8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedImage image, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedImage image, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5752,12 +6158,12 @@
         "deco" : "S4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2361,
+      "endline" : 2507,
       "endchar" : 2
      },
      {
@@ -5765,10 +6171,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2363,
+      "line" : 2509,
       "char" : 10,
-      "deco" : "FNfAyaQdAS4bsky6client7Bluesky10EmbedImageAQBoZSQBm8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedImage[] images, string[] langs = null)",
+      "deco" : "FNfAyaQdAS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedImage[] images, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5783,12 +6189,12 @@
         "deco" : "AS4bsky6client7Bluesky10EmbedImage"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2366,
+      "endline" : 2512,
       "endchar" : 2
      },
      {
@@ -5796,10 +6202,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2368,
+      "line" : 2514,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed8ExternalAQBqZSQBpQBn3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.External external, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed8ExternalS3std4json9JSONValueZSQCfQCd3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.External external, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5814,12 +6220,12 @@
         "deco" : "S4bsky8lexicons3appQs5embed8External"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2374,
+      "endline" : 2521,
       "endchar" : 2
      },
      {
@@ -5827,10 +6233,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2376,
+      "line" : 2523,
       "char" : 10,
-      "deco" : "FNfAyaQdS4bsky6client7Bluesky13EmbedExternalAQBqZSQBp8lexicons3com7atproto4repo9StrongRef",
-      "originalType" : "@safe PostRef(string uri, string message, EmbedExternal external, string[] langs = null)",
+      "deco" : "FNfAyaQdS4bsky6client7Bluesky13EmbedExternalS3std4json9JSONValueZSQCf8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedExternal external, JSONValue opts = JSONValue.init)",
       "parameters" : [
        {
         "name" : "uri",
@@ -5845,48 +6251,122 @@
         "deco" : "S4bsky6client7Bluesky13EmbedExternal"
        },
        {
-        "name" : "langs",
-        "deco" : "AAya",
-        "default" : "null"
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2379,
+      "endline" : 2526,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2382_C8",
+      "name" : "sendQuotePost",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2382,
+      "comment" : "ditto\n",
+      "line" : 2528,
+      "char" : 10,
+      "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed5VideoS3std4json9JSONValueZSQCcQCa3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init)",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "message",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "video",
+        "deco" : "S4bsky8lexicons3appQs5embed5Video"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
+       }
+      ],
+      "endline" : 2534,
+      "endchar" : 2
+     },
+     {
+      "name" : "sendQuotePost",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 2536,
+      "char" : 10,
+      "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedVideoS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
+      "originalType" : "@safe PostRef(string uri, string message, EmbedVideo video, JSONValue opts = JSONValue.init)",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "message",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "video",
+        "deco" : "S4bsky6client7Bluesky10EmbedVideo"
+       },
+       {
+        "name" : "opts",
+        "deco" : "S3std4json9JSONValue",
+        "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
+       }
+      ],
+      "endline" : 2539,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2542_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2542,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2418,
+      "endline" : 2578,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2418_C8",
+      "name" : "__unittest_L2578_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2418,
+      "line" : 2578,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2469,
+      "endline" : 2629,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2469_C8",
+      "name" : "__unittest_L2629_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2469,
+      "line" : 2629,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2522,
+      "endline" : 2680,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L2680_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 2680,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 2733,
       "endchar" : 2
      },
      {
@@ -5894,7 +6374,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Delete posts\n",
-      "line" : 2522,
+      "line" : 2733,
       "char" : 7,
       "deco" : "FNfAyaZv",
       "parameters" : [
@@ -5903,19 +6383,19 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2527,
+      "endline" : 2738,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2530_C8",
+      "name" : "__unittest_L2741_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2530,
+      "line" : 2741,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2549,
+      "endline" : 2760,
       "endchar" : 2
      },
      {
@@ -5923,7 +6403,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Mark like the post\n",
-      "line" : 2549,
+      "line" : 2760,
       "char" : 12,
       "deco" : "FNeAyaZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "parameters" : [
@@ -5932,7 +6412,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2558,
+      "endline" : 2769,
       "endchar" : 2
      },
      {
@@ -5940,7 +6420,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Delete like mark\n",
-      "line" : 2563,
+      "line" : 2774,
       "char" : 7,
       "deco" : "FNfAyaZv",
       "parameters" : [
@@ -5949,19 +6429,19 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2587,
+      "endline" : 2798,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2590_C8",
+      "name" : "__unittest_L2801_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2590,
+      "line" : 2801,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2632,
+      "endline" : 2843,
       "endchar" : 2
      },
      {
@@ -5969,7 +6449,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Repost posts\n",
-      "line" : 2632,
+      "line" : 2843,
       "char" : 12,
       "deco" : "FNfAyaZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "parameters" : [
@@ -5978,7 +6458,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2641,
+      "endline" : 2852,
       "endchar" : 2
      },
      {
@@ -5986,7 +6466,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Delete the repost\n",
-      "line" : 2646,
+      "line" : 2857,
       "char" : 7,
       "deco" : "FNfAyaZv",
       "parameters" : [
@@ -5995,19 +6475,19 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2670,
+      "endline" : 2881,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2673_C8",
+      "name" : "__unittest_L2884_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2673,
+      "line" : 2884,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2711,
+      "endline" : 2922,
       "endchar" : 1
      }
     ]
@@ -6389,11 +6869,41 @@
     "protection" : "private"
    },
    {
+    "name" : "AspectRatio",
+    "kind" : "struct",
+    "protection" : "public",
+    "comment" : " app.bsky.embed.defs.aspectRatio\n\n width:height represents an aspect ratio. It may be approximate, and may not\n correspond to absolute dimensions in any given unit.\n",
+    "line" : 21,
+    "char" : 1,
+    "members" : [
+     {
+      "name" : "width",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : " Width\n\n minimum = 1\n",
+      "line" : 28,
+      "char" : 6,
+      "deco" : "i",
+      "offset" : 0
+     },
+     {
+      "name" : "height",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : " Height\n\n minimum = 1\n",
+      "line" : 35,
+      "char" : 6,
+      "deco" : "i",
+      "offset" : 4
+     }
+    ]
+   },
+   {
     "name" : "Images",
     "kind" : "struct",
     "protection" : "public",
-    "comment" : " Embed data of images\n",
-    "line" : 20,
+    "comment" : " app.bsky.embed.images: Embed data of images\n\n A set of images embedded in a Bluesky record (eg, a post).\n",
+    "line" : 43,
     "char" : 1,
     "members" : [
      {
@@ -6401,7 +6911,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Type\n",
-      "line" : 26,
+      "line" : 49,
       "char" : 9,
       "deco" : "Aya",
       "init" : "\"app.bsky.embed.images\"",
@@ -6412,7 +6922,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Images data\n",
-      "line" : 31,
+      "line" : 54,
       "char" : 2,
       "members" : [
        {
@@ -6420,7 +6930,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Blob of image\n",
-        "line" : 36,
+        "line" : 59,
         "char" : 8,
         "deco" : "S4bsky8lexicons4data4Blob",
         "offset" : 0
@@ -6430,10 +6940,20 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Alt text\n",
-        "line" : 40,
+        "line" : 63,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 56
+       },
+       {
+        "name" : "aspectRatio",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Aspect ratio\n",
+        "line" : 68,
+        "char" : 15,
+        "deco" : "S4bsky8lexicons3appQs5embed11AspectRatio",
+        "offset" : 72
        }
       ]
      },
@@ -6442,7 +6962,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 43,
+      "line" : 71,
       "char" : 10,
       "deco" : "AS4bsky8lexicons3appQs5embed6Images5Image",
       "offset" : 16
@@ -6452,7 +6972,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : " Constructor\n",
-      "line" : 48,
+      "line" : 76,
       "char" : 2,
       "deco" : "FNaNbNcNiNfAS4bsky8lexicons3appQs5embed6Images5ImageZSQBpQBnQBhQByQBhQBe",
       "originalType" : "pure nothrow @nogc ref @safe (Image[] images)",
@@ -6462,7 +6982,7 @@
         "deco" : "AS4bsky8lexicons3appQs5embed6Images5Image"
        }
       ],
-      "endline" : 51,
+      "endline" : 79,
       "endchar" : 2
      },
      {
@@ -6470,7 +6990,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 53,
+      "line" : 81,
       "char" : 2,
       "deco" : "FNaNbNcNfS4bsky8lexicons3appQs5embed6Images5ImageZSQBpQBnQBhQByQBhQBe",
       "originalType" : "pure nothrow ref @safe (Image image)",
@@ -6480,7 +7000,7 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images5Image"
        }
       ],
-      "endline" : 56,
+      "endline" : 84,
       "endchar" : 2
      },
      {
@@ -6488,10 +7008,10 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 58,
+      "line" : 86,
       "char" : 2,
-      "deco" : "FNaNbNcNfS4bsky8lexicons4data4BlobAyaZSQBdQBb3appQBn5embed6Images",
-      "originalType" : "pure nothrow ref @safe (Blob blob, string alt)",
+      "deco" : "FNaNbNcNfS4bsky8lexicons4data4BlobAyaSQBcQBa3appQBm5embed11AspectRatioZSQCkQCiQBiQCtQBh6Images",
+      "originalType" : "pure nothrow ref @safe (Blob blob, string alt, AspectRatio aspect = AspectRatio.init)",
       "parameters" : [
        {
         "name" : "blob",
@@ -6500,31 +7020,66 @@
        {
         "name" : "alt",
         "deco" : "Aya"
+       },
+       {
+        "name" : "aspect",
+        "deco" : "S4bsky8lexicons3appQs5embed11AspectRatio",
+        "default" : "AspectRatio(0, 0)"
        }
       ],
-      "endline" : 61,
+      "endline" : 89,
+      "endchar" : 2
+     },
+     {
+      "name" : "this",
+      "kind" : "constructor",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 91,
+      "char" : 2,
+      "deco" : "FNaNbNcNfS4bsky8lexicons4data4BlobAyaiiZSQBfQBd3appQBp5embed6Images",
+      "originalType" : "pure nothrow ref @safe (Blob blob, string alt, int width, int height)",
+      "parameters" : [
+       {
+        "name" : "blob",
+        "deco" : "S4bsky8lexicons4data4Blob"
+       },
+       {
+        "name" : "alt",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "width",
+        "deco" : "i"
+       },
+       {
+        "name" : "height",
+        "deco" : "i"
+       }
+      ],
+      "endline" : 94,
       "endchar" : 2
      }
     ]
    },
    {
-    "name" : "__unittest_L64_C7",
+    "name" : "__unittest_L97_C7",
     "kind" : "function",
     "protection" : "public",
-    "line" : 64,
+    "line" : 97,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
-    "endline" : 82,
+    "endline" : 127,
     "endchar" : 1
    },
    {
     "name" : "External",
     "kind" : "struct",
     "protection" : "public",
-    "comment" : " Embed data of external link\n",
-    "line" : 82,
+    "comment" : " app.bsky.embed.external: Embed data of external link\n\n A representation of some externally linked content (eg, a URL and 'card'),\n embedded in a Bluesky record (eg, a post).\n",
+    "line" : 127,
     "char" : 1,
     "members" : [
      {
@@ -6532,7 +7087,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Type\n",
-      "line" : 88,
+      "line" : 133,
       "char" : 9,
       "deco" : "Aya",
       "init" : "\"app.bsky.embed.external\"",
@@ -6543,7 +7098,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " External data\n",
-      "line" : 93,
+      "line" : 138,
       "char" : 2,
       "members" : [
        {
@@ -6551,7 +7106,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " URL of external link\n",
-        "line" : 98,
+        "line" : 143,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -6561,7 +7116,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Title of external link\n",
-        "line" : 102,
+        "line" : 147,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -6571,7 +7126,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Descriptions\n",
-        "line" : 106,
+        "line" : 151,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
@@ -6581,7 +7136,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Thumbnail of external link\n",
-        "line" : 111,
+        "line" : 156,
         "char" : 8,
         "deco" : "S4bsky8lexicons4data4Blob",
         "offset" : 48
@@ -6593,7 +7148,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 114,
+      "line" : 159,
       "char" : 11,
       "deco" : "S4bsky8lexicons3appQs5embed8ExternalQj",
       "offset" : 16
@@ -6603,7 +7158,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : " Constructor\n",
-      "line" : 119,
+      "line" : 164,
       "char" : 2,
       "deco" : "FNaNbNcNiNfS4bsky8lexicons3appQs5embed8ExternalQjZSQBnQBlQBfQBwQBfQBc",
       "originalType" : "pure nothrow @nogc ref @safe (External external)",
@@ -6613,29 +7168,29 @@
         "deco" : "S4bsky8lexicons3appQs5embed8ExternalQj"
        }
       ],
-      "endline" : 122,
+      "endline" : 167,
       "endchar" : 2
      }
     ]
    },
    {
-    "name" : "__unittest_L125_C7",
+    "name" : "__unittest_L170_C7",
     "kind" : "function",
     "protection" : "public",
-    "line" : 125,
+    "line" : 170,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
-    "endline" : 144,
+    "endline" : 192,
     "endchar" : 1
    },
    {
     "name" : "Record",
     "kind" : "struct",
     "protection" : "public",
-    "comment" : " Embed data of record\n",
-    "line" : 144,
+    "comment" : " app.bsky.embed.record: Embed data of record\n\n A representation of a record embedded in a Bluesky record (eg, a post).\n For example, a quote-post, or sharing a feed generator record.\n",
+    "line" : 192,
     "char" : 1,
     "members" : [
      {
@@ -6643,7 +7198,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Type\n",
-      "line" : 150,
+      "line" : 198,
       "char" : 9,
       "deco" : "Aya",
       "init" : "\"app.bsky.embed.record\"",
@@ -6654,7 +7209,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : " Record data\n",
-      "line" : 155,
+      "line" : 203,
       "char" : 2,
       "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef"
      },
@@ -6663,7 +7218,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 157,
+      "line" : 205,
       "char" : 9,
       "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "Record",
@@ -6674,7 +7229,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : " Constructor\n",
-      "line" : 162,
+      "line" : 210,
       "char" : 2,
       "deco" : "FNaNbNcNiNfS4bsky8lexicons3com7atproto4repo9StrongRefZSQBrQBp3appQCb5embed6Record",
       "originalType" : "pure nothrow @nogc ref @safe (Record record)",
@@ -6684,7 +7239,7 @@
         "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef"
        }
       ],
-      "endline" : 165,
+      "endline" : 213,
       "endchar" : 2
      },
      {
@@ -6692,7 +7247,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 168,
+      "line" : 216,
       "char" : 2,
       "deco" : "FNaNbNcNiNfAyaQdZS4bsky8lexicons3appQs5embed6Record",
       "originalType" : "pure nothrow @nogc ref @safe (string uri, string cid)",
@@ -6706,21 +7261,21 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 171,
+      "endline" : 219,
       "endchar" : 2
      }
     ]
    },
    {
-    "name" : "__unittest_L174_C7",
+    "name" : "__unittest_L222_C7",
     "kind" : "function",
     "protection" : "public",
-    "line" : 174,
+    "line" : 222,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
-    "endline" : 194,
+    "endline" : 242,
     "endchar" : 1
    },
    {
@@ -6728,7 +7283,7 @@
     "kind" : "struct",
     "protection" : "public",
     "comment" : " Embed data of external link\n",
-    "line" : 194,
+    "line" : 242,
     "char" : 1,
     "members" : [
      {
@@ -6736,7 +7291,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Type\n",
-      "line" : 200,
+      "line" : 248,
       "char" : 9,
       "deco" : "Aya",
       "init" : "\"app.bsky.embed.recordWithMedia\"",
@@ -6747,7 +7302,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Record data\n",
-      "line" : 205,
+      "line" : 253,
       "char" : 9,
       "deco" : "S4bsky8lexicons3appQs5embed6Record",
       "offset" : 16
@@ -6757,18 +7312,18 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : " Image/External data\n",
-      "line" : 210,
+      "line" : 258,
       "char" : 2,
-      "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalZQCs"
+      "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb5VideoTSQCgQCeQByQCpQBy8ExternalZQDp"
      },
      {
       "name" : "media",
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 212,
+      "line" : 260,
       "char" : 8,
-      "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalZQCs",
+      "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb5VideoTSQCgQCeQByQCpQBy8ExternalZQDp",
       "originalType" : "Media",
       "offset" : 64
      },
@@ -6777,9 +7332,9 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : " Constructor\n",
-      "line" : 217,
+      "line" : 265,
       "char" : 2,
-      "deco" : "FNaNbNcNiNfS4bsky8lexicons3appQs5embed6RecordS3std7sumtype__T7SumTypeTSQChQCfQBzQCqQBz6ImagesTSQDfQDdQCxQDoQCx8ExternalZQChZSQEjQEhQEbQEsQEb15RecordWithMedia",
+      "deco" : "FNaNbNcNiNfS4bsky8lexicons3appQs5embed6RecordS3std7sumtype__T7SumTypeTSQChQCfQBzQCqQBz6ImagesTSQDfQDdQCxQDoQCx5VideoTSQEcQEaQDuQElQDu8ExternalZQDeZSQFgQFeQEyQFpQEy15RecordWithMedia",
       "originalType" : "pure nothrow @nogc ref @safe (Record record, Media media)",
       "parameters" : [
        {
@@ -6788,10 +7343,10 @@
        },
        {
         "name" : "media",
-        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalZQCs"
+        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb5VideoTSQCgQCeQByQCpQBy8ExternalZQDp"
        }
       ],
-      "endline" : 221,
+      "endline" : 269,
       "endchar" : 2
      },
      {
@@ -6799,7 +7354,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 223,
+      "line" : 271,
       "char" : 2,
       "deco" : "FNaNbNcNiNfS4bsky8lexicons3appQs5embed6RecordSQBiQBgQBaQBrQBa8ExternalZSQCiQCgQCaQCrQCa15RecordWithMedia",
       "originalType" : "pure nothrow @nogc ref @safe (Record record, External external)",
@@ -6813,7 +7368,7 @@
         "deco" : "S4bsky8lexicons3appQs5embed8External"
        }
       ],
-      "endline" : 226,
+      "endline" : 274,
       "endchar" : 2
      },
      {
@@ -6821,7 +7376,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 228,
+      "line" : 276,
       "char" : 2,
       "deco" : "FNaNbNcNiNfS4bsky8lexicons3appQs5embed6RecordSQBiQBgQBaQBrQBa6ImagesZSQCgQCeQByQCpQBy15RecordWithMedia",
       "originalType" : "pure nothrow @nogc ref @safe (Record record, Images images)",
@@ -6835,7 +7390,7 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images"
        }
       ],
-      "endline" : 231,
+      "endline" : 279,
       "endchar" : 2
      },
      {
@@ -6843,7 +7398,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 233,
+      "line" : 281,
       "char" : 2,
       "deco" : "FNaNbNcNfS4bsky8lexicons3appQs5embed6RecordSQBiQBgQBaQBrQBa6Images5ImageZSQCmQCkQCeQCvQCe15RecordWithMedia",
       "originalType" : "pure nothrow ref @safe (Record record, Images.Image image)",
@@ -6857,7 +7412,7 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images5Image"
        }
       ],
-      "endline" : 236,
+      "endline" : 284,
       "endchar" : 2
      },
      {
@@ -6865,9 +7420,31 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 238,
+      "line" : 286,
       "char" : 2,
-      "deco" : "FNaNbNcNiNfS4bsky8lexicons3com7atproto4repo9StrongRefS3std7sumtype__T7SumTypeTSQCpQCn3appQCz5embed6ImagesTSQDrQDpQBcQEaQBb8ExternalZQClZSQEvQEtQCgQFeQCf15RecordWithMedia",
+      "deco" : "FNaNbNcNiNfS4bsky8lexicons3appQs5embed6RecordSQBiQBgQBaQBrQBa5VideoZSQCfQCdQBxQCoQBx15RecordWithMedia",
+      "originalType" : "pure nothrow @nogc ref @safe (Record record, Video video)",
+      "parameters" : [
+       {
+        "name" : "record",
+        "deco" : "S4bsky8lexicons3appQs5embed6Record"
+       },
+       {
+        "name" : "video",
+        "deco" : "S4bsky8lexicons3appQs5embed5Video"
+       }
+      ],
+      "endline" : 289,
+      "endchar" : 2
+     },
+     {
+      "name" : "this",
+      "kind" : "constructor",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 291,
+      "char" : 2,
+      "deco" : "FNaNbNcNiNfS4bsky8lexicons3com7atproto4repo9StrongRefS3std7sumtype__T7SumTypeTSQCpQCn3appQCz5embed6ImagesTSQDrQDpQBcQEaQBb5VideoTSQEoQEmQBzQExQBy8ExternalZQDiZSQFsQFqQDdQGbQDc15RecordWithMedia",
       "originalType" : "pure nothrow @nogc ref @safe (StrongRef record, Media media)",
       "parameters" : [
        {
@@ -6876,10 +7453,10 @@
        },
        {
         "name" : "media",
-        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalZQCs"
+        "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb5VideoTSQCgQCeQByQCpQBy8ExternalZQDp"
        }
       ],
-      "endline" : 241,
+      "endline" : 294,
       "endchar" : 2
      },
      {
@@ -6887,7 +7464,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 243,
+      "line" : 296,
       "char" : 2,
       "deco" : "FNaNbNcNiNfS4bsky8lexicons3com7atproto4repo9StrongRefSQBqQBo3appQCa5embed8ExternalZSQCuQCsQBeQDdQBd15RecordWithMedia",
       "originalType" : "pure nothrow @nogc ref @safe (StrongRef record, External external)",
@@ -6901,7 +7478,7 @@
         "deco" : "S4bsky8lexicons3appQs5embed8External"
        }
       ],
-      "endline" : 246,
+      "endline" : 299,
       "endchar" : 2
      },
      {
@@ -6909,7 +7486,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 248,
+      "line" : 301,
       "char" : 2,
       "deco" : "FNaNbNcNfS4bsky8lexicons3com7atproto4repo9StrongRefSQBqQBo3appQCa5embed6Images5ImageZSQCyQCwQBiQDhQBh15RecordWithMedia",
       "originalType" : "pure nothrow ref @safe (StrongRef record, Images.Image image)",
@@ -6923,7 +7500,7 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images5Image"
        }
       ],
-      "endline" : 251,
+      "endline" : 304,
       "endchar" : 2
      },
      {
@@ -6931,7 +7508,7 @@
       "kind" : "constructor",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 253,
+      "line" : 306,
       "char" : 2,
       "deco" : "FNaNbNcNiNfS4bsky8lexicons3com7atproto4repo9StrongRefSQBqQBo3appQCa5embed6ImagesZSQCsQCqQBcQDbQBb15RecordWithMedia",
       "originalType" : "pure nothrow @nogc ref @safe (StrongRef record, Images images)",
@@ -6945,14 +7522,36 @@
         "deco" : "S4bsky8lexicons3appQs5embed6Images"
        }
       ],
-      "endline" : 256,
+      "endline" : 309,
+      "endchar" : 2
+     },
+     {
+      "name" : "this",
+      "kind" : "constructor",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 311,
+      "char" : 2,
+      "deco" : "FNaNbNcNiNfS4bsky8lexicons3com7atproto4repo9StrongRefSQBqQBo3appQCa5embed5VideoZSQCrQCpQBbQDaQBa15RecordWithMedia",
+      "originalType" : "pure nothrow @nogc ref @safe (StrongRef record, Video video)",
+      "parameters" : [
+       {
+        "name" : "record",
+        "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef"
+       },
+       {
+        "name" : "video",
+        "deco" : "S4bsky8lexicons3appQs5embed5Video"
+       }
+      ],
+      "endline" : 314,
       "endchar" : 2
      },
      {
       "name" : "opAssign",
       "kind" : "generated function",
       "protection" : "public",
-      "line" : 194,
+      "line" : 242,
       "char" : 1,
       "deco" : "FNaNbNcNiNjS4bsky8lexicons3appQs5embed15RecordWithMediaZQBt",
       "originalType" : "ref RecordWithMedia(RecordWithMedia p) return",
@@ -6966,36 +7565,139 @@
     ]
    },
    {
-    "name" : "__unittest_L261_C7",
+    "name" : "__unittest_L317_C7",
     "kind" : "function",
     "protection" : "public",
-    "comment" : " Embed data of external link\n",
-    "line" : 261,
+    "comment" : "ditto\n",
+    "line" : 317,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
-    "endline" : 281,
+    "endline" : 343,
+    "endchar" : 1
+   },
+   {
+    "name" : "Video",
+    "kind" : "struct",
+    "protection" : "public",
+    "comment" : " app.bsky.embed.video: Embed data of video\n\n A video embedded in a Bluesky record (eg, a post).\n",
+    "line" : 343,
+    "char" : 1,
+    "members" : [
+     {
+      "name" : "type",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : " Type\n",
+      "line" : 349,
+      "char" : 9,
+      "deco" : "Aya",
+      "init" : "\"app.bsky.embed.video\"",
+      "offset" : 0
+     },
+     {
+      "name" : "video",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : " Video data\n",
+      "line" : 354,
+      "char" : 7,
+      "deco" : "S4bsky8lexicons4data4Blob",
+      "offset" : 16
+     },
+     {
+      "name" : "Caption",
+      "kind" : "struct",
+      "protection" : "public",
+      "comment" : " Caption data\n",
+      "line" : 359,
+      "char" : 2,
+      "members" : [
+       {
+        "name" : "lang",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " Language\n",
+        "line" : 364,
+        "char" : 10,
+        "deco" : "Aya",
+        "offset" : 0
+       },
+       {
+        "name" : "file",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : " File\n\n Accept: text/vtt\n",
+        "line" : 370,
+        "char" : 8,
+        "deco" : "S4bsky8lexicons4data4Blob",
+        "offset" : 16
+       }
+      ]
+     },
+     {
+      "name" : "captions",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 374,
+      "char" : 12,
+      "deco" : "AS4bsky8lexicons3appQs5embed5Video7Caption",
+      "offset" : 72
+     },
+     {
+      "name" : "alt",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : " Alt string\n\n Alt text description of the video, for accessibility.\n",
+      "line" : 382,
+      "char" : 9,
+      "deco" : "Aya",
+      "offset" : 88
+     },
+     {
+      "name" : "aspectRatio",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : " Aspect ratio\n",
+      "line" : 388,
+      "char" : 14,
+      "deco" : "S4bsky8lexicons3appQs5embed11AspectRatio",
+      "offset" : 104
+     }
+    ]
+   },
+   {
+    "name" : "__unittest_L391_C7",
+    "kind" : "function",
+    "protection" : "public",
+    "line" : 391,
+    "char" : 7,
+    "storageClass" : [
+     "@safe"
+    ],
+    "endline" : 422,
     "endchar" : 1
    },
    {
     "name" : "Embed",
     "kind" : "alias",
     "protection" : "public",
-    "line" : 281,
+    "line" : 422,
     "char" : 1,
-    "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaZQEy"
+    "deco" : "S3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaTSQEpQEnQEhQEyQEh5VideoZQFv"
    },
    {
-    "name" : "__unittest_L282_C7",
+    "name" : "__unittest_L423_C7",
     "kind" : "function",
     "protection" : "public",
-    "line" : 282,
+    "line" : 423,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
-    "endline" : 296,
+    "endline" : 437,
     "endchar" : 1
    }
   ]
