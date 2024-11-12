@@ -1556,6 +1556,38 @@ public:
 	}
 	
 	/***************************************************************************
+	 * Get repository record
+	 * 
+	 * Params:
+	 *     authority = Author of repository.
+	 *     collection = Collection of records.
+	 *     rkey = The Record Key.
+	 * Returns:
+	 *     JSON of upload result data
+	 */
+	JSONValue getRecord(string authority, string collection, string rkey) @safe
+	{
+		auto record = _get("/xrpc/com.atproto.repo.getRecord", [
+			"repo": authority,
+			"collection": collection,
+			"rkey": rkey]);
+		_enforceHttpRes(record);
+		return record;
+	}
+	
+	/// ditto
+	JSONValue getRecord(AtProtoURI uri) @safe
+	{
+		return getRecord(uri.authority, uri.collection, uri.rkey);
+	}
+	
+	/// ditto
+	JSONValue getRecord(string uri) @safe
+	{
+		return getRecord(AtProtoURI(uri));
+	}
+	
+	/***************************************************************************
 	 * Delete repository record
 	 * 
 	 * Params:
@@ -1609,12 +1641,7 @@ public:
 	{
 		import bsky.data: AtProtoURI;
 		PostRef ret;
-		auto recordUri = AtProtoURI(uri);
-		auto record = _get("/xrpc/com.atproto.repo.getRecord", [
-			"repo": recordUri.authority,
-			"collection": recordUri.collection,
-			"rkey": recordUri.rkey]);
-		_enforceHttpRes(record);
+		auto record = getRecord(uri);
 		ret.uri = record["uri"].get!string;
 		ret.cid = record["cid"].get!string;
 		return ret;
@@ -1813,12 +1840,7 @@ public:
 	{
 		import bsky.data: AtProtoURI;
 		ReplyRef reply;
-		auto parentUri = AtProtoURI(uri);
-		auto parent = _get("/xrpc/com.atproto.repo.getRecord", [
-			"repo": parentUri.authority,
-			"collection": parentUri.collection,
-			"rkey": parentUri.rkey]);
-		_enforceHttpRes(parent);
+		auto parent = getRecord(uri);
 		reply.parent = PostRef(parent["uri"].get!string, parent["cid"].get!string);
 		if (auto parentReply = "reply" in parent["value"])
 		{

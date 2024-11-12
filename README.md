@@ -88,7 +88,7 @@ foreach (post; client.timeline.take(100).toMessages)
 | com.atproto.repo.applyWrites            | UNSUPPORTED |
 | com.atproto.repo.createRecord           | bsky.client.Bluesky.createRecord <br /> bsky.client.Bluesky.sendPost <br /> bsky.client.Bluesky.sendReplyPost <br /> bsky.client.Bluesky.sendQuotePost <br /> bsky.client.Bluesky.markLike <br /> bsky.client.Bluesky.repost |
 | com.atproto.repo.deleteRecord           | bsky.client.Bluesky.deletePost <br /> bsky.client.Bluesky.deleteLike <br /> bsky.client.Bluesky.deleteRepost |
-| com.atproto.repo.getRecord              | UNSUPPORTED |
+| com.atproto.repo.getRecord              | bsky.client.Bluesky.getRecord |
 | com.atproto.repo.importRepo             | UNSUPPORTED |
 | com.atproto.repo.listMissingBlobs       | UNSUPPORTED |
 | com.atproto.repo.listRecords            | UNSUPPORTED |
