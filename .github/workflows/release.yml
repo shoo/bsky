@@ -17,11 +17,11 @@ jobs:
         with:
           compiler: ldc-latest
       - name: Build bianry
-        run: dub build -a=x86_64 -b=release -c=default
+        run: dub build -a=x86_64 -b=release
       - name: Generate document
         run: |
-          (which dot >/dev/null 2>&1) || (sudo apt-get update && sudo apt-get install -y graphviz)
-          rdmd ./scripts/runner.d -a=x86_64 --mode=generate-document
+          (which dot >/dev/null 2>&1) || (sudo apt update && sudo apt install -y graphviz)
+          rdmd ./.github/workflows/runner.d -a=x86_64 --mode=generate-document
         #  dub build -b=ddeps
       - name: Upload generated pages
         uses: actions/upload-artifact@v4
