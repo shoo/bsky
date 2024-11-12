@@ -1518,22 +1518,41 @@ public:
 	 * Returns:
 	 *     JSON of upload result data
 	 */
-	JSONValue createRecord(JSONValue record,
-		string collection = "app.bsky.feed.post",
-		string rkey = null, bool validate = true, string swapCommit = null) @safe
+	JSONValue createRecord(JSONValue record, string collection, JSONValue opts) @safe
 	{
 		auto postData = JSONValue([
 			"repo": JSONValue(_auth.did),
 			"collection": JSONValue(collection),
-			"record": record,
-			"validate": JSONValue(validate)]);
-		if (rkey !is null)
-			postData.setValue("rkey", rkey);
-		if (swapCommit.length > 0)
-			postData.setValue("swapCommit", swapCommit);
+			"record": record]);
+		if (opts.type == JSONType.object)
+			convine(postData, opts);
 		auto res = _post("/xrpc/com.atproto.repo.createRecord", postData);
 		_enforceHttpRes(res);
 		return res;
+	}
+	/// ditto
+	JSONValue createRecord(JSONValue record, string collection,
+		string rkey, bool validate, string swapCommit) @safe
+	{
+		JSONValue opts = JSONValue.emptyObject;
+		if (rkey !is null)
+			opts["rkey"] = JSONValue(rkey);
+		if (swapCommit !is null)
+			opts["swapCommit"] = JSONValue(swapCommit);
+		opts["validate"] = JSONValue(validate);
+		return createRecord(record, collection, opts);
+	}
+	/// ditto
+	JSONValue createRecord(JSONValue record,
+		string collection = "app.bsky.feed.post",
+		string rkey = null, string swapCommit = null) @safe
+	{
+		JSONValue opts = JSONValue.emptyObject;
+		if (rkey !is null)
+			opts["rkey"] = JSONValue(rkey);
+		if (swapCommit !is null)
+			opts["swapCommit"] = JSONValue(swapCommit);
+		return createRecord(record, collection, opts);
 	}
 	
 	/***************************************************************************
