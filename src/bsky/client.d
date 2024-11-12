@@ -1859,12 +1859,11 @@ public:
 	 * Params:
 	 *     record = Record of post
 	 *     message = Main text of post
-	 *     langs = Array of language of post, default (null) is nothing
 	 *     images = Embed images of post
 	 *     opts = Optional parameter of `com.atproto.repo.createRecord` <br />
-	 *            ex1) langs: `JSONValue(["record": JSONValue(["langs": JSONValue(["us", "ja"])])])` <br />
-	 *            ex2) validation: `JSONValue(["validation": true])` <br />
-	 *            ex3) optional field: `JSONValue(["validation": JSONValue(false), "record": JSONValue(["optionalField": "data"])])`
+	 *            (ex1) langs: `JSONValue(["record": JSONValue(["langs": JSONValue(["th", "en-US"])])])` <br />
+	 *            (ex2) validation: `JSONValue(["validation": true])` <br />
+	 *            (ex3) optional field: `JSONValue(["validation": JSONValue(false), "record": JSONValue(["optionalField": "data"])])`
 	 */
 	PostRef sendPost(string message, Embed embed,
 		ReplyRef replyRef = ReplyRef.init, JSONValue opts = JSONValue.init) @safe
