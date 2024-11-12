@@ -1861,10 +1861,13 @@ public:
 	 *     message = Main text of post
 	 *     langs = Array of language of post, default (null) is nothing
 	 *     images = Embed images of post
-	 *     
+	 *     opts = Optional parameter of `com.atproto.repo.createRecord` <br />
+	 *            ex1) langs: `JSONValue(["record": JSONValue(["langs": JSONValue(["us", "ja"])])])` <br />
+	 *            ex2) validation: `JSONValue(["validation": true])` <br />
+	 *            ex3) optional field: `JSONValue(["validation": JSONValue(false), "record": JSONValue(["optionalField": "data"])])`
 	 */
 	PostRef sendPost(string message, Embed embed,
-		ReplyRef replyRef = ReplyRef.init, string[] langs = null) @safe
+		ReplyRef replyRef = ReplyRef.init, JSONValue opts = JSONValue.init) @safe
 	{
 		import std.datetime: Clock;
 		import std.algorithm: map;
@@ -1876,8 +1879,6 @@ public:
 		_parseFacet(jvFacets, message);
 		if ((() @trusted => jvFacets.array.length)() > 0)
 			jvPost["facets"] = jvFacets;
-		if (langs.length > 0)
-			jvPost["langs"] = JSONValue(langs);
 		
 		JSONValue _getReplyData(ReplyRef reply) @safe
 		{
@@ -1894,97 +1895,97 @@ public:
 			jvPost["embed"] = embed.serializeToJson();
 		if (replyRef !is ReplyRef.init)
 			jvPost["reply"] = _getReplyData(replyRef);
-		return createRecord(jvPost).deserializeFromJson!PostRef();
+		return createRecord(jvPost, "app.bsky.feed.post", opts).deserializeFromJson!PostRef();
 	}
 	/// ditto
-	PostRef sendPost(string message, string[] langs = null) @safe
+	PostRef sendPost(string message, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed.init, ReplyRef.init, langs);
+		return sendPost(message, Embed.init, ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, app.bsky.embed.Images.Image image, string[] langs = null) @safe
+	PostRef sendPost(string message, app.bsky.embed.Images.Image image, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed(app.bsky.embed.Images(image)), ReplyRef.init, langs);
+		return sendPost(message, Embed(app.bsky.embed.Images(image)), ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, app.bsky.embed.Images images, string[] langs = null) @safe
+	PostRef sendPost(string message, app.bsky.embed.Images images, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed(images), ReplyRef.init, langs);
+		return sendPost(message, Embed(images), ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedImage image, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedImage image, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, getEmbedImage(image), langs);
+		return sendPost(message, getEmbedImage(image), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedImage[] images, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedImage[] images, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, getEmbedImages(images), langs);
+		return sendPost(message, getEmbedImages(images), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, app.bsky.embed.External external, string[] langs = null) @safe
+	PostRef sendPost(string message, app.bsky.embed.External external, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed(external), ReplyRef.init, langs);
+		return sendPost(message, Embed(external), ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedExternal external, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedExternal external, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, getEmbedExternal(external), langs);
+		return sendPost(message, getEmbedExternal(external), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, app.bsky.embed.Record record, string[] langs = null) @safe
+	PostRef sendPost(string message, app.bsky.embed.Record record, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed(record), ReplyRef.init, langs);
+		return sendPost(message, Embed(record), ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedRecord record, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedRecord record, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, app.bsky.embed.Record(record), langs);
+		return sendPost(message, app.bsky.embed.Record(record), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, app.bsky.embed.RecordWithMedia rwm, string[] langs = null) @safe
+	PostRef sendPost(string message, app.bsky.embed.RecordWithMedia rwm, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed(rwm), ReplyRef.init, langs);
+		return sendPost(message, Embed(rwm), ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedRecordWithMedia recordWithMedia, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedRecordWithMedia recordWithMedia, JSONValue opts = JSONValue.init) @safe
 	{
 		return sendPost(message, app.bsky.embed.RecordWithMedia(
 			record: app.bsky.embed.Record(recordWithMedia.record),
 			media: recordWithMedia.media.match!(
 				(EmbedImage[] images)    => app.bsky.embed.RecordWithMedia.Media(getEmbedImages(images)),
-				(EmbedExternal external) => app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external)))), langs);
+				(EmbedExternal external) => app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external)))), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedRecord record, EmbedImage image, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedRecord record, EmbedImage image, JSONValue opts = JSONValue.init) @safe
 	{
 		return sendPost(message, app.bsky.embed.RecordWithMedia(
 			record: app.bsky.embed.Record(record),
-			media: app.bsky.embed.RecordWithMedia.Media(getEmbedImages([image]))), langs);
+			media: app.bsky.embed.RecordWithMedia.Media(getEmbedImages([image]))), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedRecord record, EmbedImage[] image, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedRecord record, EmbedImage[] image, JSONValue opts = JSONValue.init) @safe
 	{
 		return sendPost(message, app.bsky.embed.RecordWithMedia(
 			record: app.bsky.embed.Record(record),
-			media: app.bsky.embed.RecordWithMedia.Media(getEmbedImages(image))), langs);
+			media: app.bsky.embed.RecordWithMedia.Media(getEmbedImages(image))), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedRecord record, EmbedExternal external, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedRecord record, EmbedExternal external, JSONValue opts = JSONValue.init) @safe
 	{
 		return sendPost(message, app.bsky.embed.RecordWithMedia(
 			record: app.bsky.embed.Record(record),
-			media: app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external))), langs);
+			media: app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external))), opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, app.bsky.embed.Video video, string[] langs = null) @safe
+	PostRef sendPost(string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed(video), ReplyRef.init, langs);
+		return sendPost(message, Embed(video), ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendPost(string message, EmbedVideo image, string[] langs = null) @safe
+	PostRef sendPost(string message, EmbedVideo image, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, getEmbedVideo(image), langs);
+		return sendPost(message, getEmbedVideo(image), opts);
 	}
 	
 	// sendPost/createRecord
@@ -2106,80 +2107,109 @@ public:
 		assert(postRes.cid == "2jmp7mofugukoo72a4rj4ypcwjhzjnovhmkxqvsrnnugtfpi3qliy3oxudg");
 	}
 	
-	/// ditto
-	PostRef sendReplyPost(string uri, string message, Embed embed = Embed.init, string[] langs = null) @safe
+	// sendPost (Use optional fields)
+	@safe unittest
 	{
-		return sendPost(message, embed, getReplyRef(uri), langs);
+		auto client = _createDummyClient("885535c2-6087-4b7e-a788-879811463089");
+		auto postRes = client.sendPost("Post", JSONValue([
+			"validation": JSONValue(false),
+			"record": JSONValue(["optionalField": "data"])]));
+		with (client.req)
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.createRecord`);
+			assert(mimeType == "application/json");
+			auto params = parseJSON(cast(const char[])bodyBinary);
+			assert(params["collection"].str == "app.bsky.feed.post");
+			assert(params["record"]["$type"].str == "app.bsky.feed.post");
+			assert(params["record"]["text"].str == "Post");
+			assert(params["record"]["optionalField"].str == "data");
+		}
+		assert(postRes.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/ozgpt6ujloouc");
+		assert(postRes.cid == "m4ntkdtmhdz6nway5vg7s2ibfzwq32zrrw6mxxs4n7rzgmuu5cwkz2q7552");
+		
+	}
+	
+	/// ditto
+	PostRef sendReplyPost(string uri, string message, Embed embed = Embed.init, JSONValue opts = JSONValue.init) @safe
+	{
+		return sendPost(message, embed, getReplyRef(uri), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Images images, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Images images,
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, Embed(images), langs);
+		return sendReplyPost(uri, message, Embed(images), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Images.Image[] images, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Images.Image[] images,
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, app.bsky.embed.Images(images), langs);
+		return sendReplyPost(uri, message, app.bsky.embed.Images(images), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Images.Image image, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Images.Image image,
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, [image], langs);
+		return sendReplyPost(uri, message, [image], opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, EmbedImage image, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, EmbedImage image, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, getEmbedImage(image), langs);
+		return sendReplyPost(uri, message, getEmbedImage(image), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, EmbedImage[] images, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, EmbedImage[] images, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, getEmbedImages(images), langs);
+		return sendReplyPost(uri, message, getEmbedImages(images), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, app.bsky.embed.External external, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, app.bsky.embed.External external,
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, Embed(external), langs);
+		return sendReplyPost(uri, message, Embed(external), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, EmbedExternal external, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, EmbedExternal external, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, getEmbedExternal(external), langs);
+		return sendReplyPost(uri, message, getEmbedExternal(external), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Record record, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Record record,
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, Embed(record), langs);
+		return sendReplyPost(uri, message, Embed(record), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, EmbedRecord record, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, EmbedRecord record, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, app.bsky.embed.Record(record), langs);
+		return sendReplyPost(uri, message, app.bsky.embed.Record(record), opts);
 	}
 	/// ditto
 	PostRef sendReplyPost(string uri, string message, app.bsky.embed.RecordWithMedia recordWithMedia,
-		string[] langs = null) @safe
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, Embed(recordWithMedia), langs);
+		return sendReplyPost(uri, message, Embed(recordWithMedia), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, EmbedRecordWithMedia recordWithMedia, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, EmbedRecordWithMedia recordWithMedia,
+		JSONValue opts = JSONValue.init) @safe
 	{
 		return sendReplyPost(uri, message, app.bsky.embed.RecordWithMedia(
 			record: recordWithMedia.record,
 			media: recordWithMedia.media.match!(
 				(EmbedImage[] images)    => app.bsky.embed.RecordWithMedia.Media(getEmbedImages(images)),
-				(EmbedExternal external) => app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external)))), langs);
+				(EmbedExternal external) => app.bsky.embed.RecordWithMedia.Media(getEmbedExternal(external)))), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Video video, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, Embed(video), langs);
+		return sendReplyPost(uri, message, Embed(video), opts);
 	}
 	/// ditto
-	PostRef sendReplyPost(string uri, string message, EmbedVideo video, string[] langs = null) @safe
+	PostRef sendReplyPost(string uri, string message, EmbedVideo video, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendReplyPost(uri, message, getEmbedVideo(video), langs);
+		return sendReplyPost(uri, message, getEmbedVideo(video), opts);
 	}
 	
 	// sendReplyPost/getRecord/createRecord
@@ -2446,63 +2476,67 @@ public:
 	}
 	
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendPost(message, Embed(app.bsky.embed.Record(getPostRef(uri))), ReplyRef.init, langs);
+		return sendPost(message, Embed(app.bsky.embed.Record(getPostRef(uri))), ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Images images, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Images images,
+		JSONValue opts = JSONValue.init) @safe
 	{
 		return sendPost(message, Embed(app.bsky.embed.RecordWithMedia(
 			record: getPostRef(uri),
 			media: app.bsky.embed.RecordWithMedia.Media(images))),
-			ReplyRef.init, langs);
+			ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Images.Image[] images, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Images.Image[] images,
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendQuotePost(uri, message, app.bsky.embed.Images(images), langs);
+		return sendQuotePost(uri, message, app.bsky.embed.Images(images), opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Images.Image image, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Images.Image image,
+		JSONValue opts = JSONValue.init) @safe
 	{
-		return sendQuotePost(uri, message, [image], langs);
+		return sendQuotePost(uri, message, [image], opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, EmbedImage image, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, EmbedImage image, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendQuotePost(uri, message, getEmbedImage(image), langs);
+		return sendQuotePost(uri, message, getEmbedImage(image), opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, EmbedImage[] images, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, EmbedImage[] images, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendQuotePost(uri, message, getEmbedImages(images), langs);
+		return sendQuotePost(uri, message, getEmbedImages(images), opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, app.bsky.embed.External external, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, app.bsky.embed.External external,
+		JSONValue opts = JSONValue.init) @safe
 	{
 		return sendPost(message, Embed(app.bsky.embed.RecordWithMedia(
 			record: getPostRef(uri),
 			media: app.bsky.embed.RecordWithMedia.Media(external))),
-			ReplyRef.init, langs);
+			ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, EmbedExternal external, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, EmbedExternal external, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendQuotePost(uri, message, getEmbedExternal(external), langs);
+		return sendQuotePost(uri, message, getEmbedExternal(external), opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Video video, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init) @safe
 	{
 		return sendPost(message, Embed(app.bsky.embed.RecordWithMedia(
 			record: getPostRef(uri),
 			media: app.bsky.embed.RecordWithMedia.Media(video))),
-			ReplyRef.init, langs);
+			ReplyRef.init, opts);
 	}
 	/// ditto
-	PostRef sendQuotePost(string uri, string message, EmbedVideo video, string[] langs = null) @safe
+	PostRef sendQuotePost(string uri, string message, EmbedVideo video, JSONValue opts = JSONValue.init) @safe
 	{
-		return sendQuotePost(uri, message, getEmbedVideo(video), langs);
+		return sendQuotePost(uri, message, getEmbedVideo(video), opts);
 	}
 	
 	// sendQuotePost
