@@ -1,4 +1,3 @@
-<!-- [![GitHub tag](https://img.shields.io/github/tag/shoo/bsky.svg?maxAge=86400)](#) -->
 [![GitHub tag](https://img.shields.io/github/tag/shoo/bsky.svg?maxAge=86400)](#)
 [![CI Status](https://github.com/shoo/bsky/actions/workflows/main.yml/badge.svg)](https://github.com/shoo/voile/actions/workflows/main.yml)
 [![downloads](https://img.shields.io/dub/dt/bsky.svg?cacheSeconds=3600)](https://code.dlang.org/packages/bsky)
@@ -86,8 +85,8 @@ foreach (post; client.timeline.take(100).toMessages)
 | com.atproto.identity.updateHandle       | UNSUPPORTED |
 | com.atproto.moderation.createReport     | UNSUPPORTED |
 | com.atproto.repo.applyWrites            | UNSUPPORTED |
-| com.atproto.repo.createRecord           | bsky.client.Bluesky.createRecord <br /> bsky.client.Bluesky.sendPost <br /> bsky.client.Bluesky.sendReplyPost <br /> bsky.client.Bluesky.sendQuotePost <br /> bsky.client.Bluesky.markLike <br /> bsky.client.Bluesky.repost |
-| com.atproto.repo.deleteRecord           | bsky.client.Bluesky.deletePost <br /> bsky.client.Bluesky.deleteLike <br /> bsky.client.Bluesky.deleteRepost |
+| com.atproto.repo.createRecord           | bsky.client.Bluesky.createRecord <br /> bsky.client.Bluesky.sendPost <br /> bsky.client.Bluesky.sendReplyPost <br /> bsky.client.Bluesky.sendQuotePost <br /> bsky.client.Bluesky.markLike <br /> bsky.client.Bluesky.repost <br /> bsky.client.Bluesky.follow |
+| com.atproto.repo.deleteRecord           | bsky.client.Bluesky.deletePost <br /> bsky.client.Bluesky.deleteLike <br /> bsky.client.Bluesky.deleteRepost <br /> bsky.client.Bluesky.unfollow |
 | com.atproto.repo.getRecord              | bsky.client.Bluesky.getRecord |
 | com.atproto.repo.importRepo             | UNSUPPORTED |
 | com.atproto.repo.listMissingBlobs       | UNSUPPORTED |

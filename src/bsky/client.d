@@ -1613,6 +1613,18 @@ public:
 		_enforceHttpRes(res);
 	}
 	
+	/// ditto
+	void deleteRecord(AtProtoURI uri) @safe
+	{
+		return deleteRecord(uri.collection, uri.rkey);
+	}
+	
+	/// ditto
+	void deleteRecord(string uri) @safe
+	{
+		deleteRecord(AtProtoURI(uri));
+	}
+	
 	/***************************************************************************
 	 * Record item of com.atproto.repo.listRecords API
 	 */
@@ -3031,6 +3043,88 @@ public:
 			assert(params["repo"].str == "did:plc:2qfqobqz6dzrfa3jv74i6k6m");
 		}
 	}
+	
+	
+	/***************************************************************************
+	 * Follow
+	 * 
+	 * Params:
+	 *     name = Specify the handle or DID of the user you wish to follow
+	 * Returns:
+	 *     If successful, a reference to the record is returned
+	 */
+	StrongRef follow(string name) @safe
+	{
+		import std.datetime: Clock;
+		if (!name.startsWith("did:"))
+		{
+			auto did = resolveHandle(name);
+			enforce(did.length != 0, "Cannot resolve handle");
+			return follow(did);
+		}
+		auto jv = JSONValue([
+			"$type": "app.bsky.graph.follow",
+			"subject": name,
+			"createdAt": Clock.currTime.toUTC.toISOExtString]);
+		return createRecord(jv, "app.bsky.graph.follow")
+			.deserializeFromJson!StrongRef;
+	}
+	
+	/***************************************************************************
+	 * Unfollow
+	 * 
+	 * Params:
+	 *     name = Specify the handle or DID of the user you wish to unfollow
+	 */
+	void unfollow(string name) @safe
+	{
+		deleteRecord(profile(name).viewer.following);
+	}
+	// follow/unfollow
+	@safe unittest
+	{
+		auto client = _createDummyClient("c47efab2-6844-4b02-bcca-f214858143e3");
+		auto followRes = client.follow("upqbv134.esi.org");
+		assert(client.httpc.results.length == 2);
+		with (client.req(0))
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/com.atproto.identity.resolveHandle`);
+			assert(query == "handle=upqbv134.esi.org");
+			assert(bodyBinary == ``.representation);
+		}
+		with (client.req(1))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.createRecord`);
+			assert(mimeType == "application/json");
+			auto params = parseJSON(cast(const char[])bodyBinary);
+			assert(params["collection"].str == "app.bsky.graph.follow");
+			assert(params["record"]["$type"].str == "app.bsky.graph.follow");
+			assert(params["record"]["subject"].str == "did:plc:mhz3szj7pcjfpzv7pylcmlgx");
+		}
+		assert(followRes.cid == "cx6gaocbuktylkt2pumtw2oj5grkwqbiucuqcnctahbbsn72qrtjugp7er2");
+		assert(followRes.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.graph.follow/vojhg6o5oliev");
+		client.unfollow("upqbv134.esi.org");
+		assert(client.httpc.results.length == 4);
+		with (client.req(2))
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/app.bsky.actor.getProfile`);
+			assert(query == "actor=upqbv134.esi.org");
+			assert(bodyBinary == ``.representation);
+		}
+		with (client.req(3))
+		{
+			assert(method == "POST");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.deleteRecord`);
+			assert(mimeType == "application/json");
+			auto params = parseJSON(cast(const char[])bodyBinary);
+			assert(params["collection"].str == "app.bsky.graph.follow");
+			assert(params["rkey"].str == "vojhg6o5oliev");
+			assert(params["repo"].str == "did:plc:2qfqobqz6dzrfa3jv74i6k6m");
+		}
+	}
 }
 
 // Execute with `dub test -d ProvisioningDataSource`
@@ -3163,6 +3257,14 @@ debug (ProvisioningDataSource) @safe unittest
 		records.popFront();
 		records.popFront();
 		assert(records.empty);
+	}
+	
+	version (none)
+	{
+		// フォロー/アンフォロー
+		auto followRes = client.follow("mono-shoo.bsky.social");
+		writeln(followRes);
+		client.unfollow("mono-shoo.bsky.social");
 	}
 }
 
