@@ -1,0 +1,6 @@
+{
+	"name": "like_histgram",
+	"dependencies": {
+		"bsky": {"path": "../.."}
+	}
+}
