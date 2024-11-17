@@ -1717,14 +1717,14 @@
       "line" : 201,
       "char" : 9,
       "deco" : "FNfZAya",
-      "endline" : 205,
+      "endline" : 207,
       "endchar" : 2
      },
      {
       "name" : "_get",
       "kind" : "function",
       "protection" : "private",
-      "line" : 207,
+      "line" : 209,
       "char" : 12,
       "deco" : "FNfAyaHQeQgZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string path, string[string] param = null)",
@@ -1739,14 +1739,14 @@
         "default" : "cast(string[string])null"
        }
       ],
-      "endline" : 210,
+      "endline" : 212,
       "endchar" : 2
      },
      {
       "name" : "_post",
       "kind" : "function",
       "protection" : "private",
-      "line" : 212,
+      "line" : 214,
       "char" : 12,
       "deco" : "FNfAyaAyhQgZS3std4json9JSONValue",
       "parameters" : [
@@ -1763,14 +1763,14 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 215,
+      "endline" : 217,
       "endchar" : 2
      },
      {
       "name" : "_post",
       "kind" : "function",
       "protection" : "private",
-      "line" : 217,
+      "line" : 219,
       "char" : 12,
       "deco" : "FNfAyaS3std4json9JSONValueZQv",
       "parameters" : [
@@ -1783,14 +1783,14 @@
         "deco" : "S3std4json9JSONValue"
        }
       ],
-      "endline" : 221,
+      "endline" : 223,
       "endchar" : 2
      },
      {
       "name" : "_enforceHttpRes",
       "kind" : "function",
       "protection" : "private",
-      "line" : 223,
+      "line" : 225,
       "char" : 7,
       "deco" : "FNeS3std4json9JSONValueZv",
       "parameters" : [
@@ -1799,14 +1799,14 @@
         "deco" : "S3std4json9JSONValue"
        }
       ],
-      "endline" : 228,
+      "endline" : 230,
       "endchar" : 2
      },
      {
       "name" : "_fetchSequencialData",
       "kind" : "function",
       "protection" : "private",
-      "line" : 230,
+      "line" : 232,
       "char" : 9,
       "deco" : "FNfDFNfS3std4json9JSONValueZAyaDFNfQBcZAQBhDFNfQiZvQxQzmHQBdQBgZQBk",
       "originalType" : "@safe string(string delegate(JSONValue jv) @safe getCursor, JSONValue[] delegate(JSONValue jv) @safe getElements, void delegate(JSONValue[] jv) @safe append, string path, string cursor, size_t len, string[string] params)",
@@ -1840,13 +1840,13 @@
         "deco" : "HAyaQd"
        }
       ],
-      "endline" : 271,
+      "endline" : 273,
       "endchar" : 2
      },
      {
       "kind" : "template",
       "protection" : "private",
-      "line" : 273,
+      "line" : 275,
       "char" : 15,
       "name" : "_makeFetchRange",
       "parameters" : [
@@ -1859,7 +1859,7 @@
        {
         "name" : "_makeFetchRange",
         "kind" : "function",
-        "line" : 273,
+        "line" : 275,
         "char" : 15,
         "type" : "@safe FetchRange!T(string delegate(JSONValue jv) @safe getCursor, JSONValue[] delegate(JSONValue jv) @safe getElements, JSONValue delegate(string[string] param) @safe httpGet, string cursor, size_t limit, string[string] params)",
         "parameters" : [
@@ -1888,7 +1888,7 @@
           "type" : "string[string]"
          }
         ],
-        "endline" : 284,
+        "endline" : 286,
         "endchar" : 2
        }
       ]
@@ -1896,7 +1896,7 @@
      {
       "kind" : "template",
       "protection" : "private",
-      "line" : 285,
+      "line" : 287,
       "char" : 15,
       "name" : "_makeFetchRange",
       "parameters" : [
@@ -1909,7 +1909,7 @@
        {
         "name" : "_makeFetchRange",
         "kind" : "function",
-        "line" : 285,
+        "line" : 287,
         "char" : 15,
         "type" : "@safe FetchRange!T(string delegate(JSONValue jv) @safe getCursor, JSONValue[] delegate(JSONValue jv) @safe getElements, string path, string cursor, size_t limit, string[string] params)",
         "parameters" : [
@@ -1938,7 +1938,7 @@
           "type" : "string[string]"
          }
         ],
-        "endline" : 298,
+        "endline" : 300,
         "endchar" : 2
        }
       ]
@@ -1947,7 +1947,7 @@
       "name" : "_parseFacet",
       "kind" : "function",
       "protection" : "private",
-      "line" : 300,
+      "line" : 302,
       "char" : 7,
       "deco" : "FNfKS3std4json9JSONValueAyaZv",
       "parameters" : [
@@ -1963,14 +1963,14 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 303,
+      "endline" : 305,
       "endchar" : 2
      },
      {
       "kind" : "template",
       "protection" : "public",
       "comment" : " Constructor\n",
-      "line" : 336,
+      "line" : 338,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -1984,7 +1984,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 336,
+        "line" : 338,
         "char" : 2,
         "type" : "@trusted (string endpoint, AtprotoAuth auth = null, Client client = new Client)",
         "parameters" : [
@@ -2003,7 +2003,7 @@
           "default" : "new Client"
          }
         ],
-        "endline" : 339,
+        "endline" : 341,
         "endchar" : 2
        }
       ]
@@ -2012,7 +2012,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 341,
+      "line" : 343,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2026,7 +2026,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 341,
+        "line" : 343,
         "char" : 2,
         "type" : "@trusted (string endpoint, AtprotoAuth auth = null, Client client)",
         "parameters" : [
@@ -2044,7 +2044,7 @@
           "type" : "Client"
          }
         ],
-        "endline" : 344,
+        "endline" : 346,
         "endchar" : 2
        }
       ]
@@ -2053,7 +2053,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 346,
+      "line" : 348,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2067,9 +2067,9 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 346,
+        "line" : 348,
         "char" : 2,
-        "type" : "@safe (string endpoint, shared AtprotoAuth auth = null, Client client = new Client)",
+        "type" : "@safe (string endpoint, shared AtprotoAuth auth, Client client = new Client)",
         "parameters" : [
          {
           "name" : "endpoint",
@@ -2080,8 +2080,7 @@
           "type" : "AtprotoAuth",
           "storageClass" : [
            "shared"
-          ],
-          "default" : "null"
+          ]
          },
          {
           "name" : "client",
@@ -2089,7 +2088,7 @@
           "default" : "new Client"
          }
         ],
-        "endline" : 349,
+        "endline" : 351,
         "endchar" : 2
        }
       ]
@@ -2098,7 +2097,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 351,
+      "line" : 353,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2112,9 +2111,9 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 351,
+        "line" : 353,
         "char" : 2,
-        "type" : "@safe (string endpoint, shared AtprotoAuth auth = null, Client client)",
+        "type" : "@safe (string endpoint, shared AtprotoAuth auth, Client client)",
         "parameters" : [
          {
           "name" : "endpoint",
@@ -2125,15 +2124,14 @@
           "type" : "AtprotoAuth",
           "storageClass" : [
            "shared"
-          ],
-          "default" : "null"
+          ]
          },
          {
           "name" : "client",
           "type" : "Client"
          }
         ],
-        "endline" : 356,
+        "endline" : 358,
         "endchar" : 2
        }
       ]
@@ -2142,7 +2140,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 358,
+      "line" : 360,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2156,7 +2154,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 358,
+        "line" : 360,
         "char" : 2,
         "type" : "@trusted (AtprotoAuth auth, Client client = new Client)",
         "parameters" : [
@@ -2170,7 +2168,7 @@
           "default" : "new Client"
          }
         ],
-        "endline" : 361,
+        "endline" : 363,
         "endchar" : 2
        }
       ]
@@ -2179,7 +2177,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 363,
+      "line" : 365,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2193,7 +2191,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 363,
+        "line" : 365,
         "char" : 2,
         "type" : "@trusted (AtprotoAuth auth, Client client)",
         "parameters" : [
@@ -2206,7 +2204,7 @@
           "type" : "Client"
          }
         ],
-        "endline" : 366,
+        "endline" : 368,
         "endchar" : 2
        }
       ]
@@ -2215,7 +2213,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 368,
+      "line" : 370,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2229,7 +2227,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 368,
+        "line" : 370,
         "char" : 2,
         "type" : "@safe (shared AtprotoAuth auth, Client client = new Client)",
         "parameters" : [
@@ -2246,7 +2244,7 @@
           "default" : "new Client"
          }
         ],
-        "endline" : 371,
+        "endline" : 373,
         "endchar" : 2
        }
       ]
@@ -2255,7 +2253,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 373,
+      "line" : 375,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2269,7 +2267,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 373,
+        "line" : 375,
         "char" : 2,
         "type" : "@safe (shared AtprotoAuth auth, Client client)",
         "parameters" : [
@@ -2285,7 +2283,7 @@
           "type" : "Client"
          }
         ],
-        "endline" : 376,
+        "endline" : 378,
         "endchar" : 2
        }
       ]
@@ -2294,7 +2292,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 378,
+      "line" : 380,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2308,7 +2306,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 378,
+        "line" : 380,
         "char" : 2,
         "type" : "@safe (Client client = new Client)",
         "parameters" : [
@@ -2318,7 +2316,7 @@
           "default" : "new Client"
          }
         ],
-        "endline" : 381,
+        "endline" : 383,
         "endchar" : 2
        }
       ]
@@ -2327,7 +2325,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 383,
+      "line" : 385,
       "char" : 2,
       "name" : "this",
       "parameters" : [
@@ -2341,7 +2339,7 @@
        {
         "name" : "this",
         "kind" : "constructor",
-        "line" : 383,
+        "line" : 385,
         "char" : 2,
         "type" : "@safe (Client client)",
         "parameters" : [
@@ -2350,7 +2348,7 @@
           "type" : "Client"
          }
         ],
-        "endline" : 386,
+        "endline" : 388,
         "endchar" : 2
        }
       ]
@@ -2360,7 +2358,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Login\n",
-      "line" : 392,
+      "line" : 394,
       "char" : 7,
       "deco" : "FNeC4bsky4auth11AtprotoAuthZv",
       "parameters" : [
@@ -2369,7 +2367,7 @@
         "deco" : "C4bsky4auth11AtprotoAuth"
        }
       ],
-      "endline" : 395,
+      "endline" : 397,
       "endchar" : 2
      },
      {
@@ -2377,7 +2375,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 397,
+      "line" : 399,
       "char" : 7,
       "deco" : "FNfOC4bsky4auth11AtprotoAuthZv",
       "originalType" : "@safe void(shared AtprotoAuth auth)",
@@ -2387,13 +2385,13 @@
         "deco" : "OC4bsky4auth11AtprotoAuth"
        }
       ],
-      "endline" : 401,
+      "endline" : 403,
       "endchar" : 2,
       "in" : {
        "name" : "__require",
        "kind" : "function",
        "protection" : "public",
-       "line" : 398,
+       "line" : 400,
        "char" : 2,
        "deco" : "FNaNbNiNfKOC4bsky4auth11AtprotoAuthZv",
        "originalType" : "@safe void(shared ref AtprotoAuth auth)",
@@ -2407,7 +2405,7 @@
          ]
         }
        ],
-       "endline" : 398,
+       "endline" : 400,
        "endchar" : 2
       }
      },
@@ -2415,7 +2413,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 403,
+      "line" : 405,
       "char" : 7,
       "name" : "login",
       "parameters" : [
@@ -2429,7 +2427,7 @@
        {
         "name" : "login",
         "kind" : "function",
-        "line" : 403,
+        "line" : 405,
         "char" : 7,
         "type" : "@safe void(string id, string password, Client client = null)",
         "parameters" : [
@@ -2447,7 +2445,7 @@
           "default" : "null"
          }
         ],
-        "endline" : 406,
+        "endline" : 408,
         "endchar" : 2
        }
       ]
@@ -2456,7 +2454,7 @@
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 408,
+      "line" : 410,
       "char" : 7,
       "name" : "login",
       "parameters" : [
@@ -2470,7 +2468,7 @@
        {
         "name" : "login",
         "kind" : "function",
-        "line" : 408,
+        "line" : 410,
         "char" : 7,
         "type" : "@safe void(string id, string password, Client client)",
         "parameters" : [
@@ -2487,7 +2485,7 @@
           "type" : "Client"
          }
         ],
-        "endline" : 413,
+        "endline" : 415,
         "endchar" : 2
        }
       ]
@@ -2497,22 +2495,22 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Logout\n",
-      "line" : 418,
+      "line" : 420,
       "char" : 7,
       "deco" : "FNfZv",
-      "endline" : 421,
+      "endline" : 423,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L424_C8",
+      "name" : "__unittest_L426_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 424,
+      "line" : 426,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 453,
+      "endline" : 455,
       "endchar" : 2
      },
      {
@@ -2520,10 +2518,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Account availability\n",
-      "line" : 453,
+      "line" : 455,
       "char" : 7,
       "deco" : "xFNfZb",
-      "endline" : 456,
+      "endline" : 458,
       "endchar" : 2
      },
      {
@@ -2531,7 +2529,7 @@
       "kind" : "enum",
       "protection" : "public",
       "comment" : " Auto update access token types\n",
-      "line" : 461,
+      "line" : 463,
       "char" : 2,
       "baseDeco" : "i",
       "members" : [
@@ -2541,7 +2539,7 @@
         "protection" : "public",
         "value" : "0",
         "comment" : "\n",
-        "line" : 466,
+        "line" : 468,
         "char" : 3
        },
        {
@@ -2550,7 +2548,7 @@
         "protection" : "public",
         "value" : "1",
         "comment" : "\n",
-        "line" : 470,
+        "line" : 472,
         "char" : 3
        },
        {
@@ -2559,7 +2557,7 @@
         "protection" : "public",
         "value" : "2",
         "comment" : "\n",
-        "line" : 474,
+        "line" : 476,
         "char" : 3
        },
        {
@@ -2568,7 +2566,7 @@
         "protection" : "public",
         "value" : "3",
         "comment" : "\n",
-        "line" : 478,
+        "line" : 480,
         "char" : 3
        }
       ]
@@ -2578,7 +2576,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Auto update access tokens\n",
-      "line" : 484,
+      "line" : 486,
       "char" : 7,
       "deco" : "FNfbZv",
       "parameters" : [
@@ -2587,7 +2585,7 @@
         "deco" : "b"
        }
       ],
-      "endline" : 487,
+      "endline" : 489,
       "endchar" : 2
      },
      {
@@ -2595,7 +2593,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 490,
+      "line" : 492,
       "char" : 7,
       "deco" : "FNfE4bsky6client7Bluesky18AutoUpdateStrategyZv",
       "parameters" : [
@@ -2604,7 +2602,7 @@
         "deco" : "E4bsky6client7Bluesky18AutoUpdateStrategy"
        }
       ],
-      "endline" : 494,
+      "endline" : 496,
       "endchar" : 2
      },
      {
@@ -2612,22 +2610,22 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 497,
+      "line" : 499,
       "char" : 21,
       "deco" : "xFNfZE4bsky6client7Bluesky18AutoUpdateStrategy",
-      "endline" : 501,
+      "endline" : 503,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L504_C8",
+      "name" : "__unittest_L506_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 504,
+      "line" : 506,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 575,
+      "endline" : 577,
       "endchar" : 2
      },
      {
@@ -2635,7 +2633,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Profile\n\n - getProfile : Raw API execution.\n - profile : Get target profile.\n - getProfiles : Raw API execution.\n - fetchProfiles : Execute multiple APIs to get all data.\n - profiles : Range to perform API execution when needed.\n\n Params:\n     name = did or handle, default is user of current session.\n     names = did or handle list\n     actors = did or handle list, max length is 25\n",
-      "line" : 575,
+      "line" : 577,
       "char" : 12,
       "deco" : "FNfAyaZS3std4json9JSONValue",
       "parameters" : [
@@ -2645,7 +2643,7 @@
         "default" : "null"
        }
       ],
-      "endline" : 578,
+      "endline" : 580,
       "endchar" : 2
      },
      {
@@ -2653,7 +2651,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 580,
+      "line" : 582,
       "char" : 10,
       "deco" : "FNeAyaZS4bsky4user7Profile",
       "parameters" : [
@@ -2663,7 +2661,7 @@
         "default" : "null"
        }
       ],
-      "endline" : 585,
+      "endline" : 587,
       "endchar" : 2
      },
      {
@@ -2671,7 +2669,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 587,
+      "line" : 589,
       "char" : 12,
       "deco" : "FNeAAyaZS3std4json9JSONValue",
       "parameters" : [
@@ -2680,13 +2678,13 @@
         "deco" : "AAya"
        }
       ],
-      "endline" : 599,
+      "endline" : 601,
       "endchar" : 2,
       "in" : {
        "name" : "__require",
        "kind" : "function",
        "protection" : "public",
-       "line" : 588,
+       "line" : 590,
        "char" : 2,
        "deco" : "FNaNbNiNeKAAyaZv",
        "originalType" : "@trusted void(ref string[] actors)",
@@ -2700,7 +2698,7 @@
          ]
         }
        ],
-       "endline" : 588,
+       "endline" : 590,
        "endchar" : 2
       }
      },
@@ -2709,7 +2707,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 601,
+      "line" : 603,
       "char" : 12,
       "deco" : "FNfAAyaZAS4bsky4user7Profile",
       "parameters" : [
@@ -2718,7 +2716,7 @@
         "deco" : "AAya"
        }
       ],
-      "endline" : 618,
+      "endline" : 620,
       "endchar" : 2
      },
      {
@@ -2726,7 +2724,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 620,
+      "line" : 622,
       "char" : 21,
       "deco" : "FNfAAyaZS4bsky6client__T10FetchRangeTSQBd4user7ProfileZQBf",
       "originalType" : "@safe FetchRange!Profile(string[] names)",
@@ -2736,31 +2734,31 @@
         "deco" : "AAya"
        }
       ],
-      "endline" : 642,
+      "endline" : 644,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L645_C8",
+      "name" : "__unittest_L647_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 645,
+      "line" : 647,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 660,
+      "endline" : 662,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L660_C8",
+      "name" : "__unittest_L662_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 660,
+      "line" : 662,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 702,
+      "endline" : 704,
       "endchar" : 2
      },
      {
@@ -2768,7 +2766,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Followers\n\n - getFollowers : Raw API execution.\n - fetchFollowers : Execute multiple APIs to get all data.\n - followers : Range to perform API execution when needed.\n\n Params:\n     name = did or handle, default is user of current session.\n     actor = did or handle, default is user of current session.\n     cursor = Cursor for sequential data retrieval.\n     len = Number of data to be acquired at one time.\n     limit = Number to retrieve in a single API run.\n",
-      "line" : 702,
+      "line" : 704,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string actor, string cursor = null, size_t limit = 100)",
@@ -2788,7 +2786,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 708,
+      "endline" : 710,
       "endchar" : 2
      },
      {
@@ -2796,7 +2794,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 710,
+      "line" : 712,
       "char" : 9,
       "deco" : "FNfAyamZAS4bsky4user4User",
       "originalType" : "@safe User[](string name, size_t len = 100)",
@@ -2811,7 +2809,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 723,
+      "endline" : 725,
       "endchar" : 2
      },
      {
@@ -2819,10 +2817,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 725,
+      "line" : 727,
       "char" : 9,
       "deco" : "FNfZAS4bsky4user4User",
-      "endline" : 728,
+      "endline" : 730,
       "endchar" : 2
      },
      {
@@ -2830,7 +2828,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 730,
+      "line" : 732,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4user4UserZQBc",
       "originalType" : "@safe FetchRange!User(string name, size_t limit = 100)",
@@ -2845,7 +2843,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 736,
+      "endline" : 738,
       "endchar" : 2
      },
      {
@@ -2853,35 +2851,35 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 738,
+      "line" : 740,
       "char" : 18,
       "deco" : "FNfZS4bsky6client__T10FetchRangeTSQBd4user4UserZQBc",
       "originalType" : "@safe FetchRange!User()",
-      "endline" : 741,
+      "endline" : 743,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L744_C8",
+      "name" : "__unittest_L746_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 744,
+      "line" : 746,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 760,
+      "endline" : 762,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L760_C8",
+      "name" : "__unittest_L762_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 760,
+      "line" : 762,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 788,
+      "endline" : 790,
       "endchar" : 2
      },
      {
@@ -2889,7 +2887,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Follows\n\n - getFollows : Raw API execution\n - fetchFollows : Execute multiple APIs to get all data.\n - follows : Range to perform API execution when needed.\n\n Params:\n     name = did or handle, default is user of current session.\n     actor = did or handle, default is user of current session.\n     cursor = Cursor for sequential data retrieval.\n     limit = Number to retrieve in a single API run.\n",
-      "line" : 788,
+      "line" : 790,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string actor, string cursor = null, size_t limit = 50)",
@@ -2909,7 +2907,7 @@
         "default" : "50LU"
        }
       ],
-      "endline" : 794,
+      "endline" : 796,
       "endchar" : 2
      },
      {
@@ -2917,7 +2915,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 796,
+      "line" : 798,
       "char" : 9,
       "deco" : "FNfAyamZAS4bsky4user4User",
       "originalType" : "@safe User[](string name, size_t len = 100)",
@@ -2932,7 +2930,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 815,
+      "endline" : 817,
       "endchar" : 2
      },
      {
@@ -2940,10 +2938,10 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 817,
+      "line" : 819,
       "char" : 9,
       "deco" : "FNfZAS4bsky4user4User",
-      "endline" : 820,
+      "endline" : 822,
       "endchar" : 2
      },
      {
@@ -2951,7 +2949,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 822,
+      "line" : 824,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4user4UserZQBc",
       "originalType" : "@safe FetchRange!User(string name, size_t limit = 100)",
@@ -2966,7 +2964,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 828,
+      "endline" : 830,
       "endchar" : 2
      },
      {
@@ -2974,35 +2972,35 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 830,
+      "line" : 832,
       "char" : 18,
       "deco" : "FNfZS4bsky6client__T10FetchRangeTSQBd4user4UserZQBc",
       "originalType" : "@safe FetchRange!User()",
-      "endline" : 833,
+      "endline" : 835,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L836_C8",
+      "name" : "__unittest_L838_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 836,
+      "line" : 838,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 851,
+      "endline" : 853,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L851_C8",
+      "name" : "__unittest_L853_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 851,
+      "line" : 853,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 869,
+      "endline" : 871,
       "endchar" : 2
      },
      {
@@ -3010,7 +3008,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Result of get timeline\n",
-      "line" : 869,
+      "line" : 871,
       "char" : 2,
       "members" : [
        {
@@ -3018,7 +3016,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 872,
+        "line" : 874,
         "char" : 10,
         "deco" : "AS4bsky4post4Feed",
         "offset" : 0
@@ -3028,7 +3026,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 874,
+        "line" : 876,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -3040,7 +3038,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Get timeline\n\n - getTimeline : Raw API execution.\n - fetchTimeline : Execute multiple APIs to get all data.\n - timeline : Range to perform API execution when needed.\n\n Params\n     cursor = Cursor for sequential data retrieval.\n     len = Number of data to be acquired at one time.\n     limit = Number to retrieve in a single API run.\n",
-      "line" : 888,
+      "line" : 890,
       "char" : 12,
       "deco" : "FNfAyamZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string cursor, size_t limit)",
@@ -3054,7 +3052,7 @@
         "deco" : "m"
        }
       ],
-      "endline" : 896,
+      "endline" : 898,
       "endchar" : 2
      },
      {
@@ -3062,7 +3060,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 898,
+      "line" : 900,
       "char" : 17,
       "deco" : "FNfAyamZS4bsky6client7Bluesky14TimelineResult",
       "originalType" : "@safe TimelineResult(string cursor, size_t len = 100)",
@@ -3077,7 +3075,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 911,
+      "endline" : 913,
       "endchar" : 2
      },
      {
@@ -3085,7 +3083,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 913,
+      "line" : 915,
       "char" : 9,
       "deco" : "FNfmZAS4bsky4post4Feed",
       "originalType" : "@safe Feed[](size_t len)",
@@ -3095,7 +3093,7 @@
         "deco" : "m"
        }
       ],
-      "endline" : 916,
+      "endline" : 918,
       "endchar" : 2
      },
      {
@@ -3103,7 +3101,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 918,
+      "line" : 920,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(string cursor, size_t limit = 100)",
@@ -3118,7 +3116,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 924,
+      "endline" : 926,
       "endchar" : 2
      },
      {
@@ -3126,7 +3124,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 926,
+      "line" : 928,
       "char" : 18,
       "deco" : "FNfmZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(size_t limit = 100)",
@@ -3137,31 +3135,31 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 929,
+      "endline" : 931,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L932_C8",
+      "name" : "__unittest_L934_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 932,
+      "line" : 934,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 948,
+      "endline" : 950,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L948_C8",
+      "name" : "__unittest_L950_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 948,
+      "line" : 950,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 964,
+      "endline" : 966,
       "endchar" : 2
      },
      {
@@ -3169,7 +3167,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 964,
+      "line" : 966,
       "char" : 2,
       "deco" : "S4bsky6client7Bluesky14TimelineResult"
      },
@@ -3178,7 +3176,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Posts and reposts by any user\n\n - getAuthorFeed :\n - fetchAuthorFeed :\n - authorFeed :\n\n Params:\n     name = did or handle, default is user of current session.\n     actor = did or handle, default is user of current session.\n\n",
-      "line" : 977,
+      "line" : 979,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string actor, string cursor, size_t limit = 50)",
@@ -3197,7 +3195,7 @@
         "default" : "50LU"
        }
       ],
-      "endline" : 985,
+      "endline" : 987,
       "endchar" : 2
      },
      {
@@ -3205,7 +3203,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 987,
+      "line" : 989,
       "char" : 19,
       "deco" : "FNfAyaQdmZS4bsky6client7Bluesky14TimelineResult",
       "originalType" : "@safe AuthorFeedResult(string name, string cursor, size_t len = 100)",
@@ -3224,7 +3222,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1000,
+      "endline" : 1002,
       "endchar" : 2
      },
      {
@@ -3232,7 +3230,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1002,
+      "line" : 1004,
       "char" : 18,
       "deco" : "FNfAyaQdmZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(string name, string cursor, size_t limit = 100)",
@@ -3251,7 +3249,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1008,
+      "endline" : 1010,
       "endchar" : 2
      },
      {
@@ -3259,7 +3257,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1010,
+      "line" : 1012,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(string name, size_t limit = 100)",
@@ -3274,7 +3272,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1013,
+      "endline" : 1015,
       "endchar" : 2
      },
      {
@@ -3282,7 +3280,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1015,
+      "line" : 1017,
       "char" : 18,
       "deco" : "FNfmZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(size_t limit = 100)",
@@ -3293,19 +3291,19 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1018,
+      "endline" : 1020,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1021_C8",
+      "name" : "__unittest_L1023_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1021,
+      "line" : 1023,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1037,
+      "endline" : 1039,
       "endchar" : 2
      },
      {
@@ -3313,7 +3311,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 1037,
+      "line" : 1039,
       "char" : 2,
       "deco" : "S4bsky6client7Bluesky14TimelineResult"
      },
@@ -3322,7 +3320,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Posts by any feed\n",
-      "line" : 1041,
+      "line" : 1043,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string feedUri, string cursor, size_t limit = 50)",
@@ -3341,7 +3339,7 @@
         "default" : "50LU"
        }
       ],
-      "endline" : 1049,
+      "endline" : 1051,
       "endchar" : 2
      },
      {
@@ -3349,7 +3347,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1051,
+      "line" : 1053,
       "char" : 13,
       "deco" : "FNfAyaQdmZS4bsky6client7Bluesky14TimelineResult",
       "originalType" : "@safe FeedResult(string feedUri, string cursor, size_t len = 100)",
@@ -3368,7 +3366,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1064,
+      "endline" : 1066,
       "endchar" : 2
      },
      {
@@ -3376,7 +3374,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1066,
+      "line" : 1068,
       "char" : 18,
       "deco" : "FNfAyaQdmZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(string feedUri, string cursor, size_t limit = 100)",
@@ -3395,7 +3393,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1072,
+      "endline" : 1074,
       "endchar" : 2
      },
      {
@@ -3403,7 +3401,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1074,
+      "line" : 1076,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(string feedUri, size_t limit = 100)",
@@ -3418,7 +3416,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1077,
+      "endline" : 1079,
       "endchar" : 2
      },
      {
@@ -3426,7 +3424,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 1080,
+      "line" : 1082,
       "char" : 2,
       "deco" : "S4bsky6client7Bluesky14TimelineResult"
      },
@@ -3435,7 +3433,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Posts by any feed\n\n\n",
-      "line" : 1086,
+      "line" : 1088,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string listUri, string cursor, size_t limit = 50)",
@@ -3454,7 +3452,7 @@
         "default" : "50LU"
        }
       ],
-      "endline" : 1094,
+      "endline" : 1096,
       "endchar" : 2
      },
      {
@@ -3462,7 +3460,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1096,
+      "line" : 1098,
       "char" : 7,
       "storageClass" : [
        "auto"
@@ -3486,7 +3484,7 @@
         "deco" : "m"
        }
       ],
-      "endline" : 1109,
+      "endline" : 1111,
       "endchar" : 2
      },
      {
@@ -3494,7 +3492,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1111,
+      "line" : 1113,
       "char" : 18,
       "deco" : "FNfAyaQdmZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(string listUri, string cursor, size_t limit = 100)",
@@ -3513,7 +3511,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1117,
+      "endline" : 1119,
       "endchar" : 2
      },
      {
@@ -3521,7 +3519,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1119,
+      "line" : 1121,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4post4FeedZQBc",
       "originalType" : "@safe FetchRange!Feed(string listUri, size_t limit = 100)",
@@ -3536,7 +3534,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1122,
+      "endline" : 1124,
       "endchar" : 2
      },
      {
@@ -3544,7 +3542,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Result of search posts\n",
-      "line" : 1127,
+      "line" : 1129,
       "char" : 2,
       "members" : [
        {
@@ -3552,7 +3550,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1130,
+        "line" : 1132,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -3562,7 +3560,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1132,
+        "line" : 1134,
         "char" : 10,
         "deco" : "m",
         "originalType" : "size_t",
@@ -3573,7 +3571,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1134,
+        "line" : 1136,
         "char" : 10,
         "deco" : "AS4bsky4post4Post",
         "offset" : 24
@@ -3585,7 +3583,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Search posts\n",
-      "line" : 1139,
+      "line" : 1141,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string query, string cursor, size_t limit = 50)",
@@ -3604,7 +3602,7 @@
         "default" : "50LU"
        }
       ],
-      "endline" : 1147,
+      "endline" : 1149,
       "endchar" : 2
      },
      {
@@ -3612,7 +3610,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1149,
+      "line" : 1151,
       "char" : 20,
       "deco" : "FNfAyaQdmZS4bsky6client7Bluesky17SearchPostsResult",
       "originalType" : "@safe SearchPostsResult(string query, string cursor, size_t len = 100)",
@@ -3631,7 +3629,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1165,
+      "endline" : 1167,
       "endchar" : 2
      },
      {
@@ -3639,7 +3637,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1167,
+      "line" : 1169,
       "char" : 9,
       "deco" : "FNfAyamZAS4bsky4post4Post",
       "originalType" : "@safe Post[](string query, size_t len = 100)",
@@ -3654,7 +3652,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1170,
+      "endline" : 1172,
       "endchar" : 2
      },
      {
@@ -3662,7 +3660,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1172,
+      "line" : 1174,
       "char" : 18,
       "deco" : "FNfAyaQdmZS4bsky6client__T10FetchRangeTSQBd4post4PostZQBc",
       "originalType" : "@safe FetchRange!Post(string query, string cursor, size_t limit = 100)",
@@ -3681,7 +3679,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1178,
+      "endline" : 1180,
       "endchar" : 2
      },
      {
@@ -3689,7 +3687,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1180,
+      "line" : 1182,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4post4PostZQBc",
       "originalType" : "@safe FetchRange!Post(string query, size_t limit = 100)",
@@ -3704,31 +3702,31 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1183,
+      "endline" : 1185,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1186_C8",
+      "name" : "__unittest_L1188_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1186,
+      "line" : 1188,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1202,
+      "endline" : 1204,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1202_C8",
+      "name" : "__unittest_L1204_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1202,
+      "line" : 1204,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1220,
+      "endline" : 1222,
       "endchar" : 2
      },
      {
@@ -3736,7 +3734,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 1220,
+      "line" : 1222,
       "char" : 12,
       "deco" : "FNfAAyaZS3std4json9JSONValue",
       "parameters" : [
@@ -3745,13 +3743,13 @@
         "deco" : "AAya"
        }
       ],
-      "endline" : 1231,
+      "endline" : 1233,
       "endchar" : 2,
       "in" : {
        "name" : "__require",
        "kind" : "function",
        "protection" : "public",
-       "line" : 1221,
+       "line" : 1223,
        "char" : 2,
        "deco" : "FNaNbNiNfKAAyaZv",
        "originalType" : "@safe void(ref string[] uris)",
@@ -3765,7 +3763,7 @@
          ]
         }
        ],
-       "endline" : 1221,
+       "endline" : 1223,
        "endchar" : 2
       }
      },
@@ -3774,7 +3772,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1233,
+      "line" : 1235,
       "char" : 9,
       "deco" : "FNfAAyaZAS4bsky4post4Post",
       "parameters" : [
@@ -3783,14 +3781,14 @@
         "deco" : "AAya"
        }
       ],
-      "endline" : 1236,
+      "endline" : 1238,
       "endchar" : 2
      },
      {
       "kind" : "template",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1238,
+      "line" : 1240,
       "char" : 7,
       "name" : "getPostItems",
       "parameters" : [
@@ -3804,7 +3802,7 @@
        {
         "name" : "getPostItems",
         "kind" : "function",
-        "line" : 1238,
+        "line" : 1240,
         "char" : 7,
         "storageClass" : [
          "auto"
@@ -3816,21 +3814,21 @@
           "type" : "Range"
          }
         ],
-        "endline" : 1250,
+        "endline" : 1252,
         "endchar" : 2
        }
       ]
      },
      {
-      "name" : "__unittest_L1252_C8",
+      "name" : "__unittest_L1254_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1252,
+      "line" : 1254,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1281,
+      "endline" : 1283,
       "endchar" : 2
      },
      {
@@ -3838,7 +3836,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 1281,
+      "line" : 1283,
       "char" : 2,
       "members" : [
        {
@@ -3846,7 +3844,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1284,
+        "line" : 1286,
         "char" : 10,
         "deco" : "AS4bsky4user4User",
         "offset" : 0
@@ -3856,7 +3854,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1286,
+        "line" : 1288,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -3868,7 +3866,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Users who has reposted the post\n",
-      "line" : 1292,
+      "line" : 1294,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string uri, string cursor, size_t limit = 50)",
@@ -3887,7 +3885,7 @@
         "default" : "50LU"
        }
       ],
-      "endline" : 1300,
+      "endline" : 1302,
       "endchar" : 2
      },
      {
@@ -3895,7 +3893,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1302,
+      "line" : 1304,
       "char" : 18,
       "deco" : "FNfAyaQdmZS4bsky6client7Bluesky15GetRepostResult",
       "originalType" : "@safe GetRepostResult(string uri, string cursor, size_t len = 100)",
@@ -3914,7 +3912,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1315,
+      "endline" : 1317,
       "endchar" : 2
      },
      {
@@ -3922,7 +3920,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1317,
+      "line" : 1319,
       "char" : 9,
       "deco" : "FNfAyamZAS4bsky4user4User",
       "originalType" : "@safe User[](string uri, size_t len = 100)",
@@ -3937,7 +3935,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1320,
+      "endline" : 1322,
       "endchar" : 2
      },
      {
@@ -3945,7 +3943,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1322,
+      "line" : 1324,
       "char" : 18,
       "deco" : "FNfAyaQdmZS4bsky6client__T10FetchRangeTSQBd4user4UserZQBc",
       "originalType" : "@safe FetchRange!User(string uri, string cursor, size_t limit = 100)",
@@ -3964,7 +3962,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1328,
+      "endline" : 1330,
       "endchar" : 2
      },
      {
@@ -3972,7 +3970,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1330,
+      "line" : 1332,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBd4user4UserZQBc",
       "originalType" : "@safe FetchRange!User(string uri, size_t limit = 100)",
@@ -3987,31 +3985,31 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1333,
+      "endline" : 1335,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1336_C8",
+      "name" : "__unittest_L1338_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1336,
+      "line" : 1338,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1354,
+      "endline" : 1356,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1354_C8",
+      "name" : "__unittest_L1356_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1354,
+      "line" : 1356,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1375,
+      "endline" : 1377,
       "endchar" : 2
      },
      {
@@ -4019,7 +4017,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 1375,
+      "line" : 1377,
       "char" : 2,
       "members" : [
        {
@@ -4027,7 +4025,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1379,
+        "line" : 1381,
         "char" : 11,
         "deco" : "S3std8datetime7systime7SysTime",
         "offset" : 0
@@ -4037,7 +4035,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1382,
+        "line" : 1384,
         "char" : 11,
         "deco" : "S3std8datetime7systime7SysTime",
         "offset" : 16
@@ -4047,7 +4045,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1384,
+        "line" : 1386,
         "char" : 8,
         "deco" : "S4bsky4user4User",
         "offset" : 32
@@ -4056,7 +4054,7 @@
         "name" : "opAssign",
         "kind" : "generated function",
         "protection" : "public",
-        "line" : 1375,
+        "line" : 1377,
         "char" : 2,
         "deco" : "FNaNbNcNiNjNfS4bsky6client7Bluesky4LikeZQBb",
         "originalType" : "pure nothrow ref @safe Like(Like p) return",
@@ -4074,7 +4072,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1387,
+      "line" : 1389,
       "char" : 2,
       "members" : [
        {
@@ -4082,7 +4080,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1390,
+        "line" : 1392,
         "char" : 10,
         "deco" : "AS4bsky6client7Bluesky4Like",
         "offset" : 0
@@ -4092,7 +4090,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 1392,
+        "line" : 1394,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -4104,7 +4102,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Users who has liked the post\n",
-      "line" : 1398,
+      "line" : 1400,
       "char" : 12,
       "deco" : "FNfAyaQdmZS3std4json9JSONValue",
       "originalType" : "@safe JSONValue(string uri, string cursor, size_t limit = 50)",
@@ -4123,7 +4121,7 @@
         "default" : "50LU"
        }
       ],
-      "endline" : 1406,
+      "endline" : 1408,
       "endchar" : 2
      },
      {
@@ -4131,7 +4129,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1408,
+      "line" : 1410,
       "char" : 16,
       "deco" : "FNfAyaQdmZS4bsky6client7Bluesky13GetLikeResult",
       "originalType" : "@safe GetLikeResult(string uri, string cursor, size_t len = 100)",
@@ -4150,7 +4148,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1422,
+      "endline" : 1424,
       "endchar" : 2
      },
      {
@@ -4158,7 +4156,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1424,
+      "line" : 1426,
       "char" : 9,
       "deco" : "FNfAyamZAS4bsky6client7Bluesky4Like",
       "originalType" : "@safe Like[](string uri, size_t len = 100)",
@@ -4173,7 +4171,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1427,
+      "endline" : 1429,
       "endchar" : 2
      },
      {
@@ -4181,7 +4179,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1429,
+      "line" : 1431,
       "char" : 18,
       "deco" : "FNfAyaQdmZS4bsky6client__T10FetchRangeTSQBdQBb7Bluesky4LikeZQBi",
       "originalType" : "@safe FetchRange!Like(string uri, string cursor, size_t limit = 100)",
@@ -4200,7 +4198,7 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1435,
+      "endline" : 1437,
       "endchar" : 2
      },
      {
@@ -4208,7 +4206,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1437,
+      "line" : 1439,
       "char" : 18,
       "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBdQBb7Bluesky4LikeZQBi",
       "originalType" : "@safe FetchRange!Like(string uri, size_t limit = 100)",
@@ -4223,31 +4221,31 @@
         "default" : "100LU"
        }
       ],
-      "endline" : 1440,
+      "endline" : 1442,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1443_C8",
+      "name" : "__unittest_L1445_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1443,
+      "line" : 1445,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1460,
+      "endline" : 1462,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1460_C8",
+      "name" : "__unittest_L1462_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1460,
+      "line" : 1462,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1485,
+      "endline" : 1487,
       "endchar" : 2
      },
      {
@@ -4255,7 +4253,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Resolve handle\n\n Params:\n     handle = handle of user\n Returns:\n     did\n",
-      "line" : 1485,
+      "line" : 1487,
       "char" : 9,
       "deco" : "FNfAyaZQe",
       "parameters" : [
@@ -4264,27 +4262,27 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1490,
+      "endline" : 1492,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1493_C8",
+      "name" : "__unittest_L1495_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1493,
+      "line" : 1495,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 1521,
+      "endline" : 1523,
       "endchar" : 2
      },
      {
       "name" : "createRecord",
       "kind" : "function",
       "protection" : "public",
-      "comment" : " Create repository record\n\n Params:\n     record = Record to create as <collection>\n     collection = Collection of record\n     validate = Can be set to 'false' to skip Lexicon schema validation of record data,\n                'true' to require it, or leave unset to validate only for known Lexicons.\n     rkey = The Record Key.\n     swapCommit = Compare and swap with the previous commit by CID.\n Returns:\n     JSON of upload result data\n",
-      "line" : 1521,
+      "comment" : " Create repository record\n\n Params:\n     record = Record to create as <collection>\n     collection = Collection of record\n     validate = Can be set to 'false' to skip Lexicon schema validation of record data,\n                'true' to require it, or leave unset to validate only for known Lexicons.\n     rkey = The Record Key.\n     swapCommit = Compare and swap with the previous commit by CID.\n Returns:\n     JSON of result data\n",
+      "line" : 1523,
       "char" : 12,
       "deco" : "FNfS3std4json9JSONValueAyaQxZQBa",
       "parameters" : [
@@ -4301,7 +4299,7 @@
         "deco" : "S3std4json9JSONValue"
        }
       ],
-      "endline" : 1532,
+      "endline" : 1534,
       "endchar" : 2
      },
      {
@@ -4309,7 +4307,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1534,
+      "line" : 1536,
       "char" : 12,
       "deco" : "FNfS3std4json9JSONValueAyaQdbQgZQBd",
       "parameters" : [
@@ -4334,7 +4332,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1544,
+      "endline" : 1546,
       "endchar" : 2
      },
      {
@@ -4342,7 +4340,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1546,
+      "line" : 1548,
       "char" : 12,
       "deco" : "FNfS3std4json9JSONValueAyaQdQfZQBc",
       "parameters" : [
@@ -4366,15 +4364,15 @@
         "default" : "null"
        }
       ],
-      "endline" : 1556,
+      "endline" : 1558,
       "endchar" : 2
      },
      {
       "name" : "getRecord",
       "kind" : "function",
       "protection" : "public",
-      "comment" : " Get repository record\n\n Params:\n     authority = Author of repository.\n     collection = Collection of records.\n     rkey = The Record Key.\n Returns:\n     JSON of upload result data\n",
-      "line" : 1568,
+      "comment" : " Get repository record\n\n Params:\n     authority = Author of repository.\n     collection = Collection of records.\n     rkey = The Record Key.\n Returns:\n     JSON of result data\n",
+      "line" : 1570,
       "char" : 12,
       "deco" : "FNfAyaQdQfZS3std4json9JSONValue",
       "parameters" : [
@@ -4391,7 +4389,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1576,
+      "endline" : 1578,
       "endchar" : 2
      },
      {
@@ -4399,7 +4397,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1579,
+      "line" : 1581,
       "char" : 12,
       "deco" : "FNfS4bsky4data10AtProtoURIZS3std4json9JSONValue",
       "parameters" : [
@@ -4408,7 +4406,7 @@
         "deco" : "S4bsky4data10AtProtoURI"
        }
       ],
-      "endline" : 1582,
+      "endline" : 1584,
       "endchar" : 2
      },
      {
@@ -4416,7 +4414,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1585,
+      "line" : 1587,
       "char" : 12,
       "deco" : "FNfAyaZS3std4json9JSONValue",
       "parameters" : [
@@ -4425,15 +4423,15 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1588,
+      "endline" : 1590,
       "endchar" : 2
      },
      {
       "name" : "deleteRecord",
       "kind" : "function",
       "protection" : "public",
-      "comment" : " Delete repository record\n\n Params:\n     collection = Collection of record\n     rkey = refresh key of record\n     swapRecord = Swap Record\n     swapCommit = Swap Commit\n Returns:\n     JSON of upload result data\n",
-      "line" : 1601,
+      "comment" : " Delete repository record\n\n Params:\n     collection = Collection of record\n     rkey = refresh key of record\n     swapRecord = Swap Record\n     swapCommit = Swap Commit\n Returns:\n     JSON of result data\n",
+      "line" : 1603,
       "char" : 7,
       "deco" : "FNfAyaQdQfQhZv",
       "parameters" : [
@@ -4456,7 +4454,281 @@
         "default" : "null"
        }
       ],
-      "endline" : 1614,
+      "endline" : 1616,
+      "endchar" : 2
+     },
+     {
+      "name" : "deleteRecord",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1619,
+      "char" : 7,
+      "deco" : "FNfS4bsky4data10AtProtoURIZv",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "S4bsky4data10AtProtoURI"
+       }
+      ],
+      "endline" : 1622,
+      "endchar" : 2
+     },
+     {
+      "name" : "deleteRecord",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1625,
+      "char" : 7,
+      "deco" : "FNfAyaZv",
+      "parameters" : [
+       {
+        "name" : "uri",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 1628,
+      "endchar" : 2
+     },
+     {
+      "name" : "ListRecordItem",
+      "kind" : "struct",
+      "protection" : "public",
+      "comment" : " Record item of com.atproto.repo.listRecords API\n",
+      "line" : 1633,
+      "char" : 2,
+      "members" : [
+       {
+        "name" : "uri",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : "\n",
+        "line" : 1636,
+        "char" : 10,
+        "deco" : "Aya",
+        "offset" : 0
+       },
+       {
+        "name" : "cid",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : "\n",
+        "line" : 1638,
+        "char" : 10,
+        "deco" : "Aya",
+        "offset" : 16
+       },
+       {
+        "name" : "value",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : "\n",
+        "line" : 1640,
+        "char" : 13,
+        "deco" : "S3std4json9JSONValue",
+        "offset" : 32
+       }
+      ]
+     },
+     {
+      "name" : "ListRecords",
+      "kind" : "struct",
+      "protection" : "public",
+      "comment" : " Response of com.atproto.repo.listRecords API\n",
+      "line" : 1646,
+      "char" : 2,
+      "members" : [
+       {
+        "name" : "records",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : "\n",
+        "line" : 1649,
+        "char" : 20,
+        "deco" : "AS4bsky6client7Bluesky14ListRecordItem",
+        "offset" : 0
+       },
+       {
+        "name" : "cursor",
+        "kind" : "variable",
+        "protection" : "public",
+        "comment" : "\n",
+        "line" : 1651,
+        "char" : 10,
+        "deco" : "Aya",
+        "offset" : 16
+       }
+      ]
+     },
+     {
+      "name" : "listRecords",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : " List-up repository records\n\n Params:\n     authority = Author of repository.\n     collection = Collection of record\n Returns:\n     JSON of result data\n",
+      "line" : 1663,
+      "char" : 12,
+      "deco" : "FNfAyaQdmZS3std4json9JSONValue",
+      "originalType" : "@safe JSONValue(string authority, string collection, size_t limit = 50)",
+      "parameters" : [
+       {
+        "name" : "authority",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "limit",
+        "deco" : "m",
+        "default" : "50LU"
+       }
+      ],
+      "endline" : 1672,
+      "endchar" : 2
+     },
+     {
+      "name" : "fetchRecords",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1674,
+      "char" : 14,
+      "deco" : "FNfAyaQdQfmZS4bsky6client7Bluesky11ListRecords",
+      "originalType" : "@safe ListRecords(string authority, string collection, string cursor, size_t len = 50)",
+      "parameters" : [
+       {
+        "name" : "authority",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "cursor",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "len",
+        "deco" : "m",
+        "default" : "50LU"
+       }
+      ],
+      "endline" : 1687,
+      "endchar" : 2
+     },
+     {
+      "name" : "fetchRecords",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1689,
+      "char" : 19,
+      "deco" : "FNfAyaQdmZAS4bsky6client7Bluesky14ListRecordItem",
+      "originalType" : "@safe ListRecordItem[](string authority, string collection, size_t len = 50)",
+      "parameters" : [
+       {
+        "name" : "authority",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "len",
+        "deco" : "m",
+        "default" : "50LU"
+       }
+      ],
+      "endline" : 1692,
+      "endchar" : 2
+     },
+     {
+      "name" : "fetchRecords",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1694,
+      "char" : 19,
+      "deco" : "FNfAyamZAS4bsky6client7Bluesky14ListRecordItem",
+      "originalType" : "@safe ListRecordItem[](string collection, size_t len = 50)",
+      "parameters" : [
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "len",
+        "deco" : "m",
+        "default" : "50LU"
+       }
+      ],
+      "endline" : 1697,
+      "endchar" : 2
+     },
+     {
+      "name" : "listRecordItems",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1699,
+      "char" : 28,
+      "deco" : "FNfAyaQdmZS4bsky6client__T10FetchRangeTSQBdQBb7Bluesky14ListRecordItemZQBt",
+      "originalType" : "@safe FetchRange!ListRecordItem(string authority, string collection, size_t limit = 100)",
+      "parameters" : [
+       {
+        "name" : "authority",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "limit",
+        "deco" : "m",
+        "default" : "100LU"
+       }
+      ],
+      "endline" : 1705,
+      "endchar" : 2
+     },
+     {
+      "name" : "listRecordItems",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : "ditto\n",
+      "line" : 1707,
+      "char" : 28,
+      "deco" : "FNfAyamZS4bsky6client__T10FetchRangeTSQBdQBb7Bluesky14ListRecordItemZQBt",
+      "originalType" : "@safe FetchRange!ListRecordItem(string collection, size_t limit = 100)",
+      "parameters" : [
+       {
+        "name" : "collection",
+        "deco" : "Aya"
+       },
+       {
+        "name" : "limit",
+        "deco" : "m",
+        "default" : "100LU"
+       }
+      ],
+      "endline" : 1710,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L1712_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 1712,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 1751,
       "endchar" : 2
      },
      {
@@ -4464,7 +4736,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Upload blob data\n\n Params:\n     data = Upload data\n     mimeType = Upload data type\n Returns:\n     JSON of upload result data\n",
-      "line" : 1625,
+      "line" : 1751,
       "char" : 7,
       "deco" : "FNfAyhAyaZS4bsky8lexicons4data4Blob",
       "parameters" : [
@@ -4477,7 +4749,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1630,
+      "endline" : 1756,
       "endchar" : 2
      },
      {
@@ -4485,7 +4757,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Reply data from URI\n\n Params:\n     uri = URI of reply parent\n Returns:\n     PostRef: bsky.lexcons.com.atproto.repo.StrongRef\n",
-      "line" : 1640,
+      "line" : 1766,
       "char" : 12,
       "deco" : "FNfAyaZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "parameters" : [
@@ -4494,7 +4766,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1648,
+      "endline" : 1774,
       "endchar" : 2
      },
      {
@@ -4502,7 +4774,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1650,
+      "line" : 1776,
       "char" : 2,
       "originalType" : "getRecordRef"
      },
@@ -4511,7 +4783,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Embed data of image\n",
-      "line" : 1655,
+      "line" : 1781,
       "char" : 2,
       "members" : [
        {
@@ -4519,7 +4791,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Binary of image\n\n Limitation: &lt; 1MB\n",
-        "line" : 1662,
+        "line" : 1788,
         "char" : 22,
         "deco" : "Ayh",
         "offset" : 0
@@ -4529,7 +4801,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " MimeType of image\n",
-        "line" : 1666,
+        "line" : 1792,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -4539,7 +4811,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Alt text\n",
-        "line" : 1670,
+        "line" : 1796,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
@@ -4549,7 +4821,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Aspect ratio - width\n",
-        "line" : 1674,
+        "line" : 1800,
         "char" : 7,
         "deco" : "i",
         "offset" : 48
@@ -4559,7 +4831,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Aspect ratio - height\n",
-        "line" : 1678,
+        "line" : 1804,
         "char" : 7,
         "deco" : "i",
         "offset" : 52
@@ -4571,7 +4843,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1681,
+      "line" : 1807,
       "char" : 30,
       "deco" : "FNfS4bsky6client7Bluesky10EmbedImageZSQBi8lexicons3appQBy5embed6Images5Image",
       "originalType" : "@safe app.bsky.embed.Images.Image(EmbedImage image)",
@@ -4581,7 +4853,7 @@
         "deco" : "S4bsky6client7Bluesky10EmbedImage"
        }
       ],
-      "endline" : 1687,
+      "endline" : 1813,
       "endchar" : 2
      },
      {
@@ -4589,7 +4861,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1689,
+      "line" : 1815,
       "char" : 30,
       "deco" : "FNfAyhAyaQdiiZS4bsky8lexicons3appQs5embed6Images5Image",
       "originalType" : "@safe app.bsky.embed.Images.Image(immutable(ubyte)[] imageData, string mimeType, string alt, int width = 0, int height = 0)",
@@ -4617,7 +4889,7 @@
         "default" : "0"
        }
       ],
-      "endline" : 1696,
+      "endline" : 1822,
       "endchar" : 2
      },
      {
@@ -4625,7 +4897,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1698,
+      "line" : 1824,
       "char" : 24,
       "deco" : "FNfAS4bsky6client7Bluesky10EmbedImageZSQBi8lexicons3appQBy5embed6Images",
       "originalType" : "@safe app.bsky.embed.Images(EmbedImage[] images)",
@@ -4635,7 +4907,7 @@
         "deco" : "AS4bsky6client7Bluesky10EmbedImage"
        }
       ],
-      "endline" : 1703,
+      "endline" : 1829,
       "endchar" : 2
      },
      {
@@ -4643,7 +4915,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Embed data of external link\n",
-      "line" : 1708,
+      "line" : 1834,
       "char" : 2,
       "members" : [
        {
@@ -4651,7 +4923,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " URL of external link\n",
-        "line" : 1713,
+        "line" : 1839,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -4661,7 +4933,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Title of external link\n",
-        "line" : 1717,
+        "line" : 1843,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -4671,7 +4943,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Descriptions\n",
-        "line" : 1721,
+        "line" : 1847,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
@@ -4681,7 +4953,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Thumbnail of external link\n",
-        "line" : 1725,
+        "line" : 1851,
         "char" : 22,
         "deco" : "Ayh",
         "offset" : 48
@@ -4691,7 +4963,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Thumbnail of external link\n",
-        "line" : 1729,
+        "line" : 1855,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 64
@@ -4703,7 +4975,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1732,
+      "line" : 1858,
       "char" : 26,
       "deco" : "FNfS4bsky6client7Bluesky13EmbedExternalZSQBl8lexicons3appQCb5embed8External",
       "originalType" : "@safe app.bsky.embed.External(EmbedExternal external)",
@@ -4713,7 +4985,7 @@
         "deco" : "S4bsky6client7Bluesky13EmbedExternal"
        }
       ],
-      "endline" : 1743,
+      "endline" : 1869,
       "endchar" : 2
      },
      {
@@ -4721,7 +4993,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1745,
+      "line" : 1871,
       "char" : 26,
       "deco" : "FNfAyaQdQfAyhQkZS4bsky8lexicons3appQs5embed8External",
       "originalType" : "@safe app.bsky.embed.External(string uri, string title, string description, immutable(ubyte)[] thumb = null, string thumbMimeType = null)",
@@ -4749,7 +5021,7 @@
         "default" : "null"
        }
       ],
-      "endline" : 1749,
+      "endline" : 1875,
       "endchar" : 2
      },
      {
@@ -4757,7 +5029,7 @@
       "kind" : "alias",
       "protection" : "public",
       "comment" : " Embed data of external link\n",
-      "line" : 1754,
+      "line" : 1880,
       "char" : 2,
       "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef"
      },
@@ -4766,7 +5038,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Embed data of external link\n",
-      "line" : 1759,
+      "line" : 1885,
       "char" : 2,
       "members" : [
        {
@@ -4774,7 +5046,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " URI of record\n",
-        "line" : 1764,
+        "line" : 1890,
         "char" : 11,
         "deco" : "S4bsky8lexicons3com7atproto4repo9StrongRef",
         "originalType" : "PostRef",
@@ -4785,7 +5057,7 @@
         "kind" : "alias",
         "protection" : "public",
         "comment" : " Image data\n",
-        "line" : 1768,
+        "line" : 1894,
         "char" : 3,
         "deco" : "S3std7sumtype__T7SumTypeTAS4bsky6client7Bluesky10EmbedImageTSQBiQBgQBc13EmbedExternalZQCs"
        },
@@ -4794,7 +5066,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "ditto\n",
-        "line" : 1770,
+        "line" : 1896,
         "char" : 9,
         "deco" : "S3std7sumtype__T7SumTypeTAS4bsky6client7Bluesky10EmbedImageTSQBiQBgQBc13EmbedExternalZQCs",
         "originalType" : "Media",
@@ -4804,7 +5076,7 @@
         "name" : "opAssign",
         "kind" : "generated function",
         "protection" : "public",
-        "line" : 1759,
+        "line" : 1885,
         "char" : 2,
         "deco" : "FNaNbNcNiNjS4bsky6client7Bluesky20EmbedRecordWithMediaZQBs",
         "originalType" : "ref EmbedRecordWithMedia(EmbedRecordWithMedia p) return",
@@ -4822,7 +5094,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Embed data of image\n",
-      "line" : 1776,
+      "line" : 1902,
       "char" : 2,
       "members" : [
        {
@@ -4830,7 +5102,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Binary of image\n\n Limitation: &lt; 1MB\n",
-        "line" : 1783,
+        "line" : 1909,
         "char" : 22,
         "deco" : "Ayh",
         "offset" : 0
@@ -4840,7 +5112,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " MimeType of image\n",
-        "line" : 1787,
+        "line" : 1913,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -4850,7 +5122,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Alt text\n",
-        "line" : 1791,
+        "line" : 1917,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
@@ -4860,7 +5132,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Aspect ratio - width\n",
-        "line" : 1795,
+        "line" : 1921,
         "char" : 7,
         "deco" : "i",
         "offset" : 48
@@ -4870,7 +5142,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Aspect ratio - height\n",
-        "line" : 1799,
+        "line" : 1925,
         "char" : 7,
         "deco" : "i",
         "offset" : 52
@@ -4880,7 +5152,7 @@
         "kind" : "struct",
         "protection" : "public",
         "comment" : " Caption file\n",
-        "line" : 1803,
+        "line" : 1929,
         "char" : 3,
         "members" : [
          {
@@ -4888,7 +5160,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 1806,
+          "line" : 1932,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 0
@@ -4898,7 +5170,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 1808,
+          "line" : 1934,
           "char" : 23,
           "deco" : "Ayh",
           "offset" : 16
@@ -4910,7 +5182,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "ditto\n",
-        "line" : 1811,
+        "line" : 1937,
         "char" : 13,
         "deco" : "AS4bsky6client7Bluesky10EmbedVideo7Caption",
         "offset" : 56
@@ -4922,7 +5194,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1814,
+      "line" : 1940,
       "char" : 23,
       "deco" : "FNfS4bsky6client7Bluesky10EmbedVideoZSQBi8lexicons3appQBy5embed5Video",
       "originalType" : "@safe app.bsky.embed.Video(EmbedVideo video)",
@@ -4932,7 +5204,7 @@
         "deco" : "S4bsky6client7Bluesky10EmbedVideo"
        }
       ],
-      "endline" : 1823,
+      "endline" : 1949,
       "endchar" : 2
      },
      {
@@ -4940,7 +5212,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1825,
+      "line" : 1951,
       "char" : 23,
       "deco" : "FNfAyhAyaQdiiZS4bsky8lexicons3appQs5embed5Video",
       "originalType" : "@safe app.bsky.embed.Video(immutable(ubyte)[] videoData, string mimeType, string alt, int width = 0, int height = 0)",
@@ -4968,7 +5240,7 @@
         "default" : "0"
        }
       ],
-      "endline" : 1829,
+      "endline" : 1955,
       "endchar" : 2
      },
      {
@@ -4976,7 +5248,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Reply data from URI\n\n Params:\n     uri = URI of reply parent\n Returns:\n     ReplyRef: bsky.lexcons.app.bsky.feed.ReplyRef\n",
-      "line" : 1839,
+      "line" : 1965,
       "char" : 11,
       "deco" : "FNfAyaZS4bsky8lexicons3appQs4feed4Post8ReplyRef",
       "parameters" : [
@@ -4985,7 +5257,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 1854,
+      "endline" : 1980,
       "endchar" : 2
      },
      {
@@ -4993,7 +5265,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Post message\n\n Params:\n     record = Record of post\n     message = Main text of post\n     images = Embed images of post\n     opts = Optional parameter of `com.atproto.repo.createRecord` <br />\n            (ex1) langs: `JSONValue([\"record\": JSONValue([\"langs\": JSONValue([\"th\", \"en-US\"])])])` <br />\n            (ex2) validation: `JSONValue([\"validation\": true])` <br />\n            (ex3) optional field: `JSONValue([\"validation\": JSONValue(false), \"record\": JSONValue([\"optionalField\": \"data\"])])`\n",
-      "line" : 1868,
+      "line" : 1994,
       "char" : 10,
       "deco" : "FNfAyaS3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaTSQEpQEnQEhQEyQEh5VideoZQFvSQFpQFnQFhQFy4feed4Post8ReplyRefSQHu4json9JSONValueZSQHpQHn3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, Embed embed, ReplyRef replyRef = ReplyRef.init, JSONValue opts = JSONValue.init)",
@@ -5017,7 +5289,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1898,
+      "endline" : 2024,
       "endchar" : 2
      },
      {
@@ -5025,7 +5297,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1900,
+      "line" : 2026,
       "char" : 10,
       "deco" : "FNfAyaS3std4json9JSONValueZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, JSONValue opts = JSONValue.init)",
@@ -5040,7 +5312,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1903,
+      "endline" : 2029,
       "endchar" : 2
      },
      {
@@ -5048,7 +5320,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1905,
+      "line" : 2031,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, app.bsky.embed.Images.Image image, JSONValue opts = JSONValue.init)",
@@ -5067,7 +5339,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1908,
+      "endline" : 2034,
       "endchar" : 2
      },
      {
@@ -5075,7 +5347,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1910,
+      "line" : 2036,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6ImagesS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, app.bsky.embed.Images images, JSONValue opts = JSONValue.init)",
@@ -5094,7 +5366,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1913,
+      "endline" : 2039,
       "endchar" : 2
      },
      {
@@ -5102,7 +5374,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1915,
+      "line" : 2041,
       "char" : 10,
       "deco" : "FNfAyaS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, EmbedImage image, JSONValue opts = JSONValue.init)",
@@ -5121,7 +5393,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1918,
+      "endline" : 2044,
       "endchar" : 2
      },
      {
@@ -5129,7 +5401,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1920,
+      "line" : 2046,
       "char" : 10,
       "deco" : "FNfAyaAS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, EmbedImage[] images, JSONValue opts = JSONValue.init)",
@@ -5148,7 +5420,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1923,
+      "endline" : 2049,
       "endchar" : 2
      },
      {
@@ -5156,7 +5428,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1925,
+      "line" : 2051,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3appQs5embed8ExternalS3std4json9JSONValueZSQCfQCd3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, app.bsky.embed.External external, JSONValue opts = JSONValue.init)",
@@ -5175,7 +5447,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1928,
+      "endline" : 2054,
       "endchar" : 2
      },
      {
@@ -5183,7 +5455,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1930,
+      "line" : 2056,
       "char" : 10,
       "deco" : "FNfAyaS4bsky6client7Bluesky13EmbedExternalS3std4json9JSONValueZSQCf8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, EmbedExternal external, JSONValue opts = JSONValue.init)",
@@ -5202,7 +5474,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1933,
+      "endline" : 2059,
       "endchar" : 2
      },
      {
@@ -5210,7 +5482,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1935,
+      "line" : 2061,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3appQs5embed6RecordS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, app.bsky.embed.Record record, JSONValue opts = JSONValue.init)",
@@ -5229,7 +5501,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1938,
+      "endline" : 2064,
       "endchar" : 2
      },
      {
@@ -5237,7 +5509,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1940,
+      "line" : 2066,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefS3std4json9JSONValueZQCl",
       "originalType" : "@safe PostRef(string message, EmbedRecord record, JSONValue opts = JSONValue.init)",
@@ -5256,7 +5528,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1943,
+      "endline" : 2069,
       "endchar" : 2
      },
      {
@@ -5264,7 +5536,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1945,
+      "line" : 2071,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3appQs5embed15RecordWithMediaS3std4json9JSONValueZSQCnQCl3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, app.bsky.embed.RecordWithMedia rwm, JSONValue opts = JSONValue.init)",
@@ -5283,7 +5555,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1948,
+      "endline" : 2074,
       "endchar" : 2
      },
      {
@@ -5291,7 +5563,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1950,
+      "line" : 2076,
       "char" : 10,
       "deco" : "FNfAyaS4bsky6client7Bluesky20EmbedRecordWithMediaS3std4json9JSONValueZSQCm8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, EmbedRecordWithMedia recordWithMedia, JSONValue opts = JSONValue.init)",
@@ -5310,7 +5582,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1957,
+      "endline" : 2083,
       "endchar" : 2
      },
      {
@@ -5318,7 +5590,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1959,
+      "line" : 2085,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefSQBq6client7Bluesky10EmbedImageS3std4json9JSONValueZQDq",
       "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedImage image, JSONValue opts = JSONValue.init)",
@@ -5341,7 +5613,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1964,
+      "endline" : 2090,
       "endchar" : 2
      },
      {
@@ -5349,7 +5621,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1966,
+      "line" : 2092,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefASQBr6client7Bluesky10EmbedImageS3std4json9JSONValueZQDr",
       "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedImage[] image, JSONValue opts = JSONValue.init)",
@@ -5372,7 +5644,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1971,
+      "endline" : 2097,
       "endchar" : 2
      },
      {
@@ -5380,7 +5652,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1973,
+      "line" : 2099,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3com7atproto4repo9StrongRefSQBq6client7Bluesky13EmbedExternalS3std4json9JSONValueZQDt",
       "originalType" : "@safe PostRef(string message, EmbedRecord record, EmbedExternal external, JSONValue opts = JSONValue.init)",
@@ -5403,7 +5675,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1978,
+      "endline" : 2104,
       "endchar" : 2
      },
      {
@@ -5411,7 +5683,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1980,
+      "line" : 2106,
       "char" : 10,
       "deco" : "FNfAyaS4bsky8lexicons3appQs5embed5VideoS3std4json9JSONValueZSQCcQCa3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init)",
@@ -5430,7 +5702,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1983,
+      "endline" : 2109,
       "endchar" : 2
      },
      {
@@ -5438,7 +5710,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 1985,
+      "line" : 2111,
       "char" : 10,
       "deco" : "FNfAyaS4bsky6client7Bluesky10EmbedVideoS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string message, EmbedVideo image, JSONValue opts = JSONValue.init)",
@@ -5457,67 +5729,67 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 1988,
+      "endline" : 2114,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L1991_C8",
+      "name" : "__unittest_L2117_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 1991,
+      "line" : 2117,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2010,
+      "endline" : 2136,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2010_C8",
+      "name" : "__unittest_L2136_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2010,
+      "line" : 2136,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2043,
+      "endline" : 2169,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2043_C8",
+      "name" : "__unittest_L2169_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2043,
+      "line" : 2169,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2076,
+      "endline" : 2202,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2076_C8",
+      "name" : "__unittest_L2202_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2076,
+      "line" : 2202,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2110,
+      "endline" : 2236,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2110_C8",
+      "name" : "__unittest_L2236_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2110,
+      "line" : 2236,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2133,
+      "endline" : 2259,
       "endchar" : 2
      },
      {
@@ -5525,7 +5797,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2133,
+      "line" : 2259,
       "char" : 10,
       "deco" : "FNfAyaQdS3std7sumtype__T7SumTypeTS4bsky8lexicons3appQs5embed6ImagesTSQBjQBhQBbQBsQBb8ExternalTSQCjQChQCbQCsQCb6RecordTSQDhQDfQCzQDqQCz15RecordWithMediaTSQEpQEnQEhQEyQEh5VideoZQFvSQGo4json9JSONValueZSQGjQGh3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, Embed embed = Embed.init, JSONValue opts = JSONValue.init)",
@@ -5549,7 +5821,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2136,
+      "endline" : 2262,
       "endchar" : 2
      },
      {
@@ -5557,7 +5829,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2138,
+      "line" : 2264,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6ImagesS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images images, JSONValue opts = JSONValue.init)",
@@ -5580,7 +5852,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2142,
+      "endline" : 2268,
       "endchar" : 2
      },
      {
@@ -5588,7 +5860,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2144,
+      "line" : 2270,
       "char" : 10,
       "deco" : "FNfAyaQdAS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image[] images, JSONValue opts = JSONValue.init)",
@@ -5611,7 +5883,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2148,
+      "endline" : 2274,
       "endchar" : 2
      },
      {
@@ -5619,7 +5891,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2150,
+      "line" : 2276,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image image, JSONValue opts = JSONValue.init)",
@@ -5642,7 +5914,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2154,
+      "endline" : 2280,
       "endchar" : 2
      },
      {
@@ -5650,7 +5922,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2156,
+      "line" : 2282,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedImage image, JSONValue opts = JSONValue.init)",
@@ -5673,7 +5945,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2159,
+      "endline" : 2285,
       "endchar" : 2
      },
      {
@@ -5681,7 +5953,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2161,
+      "line" : 2287,
       "char" : 10,
       "deco" : "FNfAyaQdAS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedImage[] images, JSONValue opts = JSONValue.init)",
@@ -5704,7 +5976,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2164,
+      "endline" : 2290,
       "endchar" : 2
      },
      {
@@ -5712,7 +5984,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2166,
+      "line" : 2292,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed8ExternalS3std4json9JSONValueZSQCfQCd3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.External external, JSONValue opts = JSONValue.init)",
@@ -5735,7 +6007,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2170,
+      "endline" : 2296,
       "endchar" : 2
      },
      {
@@ -5743,7 +6015,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2172,
+      "line" : 2298,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky6client7Bluesky13EmbedExternalS3std4json9JSONValueZSQCf8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedExternal external, JSONValue opts = JSONValue.init)",
@@ -5766,7 +6038,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2175,
+      "endline" : 2301,
       "endchar" : 2
      },
      {
@@ -5774,7 +6046,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2177,
+      "line" : 2303,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6RecordS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Record record, JSONValue opts = JSONValue.init)",
@@ -5797,7 +6069,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2181,
+      "endline" : 2307,
       "endchar" : 2
      },
      {
@@ -5805,7 +6077,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2183,
+      "line" : 2309,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3com7atproto4repo9StrongRefS3std4json9JSONValueZQCl",
       "originalType" : "@safe PostRef(string uri, string message, EmbedRecord record, JSONValue opts = JSONValue.init)",
@@ -5828,7 +6100,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2186,
+      "endline" : 2312,
       "endchar" : 2
      },
      {
@@ -5836,7 +6108,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2188,
+      "line" : 2314,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed15RecordWithMediaS3std4json9JSONValueZSQCnQCl3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.RecordWithMedia recordWithMedia, JSONValue opts = JSONValue.init)",
@@ -5859,7 +6131,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2192,
+      "endline" : 2318,
       "endchar" : 2
      },
      {
@@ -5867,7 +6139,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2194,
+      "line" : 2320,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky6client7Bluesky20EmbedRecordWithMediaS3std4json9JSONValueZSQCm8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedRecordWithMedia recordWithMedia, JSONValue opts = JSONValue.init)",
@@ -5890,7 +6162,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2202,
+      "endline" : 2328,
       "endchar" : 2
      },
      {
@@ -5898,7 +6170,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2204,
+      "line" : 2330,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed5VideoS3std4json9JSONValueZSQCcQCa3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init)",
@@ -5921,7 +6193,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2207,
+      "endline" : 2333,
       "endchar" : 2
      },
      {
@@ -5929,7 +6201,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2209,
+      "line" : 2335,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedVideoS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedVideo video, JSONValue opts = JSONValue.init)",
@@ -5952,67 +6224,67 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2212,
+      "endline" : 2338,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2215_C8",
+      "name" : "__unittest_L2341_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2215,
+      "line" : 2341,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2252,
+      "endline" : 2378,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2252_C8",
+      "name" : "__unittest_L2378_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2252,
+      "line" : 2378,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2304,
+      "endline" : 2430,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2304_C8",
+      "name" : "__unittest_L2430_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2304,
+      "line" : 2430,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2358,
+      "endline" : 2484,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2358_C8",
+      "name" : "__unittest_L2484_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2358,
+      "line" : 2484,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2426,
+      "endline" : 2552,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2426_C8",
+      "name" : "__unittest_L2552_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2426,
+      "line" : 2552,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2478,
+      "endline" : 2604,
       "endchar" : 2
      },
      {
@@ -6020,7 +6292,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2478,
+      "line" : 2604,
       "char" : 10,
       "deco" : "FNfAyaQdS3std4json9JSONValueZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, JSONValue opts = JSONValue.init)",
@@ -6039,7 +6311,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2481,
+      "endline" : 2607,
       "endchar" : 2
      },
      {
@@ -6047,7 +6319,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2483,
+      "line" : 2609,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6ImagesS3std4json9JSONValueZSQCdQCb3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images images, JSONValue opts = JSONValue.init)",
@@ -6070,7 +6342,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2490,
+      "endline" : 2616,
       "endchar" : 2
      },
      {
@@ -6078,7 +6350,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2492,
+      "line" : 2618,
       "char" : 10,
       "deco" : "FNfAyaQdAS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image[] images, JSONValue opts = JSONValue.init)",
@@ -6101,7 +6373,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2496,
+      "endline" : 2622,
       "endchar" : 2
      },
      {
@@ -6109,7 +6381,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2498,
+      "line" : 2624,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed6Images5ImageS3std4json9JSONValueZSQCjQCh3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Images.Image image, JSONValue opts = JSONValue.init)",
@@ -6132,7 +6404,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2502,
+      "endline" : 2628,
       "endchar" : 2
      },
      {
@@ -6140,7 +6412,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2504,
+      "line" : 2630,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedImage image, JSONValue opts = JSONValue.init)",
@@ -6163,7 +6435,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2507,
+      "endline" : 2633,
       "endchar" : 2
      },
      {
@@ -6171,7 +6443,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2509,
+      "line" : 2635,
       "char" : 10,
       "deco" : "FNfAyaQdAS4bsky6client7Bluesky10EmbedImageS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedImage[] images, JSONValue opts = JSONValue.init)",
@@ -6194,7 +6466,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2512,
+      "endline" : 2638,
       "endchar" : 2
      },
      {
@@ -6202,7 +6474,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2514,
+      "line" : 2640,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed8ExternalS3std4json9JSONValueZSQCfQCd3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.External external, JSONValue opts = JSONValue.init)",
@@ -6225,7 +6497,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2521,
+      "endline" : 2647,
       "endchar" : 2
      },
      {
@@ -6233,7 +6505,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2523,
+      "line" : 2649,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky6client7Bluesky13EmbedExternalS3std4json9JSONValueZSQCf8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedExternal external, JSONValue opts = JSONValue.init)",
@@ -6256,7 +6528,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2526,
+      "endline" : 2652,
       "endchar" : 2
      },
      {
@@ -6264,7 +6536,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2528,
+      "line" : 2654,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky8lexicons3appQs5embed5VideoS3std4json9JSONValueZSQCcQCa3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, app.bsky.embed.Video video, JSONValue opts = JSONValue.init)",
@@ -6287,7 +6559,7 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2534,
+      "endline" : 2660,
       "endchar" : 2
      },
      {
@@ -6295,7 +6567,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 2536,
+      "line" : 2662,
       "char" : 10,
       "deco" : "FNfAyaQdS4bsky6client7Bluesky10EmbedVideoS3std4json9JSONValueZSQCc8lexicons3com7atproto4repo9StrongRef",
       "originalType" : "@safe PostRef(string uri, string message, EmbedVideo video, JSONValue opts = JSONValue.init)",
@@ -6318,55 +6590,55 @@
         "default" : "JSONValue(Store(null, , , , , ), JSONType.null_)"
        }
       ],
-      "endline" : 2539,
+      "endline" : 2665,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2542_C8",
+      "name" : "__unittest_L2668_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2542,
+      "line" : 2668,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2578,
+      "endline" : 2704,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2578_C8",
+      "name" : "__unittest_L2704_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2578,
+      "line" : 2704,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2629,
+      "endline" : 2755,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2629_C8",
+      "name" : "__unittest_L2755_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2629,
+      "line" : 2755,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2680,
+      "endline" : 2806,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2680_C8",
+      "name" : "__unittest_L2806_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2680,
+      "line" : 2806,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2733,
+      "endline" : 2859,
       "endchar" : 2
      },
      {
@@ -6374,7 +6646,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Delete posts\n",
-      "line" : 2733,
+      "line" : 2859,
       "char" : 7,
       "deco" : "FNfAyaZv",
       "parameters" : [
@@ -6383,19 +6655,19 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2738,
+      "endline" : 2864,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2741_C8",
+      "name" : "__unittest_L2867_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2741,
+      "line" : 2867,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2760,
+      "endline" : 2886,
       "endchar" : 2
      },
      {
@@ -6403,7 +6675,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Mark like the post\n",
-      "line" : 2760,
+      "line" : 2886,
       "char" : 12,
       "deco" : "FNeAyaZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "parameters" : [
@@ -6412,7 +6684,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2769,
+      "endline" : 2895,
       "endchar" : 2
      },
      {
@@ -6420,7 +6692,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Delete like mark\n",
-      "line" : 2774,
+      "line" : 2900,
       "char" : 7,
       "deco" : "FNfAyaZv",
       "parameters" : [
@@ -6429,19 +6701,19 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2798,
+      "endline" : 2924,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2801_C8",
+      "name" : "__unittest_L2927_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2801,
+      "line" : 2927,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2843,
+      "endline" : 2969,
       "endchar" : 2
      },
      {
@@ -6449,7 +6721,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Repost posts\n",
-      "line" : 2843,
+      "line" : 2969,
       "char" : 12,
       "deco" : "FNfAyaZS4bsky8lexicons3com7atproto4repo9StrongRef",
       "parameters" : [
@@ -6458,7 +6730,7 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2852,
+      "endline" : 2978,
       "endchar" : 2
      },
      {
@@ -6466,7 +6738,7 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : " Delete the repost\n",
-      "line" : 2857,
+      "line" : 2983,
       "char" : 7,
       "deco" : "FNfAyaZv",
       "parameters" : [
@@ -6475,19 +6747,65 @@
         "deco" : "Aya"
        }
       ],
-      "endline" : 2881,
+      "endline" : 3007,
       "endchar" : 2
      },
      {
-      "name" : "__unittest_L2884_C8",
+      "name" : "__unittest_L3010_C8",
       "kind" : "function",
       "protection" : "public",
-      "line" : 2884,
+      "line" : 3010,
       "char" : 8,
       "storageClass" : [
        "@safe"
       ],
-      "endline" : 2922,
+      "endline" : 3058,
+      "endchar" : 2
+     },
+     {
+      "name" : "follow",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : " Follow\n\n Params:\n     name = Specify the handle or DID of the user you wish to follow\n Returns:\n     If successful, a reference to the record is returned\n",
+      "line" : 3058,
+      "char" : 12,
+      "deco" : "FNfAyaZS4bsky8lexicons3com7atproto4repo9StrongRef",
+      "parameters" : [
+       {
+        "name" : "name",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 3073,
+      "endchar" : 2
+     },
+     {
+      "name" : "unfollow",
+      "kind" : "function",
+      "protection" : "public",
+      "comment" : " Unfollow\n\n Params:\n     name = Specify the handle or DID of the user you wish to unfollow\n",
+      "line" : 3081,
+      "char" : 7,
+      "deco" : "FNfAyaZv",
+      "parameters" : [
+       {
+        "name" : "name",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 3084,
+      "endchar" : 2
+     },
+     {
+      "name" : "__unittest_L3086_C8",
+      "kind" : "function",
+      "protection" : "public",
+      "line" : 3086,
+      "char" : 8,
+      "storageClass" : [
+       "@safe"
+      ],
+      "endline" : 3130,
       "endchar" : 1
      }
     ]
@@ -8301,21 +8619,32 @@
       "offset" : 352
      },
      {
+      "name" : "quoteCount",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : "\n",
+      "line" : 95,
+      "char" : 9,
+      "deco" : "m",
+      "originalType" : "size_t",
+      "offset" : 360
+     },
+     {
       "name" : "indexedAt",
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 96,
+      "line" : 101,
       "char" : 10,
       "deco" : "S3std8datetime7systime7SysTime",
-      "offset" : 360
+      "offset" : 368
      },
      {
       "name" : "Viewer",
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 101,
+      "line" : 106,
       "char" : 2,
       "members" : [
        {
@@ -8323,7 +8652,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 106,
+        "line" : 111,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -8333,7 +8662,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 110,
+        "line" : 115,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -8343,7 +8672,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 114,
+        "line" : 119,
         "char" : 8,
         "deco" : "b",
         "offset" : 32
@@ -8355,27 +8684,27 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 117,
+      "line" : 122,
       "char" : 9,
       "deco" : "S4bsky4post4Post6Viewer",
-      "offset" : 376
+      "offset" : 384
      },
      {
       "name" : "labels",
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 122,
+      "line" : 127,
       "char" : 10,
       "deco" : "AS4bsky4data5Label",
-      "offset" : 416
+      "offset" : 424
      },
      {
       "name" : "ThreadGate",
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 127,
+      "line" : 132,
       "char" : 2,
       "members" : [
        {
@@ -8383,7 +8712,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 132,
+        "line" : 137,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -8393,7 +8722,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 136,
+        "line" : 141,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -8403,7 +8732,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 140,
+        "line" : 145,
         "char" : 13,
         "deco" : "S3std4json9JSONValue",
         "offset" : 32
@@ -8413,7 +8742,7 @@
         "kind" : "struct",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 144,
+        "line" : 149,
         "char" : 3,
         "members" : [
          {
@@ -8421,7 +8750,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 149,
+          "line" : 154,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 0
@@ -8431,7 +8760,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 153,
+          "line" : 158,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 16
@@ -8441,7 +8770,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 157,
+          "line" : 162,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 32
@@ -8451,7 +8780,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 161,
+          "line" : 166,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 48
@@ -8461,7 +8790,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 165,
+          "line" : 170,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 64
@@ -8471,7 +8800,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 169,
+          "line" : 174,
           "char" : 12,
           "deco" : "AS4bsky4data5Label",
           "offset" : 80
@@ -8481,7 +8810,7 @@
           "kind" : "struct",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 173,
+          "line" : 178,
           "char" : 4,
           "members" : [
            {
@@ -8489,7 +8818,7 @@
             "kind" : "variable",
             "protection" : "public",
             "comment" : "\n",
-            "line" : 178,
+            "line" : 183,
             "char" : 10,
             "deco" : "b",
             "offset" : 0
@@ -8499,7 +8828,7 @@
             "kind" : "variable",
             "protection" : "public",
             "comment" : "\n",
-            "line" : 182,
+            "line" : 187,
             "char" : 10,
             "deco" : "b",
             "offset" : 1
@@ -8511,7 +8840,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "ditto\n",
-          "line" : 185,
+          "line" : 190,
           "char" : 11,
           "deco" : "S4bsky4post4Post10ThreadGate4List6Viewer",
           "offset" : 96
@@ -8521,7 +8850,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 190,
+          "line" : 195,
           "char" : 12,
           "deco" : "S3std8datetime7systime7SysTime",
           "offset" : 104
@@ -8530,7 +8859,7 @@
           "name" : "opAssign",
           "kind" : "generated function",
           "protection" : "public",
-          "line" : 144,
+          "line" : 149,
           "char" : 3,
           "deco" : "FNaNbNcNiNjNfS4bsky4post4Post10ThreadGate4ListZQBi",
           "originalType" : "pure nothrow ref @safe List(List p) return",
@@ -8548,7 +8877,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "ditto\n",
-        "line" : 193,
+        "line" : 198,
         "char" : 10,
         "deco" : "AS4bsky4post4Post10ThreadGate4List",
         "offset" : 56
@@ -8560,10 +8889,10 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 196,
+      "line" : 201,
       "char" : 13,
       "deco" : "S4bsky4post4Post10ThreadGate",
-      "offset" : 432
+      "offset" : 440
      },
      {
       "name" : "opAssign",
@@ -8583,15 +8912,15 @@
     ]
    },
    {
-    "name" : "__unittest_L199_C7",
+    "name" : "__unittest_L204_C7",
     "kind" : "function",
     "protection" : "public",
-    "line" : 199,
+    "line" : 204,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
-    "endline" : 212,
+    "endline" : 217,
     "endchar" : 1
    },
    {
@@ -8599,7 +8928,7 @@
     "kind" : "struct",
     "protection" : "public",
     "comment" : " Post information\n",
-    "line" : 212,
+    "line" : 217,
     "char" : 1,
     "members" : [
      {
@@ -8607,7 +8936,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 217,
+      "line" : 222,
       "char" : 2,
       "members" : [
        {
@@ -8615,7 +8944,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 222,
+        "line" : 227,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -8625,7 +8954,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 227,
+        "line" : 232,
         "char" : 8,
         "deco" : "b",
         "offset" : 16
@@ -8637,7 +8966,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 233,
+      "line" : 238,
       "char" : 2,
       "members" : [
        {
@@ -8645,7 +8974,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 238,
+        "line" : 243,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -8655,7 +8984,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 243,
+        "line" : 248,
         "char" : 8,
         "deco" : "b",
         "offset" : 16
@@ -8665,7 +8994,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 247,
+        "line" : 252,
         "char" : 15,
         "deco" : "S4bsky4post4Post6Author",
         "originalType" : "Post.Author",
@@ -8675,7 +9004,7 @@
         "name" : "opAssign",
         "kind" : "generated function",
         "protection" : "public",
-        "line" : 233,
+        "line" : 238,
         "char" : 2,
         "deco" : "FNaNbNcNiNjNfS4bsky4post5Reply11BlockedPostZQBf",
         "originalType" : "pure nothrow ref @safe BlockedPost(BlockedPost p) return",
@@ -8693,7 +9022,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 253,
+      "line" : 258,
       "char" : 44,
       "deco" : "S3std7sumtype__T7SumTypeTS4bsky4post5Reply12NotFoundPostTSQBgQBeQBc11BlockedPostTSQCeQCc4PostZQDa",
       "offset" : 0
@@ -8703,10 +9032,10 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 258,
+      "line" : 263,
       "char" : 44,
       "deco" : "S3std7sumtype__T7SumTypeTS4bsky4post5Reply12NotFoundPostTSQBgQBeQBc11BlockedPostTSQCeQCc4PostZQDa",
-      "offset" : 512
+      "offset" : 520
      },
      {
       "name" : "__xpostblit",
@@ -8717,7 +9046,7 @@
       "name" : "opAssign",
       "kind" : "generated function",
       "protection" : "public",
-      "line" : 212,
+      "line" : 217,
       "char" : 1,
       "deco" : "FNaNbNcNiNjNfS4bsky4post5ReplyZQs",
       "originalType" : "ref Reply(Reply p) return",
@@ -8735,7 +9064,7 @@
     "kind" : "struct",
     "protection" : "public",
     "comment" : "\n",
-    "line" : 269,
+    "line" : 274,
     "char" : 1,
     "members" : [
      {
@@ -8743,7 +9072,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 274,
+      "line" : 279,
       "char" : 7,
       "deco" : "S4bsky4post4Post",
       "offset" : 0
@@ -8753,17 +9082,17 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 278,
+      "line" : 283,
       "char" : 8,
       "deco" : "S4bsky4post5Reply",
-      "offset" : 504
+      "offset" : 512
      },
      {
       "name" : "Reason",
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 282,
+      "line" : 287,
       "char" : 2,
       "members" : [
        {
@@ -8771,7 +9100,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 287,
+        "line" : 292,
         "char" : 15,
         "deco" : "S4bsky4post4Post6Author",
         "originalType" : "Post.Author",
@@ -8782,7 +9111,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 292,
+        "line" : 297,
         "char" : 11,
         "deco" : "S3std8datetime7systime7SysTime",
         "offset" : 256
@@ -8791,7 +9120,7 @@
         "name" : "opAssign",
         "kind" : "generated function",
         "protection" : "public",
-        "line" : 282,
+        "line" : 287,
         "char" : 2,
         "deco" : "FNaNbNcNiNjNfS4bsky4post4Feed6ReasonZQy",
         "originalType" : "pure nothrow ref @safe Reason(Reason p) return",
@@ -8809,10 +9138,10 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 295,
+      "line" : 300,
       "char" : 9,
       "deco" : "S4bsky4post4Feed6Reason",
-      "offset" : 1528
+      "offset" : 1552
      },
      {
       "name" : "__xpostblit",
@@ -8823,7 +9152,7 @@
       "name" : "opAssign",
       "kind" : "generated function",
       "protection" : "public",
-      "line" : 269,
+      "line" : 274,
       "char" : 1,
       "deco" : "FNaNbNcNiNjNfS4bsky4post4FeedZQr",
       "originalType" : "ref Feed(Feed p) return",
@@ -8841,7 +9170,7 @@
     "kind" : "struct",
     "protection" : "public",
     "comment" : "\n",
-    "line" : 302,
+    "line" : 307,
     "char" : 1,
     "members" : [
      {
@@ -8849,7 +9178,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Uri of post as `at://...`\n",
-      "line" : 307,
+      "line" : 312,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 0
@@ -8859,7 +9188,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Post text\n",
-      "line" : 312,
+      "line" : 317,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 16
@@ -8869,7 +9198,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " Image data\n",
-      "line" : 317,
+      "line" : 322,
       "char" : 2,
       "members" : [
        {
@@ -8877,7 +9206,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Image uri as `https://...`\n",
-        "line" : 322,
+        "line" : 327,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -8887,7 +9216,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Thumbnail uri as `https://...`\n",
-        "line" : 326,
+        "line" : 331,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -8897,7 +9226,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Alt message of image\n",
-        "line" : 330,
+        "line" : 335,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
@@ -8909,7 +9238,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Post images uri as `https://...`\n",
-      "line" : 336,
+      "line" : 341,
       "char" : 10,
       "deco" : "AS4bsky4post7Message5Image",
       "offset" : 32
@@ -8919,7 +9248,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : " User data\n",
-      "line" : 341,
+      "line" : 346,
       "char" : 2,
       "members" : [
        {
@@ -8927,7 +9256,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " ID of user\n",
-        "line" : 346,
+        "line" : 351,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 0
@@ -8937,7 +9266,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Handle name\n",
-        "line" : 350,
+        "line" : 355,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 16
@@ -8947,7 +9276,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : " Display name\n",
-        "line" : 354,
+        "line" : 359,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 32
@@ -8959,7 +9288,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " User data of the post author\n",
-      "line" : 359,
+      "line" : 364,
       "char" : 7,
       "deco" : "S4bsky4post7Message4User",
       "offset" : 48
@@ -8969,7 +9298,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " User data of the author who made this repost\n",
-      "line" : 364,
+      "line" : 369,
       "char" : 7,
       "deco" : "S4bsky4post7Message4User",
       "offset" : 96
@@ -8979,7 +9308,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " User data of the author whom this reply message was sent\n",
-      "line" : 369,
+      "line" : 374,
       "char" : 7,
       "deco" : "S4bsky4post7Message4User",
       "offset" : 144
@@ -8989,7 +9318,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Reply target message uri as `at://...`\n",
-      "line" : 374,
+      "line" : 379,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 192
@@ -8999,7 +9328,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Liking count of this post\n",
-      "line" : 379,
+      "line" : 384,
       "char" : 9,
       "deco" : "m",
       "originalType" : "size_t",
@@ -9010,41 +9339,52 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Repost count of this post\n",
-      "line" : 384,
+      "line" : 389,
       "char" : 9,
       "deco" : "m",
       "originalType" : "size_t",
       "offset" : 216
      },
      {
+      "name" : "quoteCount",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : " Quote post count of this post\n",
+      "line" : 394,
+      "char" : 9,
+      "deco" : "m",
+      "originalType" : "size_t",
+      "offset" : 224
+     },
+     {
       "name" : "postTime",
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Time of post created\n",
-      "line" : 390,
+      "line" : 400,
       "char" : 10,
       "deco" : "S3std8datetime7systime7SysTime",
-      "offset" : 224
+      "offset" : 232
      },
      {
       "name" : "repostTime",
       "kind" : "variable",
       "protection" : "public",
       "comment" : " Time of repost created\n",
-      "line" : 396,
+      "line" : 406,
       "char" : 10,
       "deco" : "S3std8datetime7systime7SysTime",
-      "offset" : 240
+      "offset" : 248
      },
      {
       "name" : "isReply",
       "kind" : "function",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 401,
+      "line" : 411,
       "char" : 7,
       "deco" : "FZb",
-      "endline" : 404,
+      "endline" : 414,
       "endchar" : 2
      },
      {
@@ -9052,17 +9392,17 @@
       "kind" : "function",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 409,
+      "line" : 419,
       "char" : 7,
       "deco" : "FZb",
-      "endline" : 412,
+      "endline" : 422,
       "endchar" : 2
      },
      {
       "name" : "opAssign",
       "kind" : "generated function",
       "protection" : "public",
-      "line" : 302,
+      "line" : 307,
       "char" : 1,
       "deco" : "FNaNbNcNiNjNfS4bsky4post7MessageZQu",
       "originalType" : "pure nothrow ref @safe Message(Message p) return",
@@ -9080,7 +9420,7 @@
     "kind" : "function",
     "protection" : "public",
     "comment" : "\n",
-    "line" : 418,
+    "line" : 428,
     "char" : 9,
     "deco" : "FNfIS4bsky4post4PostZSQrQo7Message",
     "parameters" : [
@@ -9092,7 +9432,7 @@
       ]
      }
     ],
-    "endline" : 493,
+    "endline" : 504,
     "endchar" : 1
    },
    {
@@ -9100,7 +9440,7 @@
     "kind" : "function",
     "protection" : "public",
     "comment" : "ditto\n",
-    "line" : 496,
+    "line" : 507,
     "char" : 9,
     "deco" : "FNfS4bsky4post4FeedZSQrQo7Message",
     "parameters" : [
@@ -9109,14 +9449,14 @@
       "deco" : "S4bsky4post4Feed"
      }
     ],
-    "endline" : 520,
+    "endline" : 531,
     "endchar" : 1
    },
    {
     "kind" : "template",
     "protection" : "public",
     "comment" : "ditto\n",
-    "line" : 523,
+    "line" : 534,
     "char" : 6,
     "name" : "toMessages",
     "parameters" : [
@@ -9130,7 +9470,7 @@
      {
       "name" : "toMessages",
       "kind" : "function",
-      "line" : 523,
+      "line" : 534,
       "char" : 6,
       "storageClass" : [
        "auto"
@@ -9142,7 +9482,7 @@
         "type" : "Range"
        }
       ],
-      "endline" : 528,
+      "endline" : 539,
       "endchar" : 1
      }
     ]
@@ -9151,7 +9491,7 @@
     "kind" : "template",
     "protection" : "public",
     "comment" : "ditto\n",
-    "line" : 531,
+    "line" : 542,
     "char" : 6,
     "name" : "toMessages",
     "parameters" : [
@@ -9165,7 +9505,7 @@
      {
       "name" : "toMessages",
       "kind" : "function",
-      "line" : 531,
+      "line" : 542,
       "char" : 6,
       "storageClass" : [
        "auto"
@@ -9177,45 +9517,45 @@
         "type" : "Range"
        }
       ],
-      "endline" : 536,
+      "endline" : 547,
       "endchar" : 1
      }
     ]
    },
    {
-    "name" : "__unittest_L538_C7",
+    "name" : "__unittest_L549_C7",
     "kind" : "function",
     "protection" : "public",
-    "line" : 538,
+    "line" : 549,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
-    "endline" : 548,
+    "endline" : 559,
     "endchar" : 1
    },
    {
-    "name" : "__unittest_L548_C7",
+    "name" : "__unittest_L559_C7",
     "kind" : "function",
     "protection" : "public",
-    "line" : 548,
-    "char" : 7,
-    "storageClass" : [
-     "@safe"
-    ],
-    "endline" : 558,
-    "endchar" : 1
-   },
-   {
-    "name" : "__unittest_L558_C7",
-    "kind" : "function",
-    "protection" : "public",
-    "line" : 558,
+    "line" : 559,
     "char" : 7,
     "storageClass" : [
      "@safe"
     ],
     "endline" : 569,
+    "endchar" : 1
+   },
+   {
+    "name" : "__unittest_L569_C7",
+    "kind" : "function",
+    "protection" : "public",
+    "line" : 569,
+    "char" : 7,
+    "storageClass" : [
+     "@safe"
+    ],
+    "endline" : 580,
     "endchar" : 1
    }
   ]
@@ -9329,11 +9669,21 @@
       "offset" : 80
      },
      {
+      "name" : "createdAt",
+      "kind" : "variable",
+      "protection" : "public",
+      "comment" : "\n",
+      "line" : 55,
+      "char" : 10,
+      "deco" : "S3std8datetime7systime7SysTime",
+      "offset" : 96
+     },
+     {
       "name" : "Viewer",
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 54,
+      "line" : 60,
       "char" : 2,
       "members" : [
        {
@@ -9341,7 +9691,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 59,
+        "line" : 65,
         "char" : 8,
         "deco" : "b",
         "offset" : 0
@@ -9351,7 +9701,7 @@
         "kind" : "struct",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 63,
+        "line" : 69,
         "char" : 3,
         "members" : [
          {
@@ -9359,7 +9709,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 68,
+          "line" : 74,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 0
@@ -9369,7 +9719,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 72,
+          "line" : 78,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 16
@@ -9379,7 +9729,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 76,
+          "line" : 82,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 32
@@ -9389,7 +9739,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 80,
+          "line" : 86,
           "char" : 14,
           "deco" : "S3std4json9JSONValue",
           "offset" : 48
@@ -9399,7 +9749,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 84,
+          "line" : 90,
           "char" : 11,
           "deco" : "Aya",
           "offset" : 72
@@ -9409,7 +9759,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 88,
+          "line" : 94,
           "char" : 12,
           "deco" : "AS4bsky4data5Label",
           "offset" : 88
@@ -9419,7 +9769,7 @@
           "kind" : "struct",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 92,
+          "line" : 98,
           "char" : 4,
           "members" : [
            {
@@ -9427,7 +9777,7 @@
             "kind" : "variable",
             "protection" : "public",
             "comment" : "\n",
-            "line" : 97,
+            "line" : 103,
             "char" : 10,
             "deco" : "b",
             "offset" : 0
@@ -9437,7 +9787,7 @@
             "kind" : "variable",
             "protection" : "public",
             "comment" : "\n",
-            "line" : 101,
+            "line" : 107,
             "char" : 10,
             "deco" : "b",
             "offset" : 1
@@ -9449,7 +9799,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "ditto\n",
-          "line" : 104,
+          "line" : 110,
           "char" : 11,
           "deco" : "S4bsky4user4User6Viewer6ByListQo",
           "offset" : 104
@@ -9459,7 +9809,7 @@
           "kind" : "variable",
           "protection" : "public",
           "comment" : "\n",
-          "line" : 109,
+          "line" : 115,
           "char" : 12,
           "deco" : "S3std8datetime7systime7SysTime",
           "offset" : 112
@@ -9468,7 +9818,7 @@
           "name" : "opAssign",
           "kind" : "generated function",
           "protection" : "public",
-          "line" : 63,
+          "line" : 69,
           "char" : 3,
           "deco" : "FNaNbNcNiNjNfS4bsky4user4User6Viewer6ByListZQBf",
           "originalType" : "pure nothrow ref @safe ByList(ByList p) return",
@@ -9486,7 +9836,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 114,
+        "line" : 120,
         "char" : 10,
         "deco" : "S4bsky4user4User6Viewer6ByList",
         "offset" : 8
@@ -9496,7 +9846,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 118,
+        "line" : 124,
         "char" : 8,
         "deco" : "b",
         "offset" : 136
@@ -9506,7 +9856,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 122,
+        "line" : 128,
         "char" : 8,
         "deco" : "b",
         "offset" : 137
@@ -9516,7 +9866,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 126,
+        "line" : 132,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 144
@@ -9526,7 +9876,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 130,
+        "line" : 136,
         "char" : 10,
         "deco" : "Aya",
         "offset" : 160
@@ -9535,7 +9885,7 @@
         "name" : "opAssign",
         "kind" : "generated function",
         "protection" : "public",
-        "line" : 54,
+        "line" : 60,
         "char" : 2,
         "deco" : "FNaNbNcNiNjNfS4bsky4user4User6ViewerZQy",
         "originalType" : "pure nothrow ref @safe Viewer(Viewer p) return",
@@ -9553,20 +9903,20 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 134,
+      "line" : 140,
       "char" : 9,
       "deco" : "S4bsky4user4User6Viewer",
-      "offset" : 96
+      "offset" : 112
      },
      {
       "name" : "labels",
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 137,
+      "line" : 143,
       "char" : 10,
       "deco" : "AS4bsky4data5Label",
-      "offset" : 272
+      "offset" : 288
      },
      {
       "name" : "opAssign",
@@ -9590,7 +9940,7 @@
     "kind" : "struct",
     "protection" : "public",
     "comment" : " User profile information\n",
-    "line" : 146,
+    "line" : 152,
     "char" : 1,
     "members" : [
      {
@@ -9598,7 +9948,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 151,
+      "line" : 157,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 0
@@ -9608,7 +9958,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 156,
+      "line" : 162,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 16
@@ -9618,7 +9968,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 161,
+      "line" : 167,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 32
@@ -9628,7 +9978,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 166,
+      "line" : 172,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 48
@@ -9638,7 +9988,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 171,
+      "line" : 177,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 64
@@ -9648,7 +9998,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 176,
+      "line" : 182,
       "char" : 9,
       "deco" : "Aya",
       "offset" : 80
@@ -9658,7 +10008,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 181,
+      "line" : 187,
       "char" : 9,
       "deco" : "m",
       "originalType" : "size_t",
@@ -9669,7 +10019,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 186,
+      "line" : 192,
       "char" : 9,
       "deco" : "m",
       "originalType" : "size_t",
@@ -9680,7 +10030,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 191,
+      "line" : 197,
       "char" : 9,
       "deco" : "m",
       "originalType" : "size_t",
@@ -9691,7 +10041,7 @@
       "kind" : "struct",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 196,
+      "line" : 202,
       "char" : 2,
       "members" : [
        {
@@ -9699,7 +10049,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 201,
+        "line" : 207,
         "char" : 8,
         "deco" : "l",
         "offset" : 0
@@ -9709,7 +10059,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 205,
+        "line" : 211,
         "char" : 8,
         "deco" : "l",
         "offset" : 8
@@ -9719,7 +10069,7 @@
         "kind" : "variable",
         "protection" : "public",
         "comment" : "\n",
-        "line" : 209,
+        "line" : 215,
         "char" : 8,
         "deco" : "b",
         "offset" : 16
@@ -9731,7 +10081,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "ditto\n",
-      "line" : 212,
+      "line" : 218,
       "char" : 13,
       "deco" : "S4bsky4user7Profile10Associated",
       "offset" : 120
@@ -9741,7 +10091,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 218,
+      "line" : 224,
       "char" : 10,
       "deco" : "S3std8datetime7systime7SysTime",
       "offset" : 144
@@ -9751,7 +10101,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 223,
+      "line" : 229,
       "char" : 14,
       "deco" : "S4bsky4user4User6Viewer",
       "originalType" : "User.Viewer",
@@ -9762,7 +10112,7 @@
       "kind" : "variable",
       "protection" : "public",
       "comment" : "\n",
-      "line" : 228,
+      "line" : 234,
       "char" : 10,
       "deco" : "AS4bsky4data5Label",
       "offset" : 336
@@ -9771,7 +10121,7 @@
       "name" : "opAssign",
       "kind" : "generated function",
       "protection" : "public",
-      "line" : 146,
+      "line" : 152,
       "char" : 1,
       "deco" : "FNaNbNcNiNjNfS4bsky4user7ProfileZQu",
       "originalType" : "pure nothrow ref @safe Profile(Profile p) return",

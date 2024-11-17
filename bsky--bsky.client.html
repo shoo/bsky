@@ -175,9 +175,9 @@
 <br>
 @trusted this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">endpoint</span>, AtprotoAuth <span class="ddoc_param">auth</span> = null, Client <span class="ddoc_param">client</span>);
 <br>
-@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(string <span class="ddoc_param">endpoint</span>, shared AtprotoAuth <span class="ddoc_param">auth</span> = null, Client <span class="ddoc_param">client</span> = new Client);
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(string <span class="ddoc_param">endpoint</span>, shared AtprotoAuth <span class="ddoc_param">auth</span>, Client <span class="ddoc_param">client</span> = new Client);
 <br>
-@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">endpoint</span>, shared AtprotoAuth <span class="ddoc_param">auth</span> = null, Client <span class="ddoc_param">client</span>);
+@safe this<span class="ddoc_template_param_list" title="Template parameter list">(Client : HttpClientBase)</span>(string <span class="ddoc_param">endpoint</span>, shared AtprotoAuth <span class="ddoc_param">auth</span>, Client <span class="ddoc_param">client</span>);
 <br>
 @trusted this<span class="ddoc_template_param_list" title="Template parameter list">(Client = CurlHttpClient!())</span>(AtprotoAuth <span class="ddoc_param">auth</span>, Client <span class="ddoc_param">client</span> = new Client);
 <br>
@@ -530,7 +530,7 @@ const @safe AutoUpdateStrategy <code class="ddoc_psymbol">autoUpdateAccessTokens
 </table></div>
 
 <div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
- JSON of upload result data</div>
+ JSON of result data</div>
 </dd>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getRecord"></span><div class="quickindex" id="quickindex.Bluesky.getRecord"></div>@safe JSONValue <code class="ddoc_psymbol">getRecord</code>(string <span class="ddoc_param">authority</span>, string <span class="ddoc_param">collection</span>, string <span class="ddoc_param">rkey</span>);
 <br>
@@ -549,9 +549,13 @@ const @safe AutoUpdateStrategy <code class="ddoc_psymbol">autoUpdateAccessTokens
 </table></div>
 
 <div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
- JSON of upload result data</div>
+ JSON of result data</div>
 </dd>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.deleteRecord"></span><div class="quickindex" id="quickindex.Bluesky.deleteRecord"></div>@safe void <code class="ddoc_psymbol">deleteRecord</code>(string <span class="ddoc_param">collection</span>, string <span class="ddoc_param">rkey</span>, string <span class="ddoc_param">swapRecord</span> = null, string <span class="ddoc_param">swapCommit</span> = null);
+<br>
+@safe void <code class="ddoc_psymbol">deleteRecord</code>(AtProtoURI <span class="ddoc_param">uri</span>);
+<br>
+@safe void <code class="ddoc_psymbol">deleteRecord</code>(string <span class="ddoc_param">uri</span>);
 <br></div></dt>
 <dd><div class="ddoc_summary">Delete repository record
 </div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
@@ -566,7 +570,58 @@ const @safe AutoUpdateStrategy <code class="ddoc_psymbol">autoUpdateAccessTokens
 </table></div>
 
 <div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
- JSON of upload result data</div>
+ JSON of result data</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListRecordItem"></span><div class="quickindex" id="quickindex.Bluesky.ListRecordItem"></div>struct <code class="ddoc_psymbol">ListRecordItem</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Record item of com.atproto.repo.listRecords API</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListRecordItem.uri"></span><div class="quickindex" id="quickindex.Bluesky.ListRecordItem.uri"></div>string <code class="ddoc_psymbol">uri</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListRecordItem.cid"></span><div class="quickindex" id="quickindex.Bluesky.ListRecordItem.cid"></div>string <code class="ddoc_psymbol">cid</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListRecordItem.value"></span><div class="quickindex" id="quickindex.Bluesky.ListRecordItem.value"></div>JSONValue <code class="ddoc_psymbol">value</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListRecords"></span><div class="quickindex" id="quickindex.Bluesky.ListRecords"></div>struct <code class="ddoc_psymbol">ListRecords</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">Response of com.atproto.repo.listRecords API</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListRecords.records"></span><div class="quickindex" id="quickindex.Bluesky.ListRecords.records"></div>ListRecordItem[] <code class="ddoc_psymbol">records</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.ListRecords.cursor"></span><div class="quickindex" id="quickindex.Bluesky.ListRecords.cursor"></div>string <code class="ddoc_psymbol">cursor</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.listRecords"></span><div class="quickindex" id="quickindex.Bluesky.listRecords"></div>@safe JSONValue <code class="ddoc_psymbol">listRecords</code>(string <span class="ddoc_param">authority</span>, string <span class="ddoc_param">collection</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchRecords"></span><div class="quickindex" id="quickindex.Bluesky.fetchRecords"></div>@safe ListRecords <code class="ddoc_psymbol">fetchRecords</code>(string <span class="ddoc_param">authority</span>, string <span class="ddoc_param">collection</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 50);
+<br>
+@safe ListRecordItem[] <code class="ddoc_psymbol">fetchRecords</code>(string <span class="ddoc_param">authority</span>, string <span class="ddoc_param">collection</span>, size_t <span class="ddoc_param">len</span> = 50);
+<br>
+@safe ListRecordItem[] <code class="ddoc_psymbol">fetchRecords</code>(string <span class="ddoc_param">collection</span>, size_t <span class="ddoc_param">len</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.listRecordItems"></span><div class="quickindex" id="quickindex.Bluesky.listRecordItems"></div>@safe FetchRange!ListRecordItem <code class="ddoc_psymbol">listRecordItems</code>(string <span class="ddoc_param">authority</span>, string <span class="ddoc_param">collection</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!ListRecordItem <code class="ddoc_psymbol">listRecordItems</code>(string <span class="ddoc_param">collection</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">List-up repository records
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">authority</span></td>
+<td class="ddoc_param_desc">Author of repository.</td></tr>
+<tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">collection</span></td>
+<td class="ddoc_param_desc">Collection of record</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ JSON of result data</div>
 </dd>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.uploadBlob"></span><div class="quickindex" id="quickindex.Bluesky.uploadBlob"></div>@safe Blob <code class="ddoc_psymbol">uploadBlob</code>(immutable(ubyte)[] <span class="ddoc_param">data</span>, string <span class="ddoc_param">mimeType</span>);
 <br></div></dt>
@@ -828,6 +883,26 @@ bsky.lexcons.app.bsky.feed.ReplyRef</div>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.deleteRepost"></span><div class="quickindex" id="quickindex.Bluesky.deleteRepost"></div>@safe void <code class="ddoc_psymbol">deleteRepost</code>(string <span class="ddoc_param">uri</span>);
 <br></div></dt>
 <dd><div class="ddoc_summary">Delete the repost</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.follow"></span><div class="quickindex" id="quickindex.Bluesky.follow"></div>@safe StrongRef <code class="ddoc_psymbol">follow</code>(string <span class="ddoc_param">name</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Follow
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">name</span></td>
+<td class="ddoc_param_desc">Specify the handle or DID of the user you wish to <code class="ddoc_psymbol">follow</code></td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ If successful, a reference to the record is returned</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.unfollow"></span><div class="quickindex" id="quickindex.Bluesky.unfollow"></div>@safe void <code class="ddoc_psymbol">unfollow</code>(string <span class="ddoc_param">name</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Unfollow
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">string <span class="ddoc_param">name</span></td>
+<td class="ddoc_param_desc">Specify the handle or DID of the user you wish to <code class="ddoc_psymbol">unfollow</code></td></tr>
+</table></div>
+
+</dd>
 </div></dl>
 </dd>
 </div></dl>
