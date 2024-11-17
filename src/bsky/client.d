@@ -1516,7 +1516,7 @@ public:
 	 *     rkey = The Record Key.
 	 *     swapCommit = Compare and swap with the previous commit by CID.
 	 * Returns:
-	 *     JSON of upload result data
+	 *     JSON of result data
 	 */
 	JSONValue createRecord(JSONValue record, string collection, JSONValue opts) @safe
 	{
@@ -1563,7 +1563,7 @@ public:
 	 *     collection = Collection of records.
 	 *     rkey = The Record Key.
 	 * Returns:
-	 *     JSON of upload result data
+	 *     JSON of result data
 	 */
 	JSONValue getRecord(string authority, string collection, string rkey) @safe
 	{
@@ -1596,7 +1596,7 @@ public:
 	 *     swapRecord = Swap Record
 	 *     swapCommit = Swap Commit
 	 * Returns:
-	 *     JSON of upload result data
+	 *     JSON of result data
 	 */
 	void deleteRecord(string collection, string rkey,
 		string swapRecord = null, string swapCommit = null) @safe
@@ -1611,6 +1611,118 @@ public:
 			postData.setValue("swapCommit", swapCommit);
 		auto res = _post("/xrpc/com.atproto.repo.deleteRecord", postData);
 		_enforceHttpRes(res);
+	}
+	
+	/***************************************************************************
+	 * Record item of com.atproto.repo.listRecords API
+	 */
+	struct ListRecordItem
+	{
+		///
+		string uri;
+		///
+		string cid;
+		///
+		JSONValue value;
+	}
+	
+	/***************************************************************************
+	 * Response of com.atproto.repo.listRecords API
+	 */
+	struct ListRecords
+	{
+		///
+		ListRecordItem[] records;
+		///
+		string cursor;
+	}
+	
+	/***************************************************************************
+	 * List-up repository records
+	 * 
+	 * Params:
+	 *     authority = Author of repository.
+	 *     collection = Collection of record
+	 * Returns:
+	 *     JSON of result data
+	 */
+	JSONValue listRecords(string authority, string collection, size_t limit = 50) @safe
+	{
+		import std.conv;
+		auto res = _get("/xrpc/com.atproto.repo.listRecords", [
+			"repo": authority,
+			"collection": collection,
+			"limit": limit.to!string]);
+		_enforceHttpRes(res);
+		return res;
+	}
+	/// ditto
+	ListRecords fetchRecords(string authority, string collection, string cursor, size_t len = 50) @safe
+	{
+		ListRecords ret;
+		ret.cursor = _fetchSequencialData(
+			(jv) @safe => jv.getValue!string("cursor", null),
+			(jv) @safe => jv.getValue!(JSONValue[])("records"),
+			(jv) @trusted {
+				ret.records.length = ret.records.length + jv.length;
+				foreach (i; 0..jv.length)
+					ret.records[$ - jv.length + i].deserializeFromJson(jv[i]);
+			},
+			"/xrpc/com.atproto.repo.listRecords", cursor, len, ["repo": authority, "collection": collection]);
+		return ret;
+	}
+	/// ditto
+	ListRecordItem[] fetchRecords(string authority, string collection, size_t len = 50) @safe
+	{
+		return fetchRecords(authority, collection, null, len).records;
+	}
+	/// ditto
+	ListRecordItem[] fetchRecords(string collection, size_t len = 50) @safe
+	{
+		return fetchRecords(_auth.did, collection, len);
+	}
+	/// ditto
+	FetchRange!ListRecordItem listRecordItems(string authority, string collection, size_t limit = 100) @safe
+	{
+		return _makeFetchRange!ListRecordItem(
+			jv => jv.getValue!string("cursor", null),
+			jv => jv.getValue!(JSONValue[])("records"),
+			"/xrpc/com.atproto.repo.listRecords", null, limit, ["repo": authority, "collection": collection]);
+	}
+	/// ditto
+	FetchRange!ListRecordItem listRecordItems(string collection, size_t limit = 100) @safe
+	{
+		return listRecordItems(_auth.did, collection, limit);
+	}
+	
+	@safe unittest
+	{
+		import std.range;
+		scope client = _createDummyClient("74c3ddca-1551-4a04-98f2-09f656fcc341");
+		auto records = client.listRecordItems("app.bsky.feed.post").take(5);
+		with (client.req(0))
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.listRecords`);
+			assert(query == `limit=100&repo=did%3Aplc%3A2qfqobqz6dzrfa3jv74i6k6m&collection=app.bsky.feed.post`, query);
+			assert(bodyBinary == ``.representation);
+		}
+		assert(client.httpc.results.length == 1);
+		assert(records.front.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/hyq6lbnl45len");
+		records.popFront();
+		assert(client.httpc.results.length == 1);
+		assert(records.front.uri == "at://did:plc:vibjcyg6myvxdi4ezdrhcsuo/app.bsky.feed.post/5ni6rkonpzlx2");
+		records.popFront();
+		assert(client.httpc.results.length == 2);
+		with (client.req(1))
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/com.atproto.repo.listRecords`);
+			assert(query == `cursor=5ni6rkonpzlx2&limit=100`
+				~ `&repo=did%3Aplc%3A2qfqobqz6dzrfa3jv74i6k6m&collection=app.bsky.feed.post`, query);
+			assert(bodyBinary == ``.representation);
+		}
+		assert(records.empty);
 	}
 	
 	/***************************************************************************
@@ -3044,6 +3156,14 @@ debug (ProvisioningDataSource) @safe unittest
 		client.deletePost(postRes.uri);
 	}
 	
+	version (none)
+	{
+		// ポスト一覧取得
+		auto records = client.listRecordItems("app.bsky.feed.post").take(5);
+		records.popFront();
+		records.popFront();
+		assert(records.empty);
+	}
 }
 
 version (unittest) package(bsky) auto _createDummyClient(string uuid = null,

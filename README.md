@@ -91,7 +91,7 @@ foreach (post; client.timeline.take(100).toMessages)
 | com.atproto.repo.getRecord              | bsky.client.Bluesky.getRecord |
 | com.atproto.repo.importRepo             | UNSUPPORTED |
 | com.atproto.repo.listMissingBlobs       | UNSUPPORTED |
-| com.atproto.repo.listRecords            | UNSUPPORTED |
+| com.atproto.repo.listRecords            | bsky.client.Bluesky.listRecords <br /> bsky.client.Bluesky.fetchRecords <br /> bsky.client.Bluesky.listRecordItems |
 | com.atproto.repo.putRecord              | UNSUPPORTED |
 | com.atproto.repo.uploadBlob             | bsky.client.Bluesky.uploadBlob <br /> bsky.client.Bluesky.sendPost |
 | com.atproto.server.activateAccount      | UNSUPPORTED |
