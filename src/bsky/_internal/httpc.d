@@ -335,6 +335,8 @@ private:
 	{
 		import std.string;
 		import std.format;
+		if (mimeType.length == 0)
+			return format!"%-(%02X%)"(bodyBinary);
 		switch (mimeType.split(";")[0].toLower)
 		{
 		case "text/plain":

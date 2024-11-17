@@ -200,6 +200,8 @@ private:
 	
 	string _getBearer() @safe
 	{
+		if (!_auth)
+			return null;
 		_autoUpdateSession();
 		return _auth.bearer;
 	}
@@ -343,12 +345,12 @@ public:
 		this(endpoint, cast(shared)auth, client);
 	}
 	/// ditto
-	this(Client = CurlHttpClient!())(string endpoint, shared AtprotoAuth auth = null, Client client = new Client) @safe
+	this(Client = CurlHttpClient!())(string endpoint, shared AtprotoAuth auth, Client client = new Client) @safe
 	{
 		this(endpoint, auth, cast(HttpClientBase)client);
 	}
 	/// ditto
-	this(Client: HttpClientBase)(string endpoint, shared AtprotoAuth auth = null, Client client) @safe
+	this(Client: HttpClientBase)(string endpoint, shared AtprotoAuth auth, Client client) @safe
 	{
 		_httpClient = client;
 		_endpoint = endpoint;
@@ -2989,8 +2991,8 @@ public:
 			auto fullUri = atUri.hasDid ? uri : getRecordRef(uri).uri;
 			auto posts = fetchPosts([fullUri]);
 			enforce(posts.length == 1);
-			enforce(posts[0].viewer.like.length > 0);
-			rkey = AtProtoURI(posts[0].viewer.like).rkey;
+			enforce(posts[0].viewer.repost.length > 0);
+			rkey = AtProtoURI(posts[0].viewer.repost).rkey;
 		}
 		else if (atUri.collection == "app.bsky.feed.repost")
 		{

@@ -92,6 +92,11 @@ struct Post
 	/***************************************************************************
 	 * 
 	 */
+	size_t quoteCount;
+	
+	/***************************************************************************
+	 * 
+	 */
 	@systimeConverter
 	SysTime indexedAt;
 	
@@ -384,6 +389,11 @@ struct Message
 	size_t repostCount;
 	
 	/***************************************************************************
+	 * Quote post count of this post
+	 */
+	size_t quoteCount;
+	
+	/***************************************************************************
 	 * Time of post created
 	 */
 	@systimeConverter
@@ -479,6 +489,7 @@ Message toMessage(in Post post) @safe
 	}
 	ret.likeCount = post.likeCount;
 	ret.repostCount = post.repostCount;
+	ret.quoteCount = post.quoteCount;
 	if (auto timJv = "createdAt" in post.record)
 	{
 		ret.postTime = timJv.type == JSONType.string
