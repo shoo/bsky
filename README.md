@@ -42,6 +42,7 @@ foreach (post; client.timeline.take(100).toMessages)
 | app.bsky.feed.getFeed           | bsky.client.Bluesky.getFeed <br /> bsky.client.Bluesky.fetchFeed <br /> bsky.client.Bluesky.feed |
 | app.bsky.feed.getLikes          | bsky.client.Bluesky.getLikes <br /> bsky.client.Bluesky.fetchLikeUsers <br /> bsky.client.Bluesky.likeUsers |
 | app.bsky.feed.getListFeed       | bsky.client.Bluesky.getListFeed <br /> bsky.client.Bluesky.fetchListFeed <br /> bsky.client.Bluesky.listFeed |
+| app.bsky.feed.getQuotes         | bsky.client.Bluesky.getQuotes <br /> bsky.client.Bluesky.fetchQuotedByPosts <br /> bsky.client.Bluesky.quotedByPosts |
 | app.bsky.feed.getPostThread     | UNSUPPORTED |
 | app.bsky.feed.getPosts          | bsky.client.Bluesky.getPosts <br /> bsky.client.Bluesky.fetchPosts <br /> bsky.client.Bluesky.getPostItems |
 | app.bsky.feed.getRepostedBy     | bsky.client.Bluesky.getRepostedBy <br /> bsky.client.Bluesky.fetchRepostedBy <br /> bsky.client.Bluesky.repostedByUsers |

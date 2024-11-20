@@ -1477,6 +1477,99 @@ public:
 	}
 	
 	/***************************************************************************
+	 * 
+	 */
+	struct GetQuotedByResult
+	{
+		///
+		Post[] quotedBy;
+		///
+		string cursor;
+	}
+	
+	/***************************************************************************
+	 * Users who has reposted the post
+	 */
+	JSONValue getQuotes(string uri, string cursor, size_t limit = 50) @safe
+	{
+		import std.conv: to;
+		auto res = _get("/xrpc/app.bsky.feed.getQuotes", cursor is null
+			? ["uri": uri, "limit": limit.to!string()]
+			: ["uri": uri, "limit": limit.to!string(), "cursor": cursor]);
+		_enforceHttpRes(res);
+		return res;
+	}
+	/// ditto
+	GetQuotedByResult fetchQuotedByPosts(string uri, string cursor, size_t len = 100) @safe
+	{
+		GetQuotedByResult ret;
+		ret.cursor = _fetchSequencialData(
+			(jv) @safe => jv.getValue!string("cursor", null),
+			(jv) @safe => jv.getValue!(JSONValue[])("posts"),
+			(jv) @trusted {
+				ret.quotedBy.length = ret.quotedBy.length + jv.length;
+				foreach (i; 0..jv.length)
+					ret.quotedBy[$ - jv.length + i].deserializeFromJson(jv[i]);
+			},
+			"/xrpc/app.bsky.feed.getQuotes", cursor, len, ["uri": uri]);
+		return ret;
+	}
+	/// ditto
+	Post[] fetchQuotedByPosts(string uri, size_t len = 100) @safe
+	{
+		return fetchQuotedByPosts(uri, null, len).quotedBy;
+	}
+	/// ditto
+	FetchRange!Post quotedByPosts(string uri, string cursor, size_t limit = 100) @safe
+	{
+		return _makeFetchRange!Post(
+			(jv) @safe => jv.getValue!string("cursor", null),
+			(jv) @safe => jv.getValue!(JSONValue[])("posts"),
+			"/xrpc/app.bsky.feed.getQuotes", cursor, limit, ["uri": uri]);
+	}
+	/// ditto
+	FetchRange!Post quotedByPosts(string uri, size_t limit = 100) @safe
+	{
+		return quotedByPosts(uri, null, limit);
+	}
+	
+	@safe unittest
+	{
+		import std.range;
+		scope client = _createDummyClient("d6c7c83f-9ab4-4788-9395-1b7a1f4ef587");
+		auto items = client.quotedByPosts("at://did:plc:q6bwovkrtermobmtqdscnbas/app.bsky.feed.post/3l6cypch6tk2z",
+			limit: 5).take(3).array;
+		assert(client.httpc.results.length == 1);
+		with (client.req)
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/app.bsky.feed.getQuotes`);
+			assert(query == `limit=5`
+				~ `&uri=at%3A%2F%2Fdid%3Aplc%3Aq6bwovkrtermobmtqdscnbas%2Fapp.bsky.feed.post%2F3l6cypch6tk2z`);
+			assert(bodyBinary == ``.representation);
+		}
+		assert(items.length == 3);
+	}
+	
+	// fetchLikeUsers
+	@safe unittest
+	{
+		import std.range;
+		scope client = _createDummyClient("d6c7c83f-9ab4-4788-9395-1b7a1f4ef587");
+		auto items = client.fetchQuotedByPosts("at://did:plc:q6bwovkrtermobmtqdscnbas/app.bsky.feed.post/3l6cypch6tk2z",
+			len: 4);
+		with (client.req)
+		{
+			assert(method == "GET");
+			assert(url == `https://bsky.social/xrpc/app.bsky.feed.getQuotes`);
+			assert(query == `limit=14`
+				~ `&uri=at%3A%2F%2Fdid%3Aplc%3Aq6bwovkrtermobmtqdscnbas%2Fapp.bsky.feed.post%2F3l6cypch6tk2z`);
+			assert(bodyBinary == ``.representation);
+		}
+		assert(items.length == 4);
+	}
+	
+	/***************************************************************************
 	 * Resolve handle
 	 * 
 	 * Params:
@@ -3268,7 +3361,30 @@ debug (ProvisioningDataSource) @safe unittest
 		writeln(followRes);
 		client.unfollow("mono-shoo.bsky.social");
 	}
+	
+	version (none)
+	{
+		import std.range;
+		auto posts = client.quotedByPosts("at://did:plc:vuc5dzl4377xhfuwkcyyfrqc/app.bsky.feed.post/3kpadeirzya27",
+			5).take(3);
+		foreach (i, p; posts.enumerate)
+			writefln("[%d] %s: %s/%s/%s", i, p.uri, p.likeCount, p.repostCount, p.quoteCount);
+	}
+	
 }
+
+//unittest
+//{
+//	import std.range, std.stdio;
+//	auto client = _createDummyClient();
+//	client.httpc.addResult(readDataSource!JSONValue("../.test-data/a6d2c441-6464-4481-bdba-40eb5de4184f.json"));
+//	auto posts = client.searchPostItems(`("D言語")|dlang`).take(30);
+//	foreach (p; posts)
+//	{
+//		writefln("%s/%s/%s", p.likeCount, p.repostCount, p.quoteCount);
+//	}
+//	
+//}
 
 version (unittest) package(bsky) auto _createDummyClient(string uuid = null,
 		string loginDummyDid = "did:plc:2qfqobqz6dzrfa3jv74i6k6m",
