@@ -12,6 +12,7 @@ bsky-test-*
 *.exe
 *.dll
 *.pdb
+*.a
 *.o
 *.obj
 *.lst
@@ -32,11 +33,17 @@ bsky-test-*
 !/.github
 
 # for tests
+/tests/*/*
+!/tests/*/src
+!/tests/*/source
 !/tests/*/dub.json
 
 # for examples
+/examples/*/*
 !/examples/*/dub.json
 !/examples/.common
+!/examples/*/src
+!/examples/*/source
 
 # for unittest data source
 !/tests/.ut-data_source
