@@ -315,6 +315,9 @@ public:
 	{
 		auto param = info.serializeToJson();
 		auto res = _post("/xrpc/com.atproto.server.createSession", param);
+		enforce(res.code == 200, res.reason ~ "\n\n"
+			~ res.response.getValue("error", "Error")
+			~ res.response.getValue("message", ": Unknown error occurred."));
 		synchronized (_mutSession)
 			_session.deserializeFromJson(res.response);
 	}
