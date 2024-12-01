@@ -1,0 +1,6 @@
+{
+	"name": "fflist",
+	"dependencies": {
+		"bsky": {"path": "../.."}
+	}
+}
