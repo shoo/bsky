@@ -9,6 +9,7 @@ import std.exception;
 import std.json;
 import std.datetime;
 import bsky._internal;
+import bsky.data;
 
 /*******************************************************************************
  * Login information
@@ -278,6 +279,17 @@ private:
 		return ret;
 	}
 	
+	void _enforceHttpRes(HttpResult res) @trusted
+	{
+		if (res.code == 200)
+			return;
+		throw new BlueskyClientException(res.code, res.reason,
+			res.response.getValue("error", "Error"),
+			res.response.getValue("message", "Unknown error occurred."),
+			res.reason ~ "\n\n"
+			~ res.response.getValue("error", "Error") ~ ": "
+			~ res.response.getValue("message", "Unknown error occurred."));
+	}
 public:
 	/***************************************************************************
 	 * Constructor
@@ -315,9 +327,7 @@ public:
 	{
 		auto param = info.serializeToJson();
 		auto res = _post("/xrpc/com.atproto.server.createSession", param);
-		enforce(res.code == 200, res.reason ~ "\n\n"
-			~ res.response.getValue("error", "Error")
-			~ res.response.getValue("message", ": Unknown error occurred."));
+		_enforceHttpRes(res);
 		synchronized (_mutSession)
 			_session.deserializeFromJson(res.response);
 	}
@@ -347,9 +357,7 @@ public:
 		synchronized (_mutSession) with (_session)
 		{
 			auto res = _post("/xrpc/com.atproto.server.refreshSession", JSONValue.init, refreshJwt);
-			enforce(res.code == 200, res.reason ~ "\n\n"
-				~ res.response.getValue("error", "Error")
-				~ res.response.getValue("message", ": Unknown error occurred."));
+			_enforceHttpRes(res);
 			
 			static struct RefreshSessionInfo
 			{
@@ -386,9 +394,7 @@ public:
 		{
 			auto refreshJwt = _session.refreshJwt;
 			auto res = _post("/xrpc/com.atproto.server.deleteSession", JSONValue.init, refreshJwt);
-			enforce(res.code == 200, res.reason ~ "\n\n"
-				~ res.response.getValue("error", "Error")
-				~ res.response.getValue("message", ": Unknown error occurred."));
+			_enforceHttpRes(res);
 			_session = SessionInfo.init;
 		}
 	}
@@ -437,9 +443,7 @@ public:
 				refreshSession();
 				res = _get("/xrpc/com.atproto.server.getSession", null, _session.accessJwt);
 			}
-			enforce(res.code == 200, res.reason ~ "\n\n"
-				~ res.response.getValue("error", "Error")
-				~ res.response.getValue("message", ": Unknown error occurred."));
+			_enforceHttpRes(res);
 			static struct UpdateSessionInfo
 			{
 				string handle;

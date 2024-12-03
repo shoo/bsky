@@ -224,7 +224,12 @@ private:
 	
 	void _enforceHttpRes(JSONValue res) @trusted
 	{
-		enforce(_httpClient.getLastStatusCode() == 200, _httpClient.getLastStatusReason() ~ "\n\n"
+		if (_httpClient.getLastStatusCode() == 200)
+			return;
+		throw new BlueskyClientException(_httpClient.getLastStatusCode(), _httpClient.getLastStatusReason(),
+			res.getValue("error", "Error"),
+			res.getValue("message", "Unknown error occurred."),
+			_httpClient.getLastStatusReason() ~ "\n\n"
 			~ res.getValue("error", "Error") ~ ": "
 			~ res.getValue("message", "Unknown error occurred."));
 	}

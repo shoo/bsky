@@ -155,3 +155,44 @@ struct AtProtoURI
 	assert(!uri3.hasRecordKey);
 	assert(uri3.toString() == "at://krzblhls379.vkn.io");
 }
+
+/*******************************************************************************
+ * 
+ */
+class BlueskyClientException: Exception
+{
+private:
+	import std.exception;
+public:
+	/***************************************************************************
+	 * Status code
+	 */
+	uint   status;
+	/***************************************************************************
+	 * Message
+	 */
+	string reason;
+	/***************************************************************************
+	 * Response error
+	 */
+	string resError;
+	/***************************************************************************
+	 * Response message
+	 */
+	string resMessage;
+	
+	/***************************************************************************
+	 * Constructor
+	 */
+	this(uint status, string reason, string resErr, string resMsg, string msg,
+		string file = __FILE__, size_t line = __LINE__, Throwable next = null) @nogc @safe pure nothrow
+	{
+		this.status = status;
+		this.reason = reason;
+		this.resError = resErr;
+		this.resMessage = resMsg;
+		super(msg, file, line, next);
+	}
+	
+	mixin basicExceptionCtors!();
+}
