@@ -341,7 +341,7 @@ jobs:
   # 21. macOS   x86_64  dmd        o   o   x   x   o
   test-macos-x86_64-dmd-latest:
     name: test-macos-x86_64-dmd-latest
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
       - name: Install D compiler
@@ -355,7 +355,7 @@ jobs:
       - name: Upload coverage result
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-osx
+          name: coverage-macos13
           path: .cov
           include-hidden-files: true
 
@@ -364,7 +364,7 @@ jobs:
   # 22. macOS   x86_64  ldc        o   x   O   o   x
   test-macos-x86_64-ldc-latest:
     name: test-macos-x86_64-ldc-latest
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
       - name: Install D compiler
@@ -418,7 +418,7 @@ jobs:
       - name: Download coverage result
         uses: actions/download-artifact@v4
         with:
-          name: coverage-osx
-          path: coverage-osx
+          name: coverage-macos13
+          path: coverage-macos13
       - name: Upload coverage to Codecov
-        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -s coverage-osx
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -s coverage-macos13

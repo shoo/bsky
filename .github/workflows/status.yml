@@ -317,7 +317,7 @@ jobs:
   # 21. macOS   x86_64  dmd        o   o   x   x   o
   test-macos-x86_64-dmd-latest:
     name: test-macos-x86_64-dmd-latest
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
         with:
@@ -333,7 +333,7 @@ jobs:
       - name: Upload coverage result
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-macos12
+          name: coverage-macos13
           path: .cov
           include-hidden-files: true
 
@@ -342,7 +342,7 @@ jobs:
   # 22. macOS   x86_64  ldc        o   x   o   o   x
   test-macos-x86_64-ldc-latest:
     name: test-macos-x86_64-ldc-latest
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v4
         with:
