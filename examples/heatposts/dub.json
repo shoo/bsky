@@ -1,0 +1,6 @@
+{
+	"name": "heatposts",
+	"dependencies": {
+		"bsky": {"path": "../.."}
+	}
+}
