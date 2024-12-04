@@ -5,10 +5,10 @@ import src.storage;
 import std.exception, std.algorithm, std.range, std.array, std.datetime, std.json, std.parallelism, std.logger;
 
 /*******************************************************************************
- * セッション確立
+ * Establishing a session
  * 
- * ファイルが与えられており、存在する場合はそのファイルのセッション情報を使用する
- * ファイルが存在しない場合は環境変数を読み取り、ログインする。
+ * If a file is given, use the session information from that file if it exists.
+ * Or if not, read the environment variables and log in.
  */
 void establishSession(shared AtprotoAuth auth, string accessInfoFile)
 {
@@ -27,9 +27,10 @@ void establishSession(shared AtprotoAuth auth, string accessInfoFile)
 }
 
 /*******************************************************************************
- * セッション保存
+ * Save the session
  * 
- * ファイルにセッション情報を保存する
+ * Save session information to a file.
+ * If no valid filename is given, log out to close the session.
  */
 void tearupSession(shared AtprotoAuth auth, string accessInfoFile)
 {

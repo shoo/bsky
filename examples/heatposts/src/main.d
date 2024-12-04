@@ -9,7 +9,7 @@ void main(string[] args)
 	string accessInfoFile;
 	string query;
 	size_t count;
-	LogLevel logLevel = sharedLog.logLevel;
+	LogLevel logLevel = (cast()sharedLog).logLevel;
 	size_t minLikeCnt = 1;
 	size_t minRepostCnt = 1;
 	args.getopt(std.getopt.config.passThrough,
