@@ -497,6 +497,30 @@ const @safe AutoUpdateStrategy <code class="ddoc_psymbol">autoUpdateAccessTokens
 @safe FetchRange!Like <code class="ddoc_psymbol">likeUsers</code>(string <span class="ddoc_param">uri</span>, size_t <span class="ddoc_param">limit</span> = 100);
 <br></div></dt>
 <dd><div class="ddoc_summary">Users who has liked the post</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.GetQuotedByResult"></span><div class="quickindex" id="quickindex.Bluesky.GetQuotedByResult"></div>struct <code class="ddoc_psymbol">GetQuotedByResult</code>;
+<br></div></dt>
+<dd>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.GetQuotedByResult.quotedBy"></span><div class="quickindex" id="quickindex.Bluesky.GetQuotedByResult.quotedBy"></div>Post[] <code class="ddoc_psymbol">quotedBy</code>;
+<br></div></dt>
+<dd>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.GetQuotedByResult.cursor"></span><div class="quickindex" id="quickindex.Bluesky.GetQuotedByResult.cursor"></div>string <code class="ddoc_psymbol">cursor</code>;
+<br></div></dt>
+<dd>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.getQuotes"></span><div class="quickindex" id="quickindex.Bluesky.getQuotes"></div>@safe JSONValue <code class="ddoc_psymbol">getQuotes</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 50);
+<br>
+<span class="def-anchor" id=".Bluesky.fetchQuotedByPosts"></span><div class="quickindex" id="quickindex.Bluesky.fetchQuotedByPosts"></div>@safe GetQuotedByResult <code class="ddoc_psymbol">fetchQuotedByPosts</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+@safe Post[] <code class="ddoc_psymbol">fetchQuotedByPosts</code>(string <span class="ddoc_param">uri</span>, size_t <span class="ddoc_param">len</span> = 100);
+<br>
+<span class="def-anchor" id=".Bluesky.quotedByPosts"></span><div class="quickindex" id="quickindex.Bluesky.quotedByPosts"></div>@safe FetchRange!Post <code class="ddoc_psymbol">quotedByPosts</code>(string <span class="ddoc_param">uri</span>, string <span class="ddoc_param">cursor</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br>
+@safe FetchRange!Post <code class="ddoc_psymbol">quotedByPosts</code>(string <span class="ddoc_param">uri</span>, size_t <span class="ddoc_param">limit</span> = 100);
+<br></div></dt>
+<dd><div class="ddoc_summary">Users who has reposted the post</div></dd>
 <dt class="ddoc_decl"><div ><span class="def-anchor" id=".Bluesky.resolveHandle"></span><div class="quickindex" id="quickindex.Bluesky.resolveHandle"></div>@safe string <code class="ddoc_psymbol">resolveHandle</code>(string <span class="ddoc_param">handle</span>);
 <br></div></dt>
 <dd><div class="ddoc_summary">Resolve <span class="ddoc_param">handle</span>
